@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>UNDERNEATH — Search Intelligence</title>
+<meta name="description" content="Seu site está no ar, mas quem procura pelo que você faz consegue encontrá-lo? Diagnóstico e correção da estrutura que faz o Google e as IAs mostrarem sua empresa.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1 style="margin-top:16px;">Seu site está no ar. Mas quem procura pelo que você faz consegue encontrá-lo?</h1>
+        <p class="lede">Ter um site não é o mesmo que ser encontrado. Se seus clientes chegam por indicação, Instagram ou anúncios, o problema pode não estar no visual — pode estar na estrutura que existe abaixo da superfície.</p>
+        <div class="hero-ctas">
+          <a href="contato/index.html" class="cta-btn">Descobrir por que meu site não é encontrado</a>
+          <a href="diagnostico/index.html" class="cta-ghost">Ver o diagnóstico em 4 camadas</a>
+        </div>
+      </div>
+      <div>
+        <svg class="illust" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama mostrando a superfície de busca acima e a estrutura técnica abaixo">
+          <rect class="under-bg" x="0" y="0" width="600" height="600"/>
+          <rect class="surface-bg" x="0" y="0" width="600" height="248"/>
+          <rect class="card-fill" x="46" y="58" width="380" height="132" rx="10"/>
+          <circle class="mag" cx="76" cy="86" r="8"/>
+          <line class="mag" x1="82" y1="92" x2="90" y2="100"/>
+          <rect fill="var(--paper)" x="100" y="80" width="280" height="12" rx="6"/>
+          <rect class="result-bar" x="66" y="122" width="340" height="9" rx="4.5"/>
+          <rect class="result-bar" x="66" y="141" width="260" height="9" rx="4.5"/>
+          <rect class="result-bar-hit" x="66" y="160" width="300" height="9" rx="4.5"/>
+          <text class="tag-label" x="66" y="182" fill="var(--gold-700)">encontrado</text>
+          <rect class="horizon" x="0" y="248" width="600" height="4"/>
+          <text class="tag-label" x="46" y="272">abaixo da superfície</text>
+          <g>
+            <line class="edge" x1="120" y1="330" x2="230" y2="300"/>
+            <line class="edge" x1="230" y1="300" x2="340" y2="360"/>
+            <line class="edge" x1="340" y1="360" x2="470" y2="320"/>
+            <line class="edge" x1="230" y1="300" x2="200" y2="420"/>
+            <line class="edge" x1="340" y1="360" x2="380" y2="470"/>
+            <line class="edge" x1="470" y1="320" x2="500" y2="440"/>
+            <circle class="node" cx="120" cy="330" r="6"/>
+            <circle class="node-gold" cx="230" cy="300" r="7"/>
+            <circle class="node" cx="340" cy="360" r="6"/>
+            <circle class="node" cx="470" cy="320" r="6"/>
+            <circle class="node" cx="200" cy="420" r="5"/>
+            <circle class="node" cx="380" cy="470" r="5"/>
+            <circle class="node" cx="500" cy="440" r="5"/>
+          </g>
+          <text class="tag-label" x="132" y="352">schema</text>
+          <text class="tag-label" x="352" y="382">canonical</text>
+          <text class="tag-label" x="392" y="492">sitemap</text>
+          <text class="tag-label" x="482" y="462">index</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERGUNTAS REAIS -->
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Antes de saber que precisam de SEO, eles só sentem o sintoma</h2>
+      <div class="q-list">
+        <a class="q-row" href="respostas/index.html"><span>Por que meu site não aparece no Google?</span><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
+        <a class="q-row" href="respostas/index.html"><span>Por que meu concorrente aparece e eu não?</span><span class="q-slug">/respostas/concorrente-aparece</span></a>
+        <a class="q-row" href="respostas/index.html"><span>Preciso pagar Google Ads para aparecer?</span><span class="q-slug">/respostas/preciso-pagar-google-ads</span></a>
+        <a class="q-row" href="respostas/index.html"><span>Meu Instagram funciona. Preciso do Google?</span><span class="q-slug">/respostas/instagram-x-google</span></a>
+        <a class="q-row" href="respostas/index.html"><span>Como aparecer no ChatGPT e no Gemini?</span><span class="q-slug">/respostas/aparecer-na-ia</span></a>
+        <a class="q-row" href="respostas/index.html"><span>Recebo visitas, mas ninguém entra em contato</span><span class="q-slug">/respostas/visitas-sem-contato</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 CAMADAS -->
+  <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Toda vez que uma empresa não é encontrada, o problema está em uma destas quatro camadas</h2>
+      <div class="strata">
+        <div class="stratum">
+          <div class="swatch"></div>
+          <div class="content"><h3>Encontrabilidade</h3><p>O site é descoberto, rastreado e indexado pelo Google?</p></div>
+        </div>
+        <div class="stratum">
+          <div class="swatch"></div>
+          <div class="content"><h3>Relevância</h3><p>A página responde exatamente ao que foi buscado?</p></div>
+        </div>
+        <div class="stratum">
+          <div class="swatch"></div>
+          <div class="content"><h3>Confiança</h3><p>Há sinais suficientes de autoridade e legitimidade?</p></div>
+        </div>
+        <div class="stratum">
+          <div class="swatch"></div>
+          <div class="content"><h3>Ação</h3><p>O visitante entende o que fazer depois de chegar?</p></div>
+        </div>
+      </div>
+      <p style="margin-top:24px;"><a class="cta-ghost" href="diagnostico/index.html">Ver o diagnóstico completo →</a></p>
+    </div>
+  </section>
+
+  <!-- MOSTRAR X ENCONTRAR -->
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Divulgar leva alguém até o site. Ser encontrado é aparecer para quem já procura.</h2>
+      <div class="compare">
+        <div class="compare-card">
+          <svg width="52" height="52" viewBox="0 0 64 64"><circle cx="32" cy="32" r="4" fill="var(--navy-400)"/><circle cx="32" cy="32" r="14" fill="none" stroke="var(--navy-400)" stroke-width="2" opacity="0.55"/><circle cx="32" cy="32" r="24" fill="none" stroke="var(--navy-400)" stroke-width="2" opacity="0.28"/></svg>
+          <h3>Ser mostrado</h3>
+          <p>Instagram, indicação e anúncios interrompem alguém e pedem atenção. Funcionam — mas dependem de você continuar pagando ou aparecendo.</p>
+        </div>
+        <div class="compare-card">
+          <svg width="52" height="52" viewBox="0 0 64 64"><circle cx="26" cy="26" r="14" fill="none" stroke="var(--gold-600)" stroke-width="3"/><line x1="36" y1="36" x2="50" y2="50" stroke="var(--gold-600)" stroke-width="3" stroke-linecap="round"/><circle cx="26" cy="26" r="4" fill="var(--gold-600)"/></svg>
+          <h3>Ser encontrado</h3>
+          <p>Estrutura de busca faz sua empresa aparecer no exato momento em que alguém já decidiu procurar o que você oferece.</p>
+        </div>
+      </div>
+      <p class="keyphrase">"É mais fácil vender para quem já está procurando do que convencer alguém a procurar."</p>
+    </div>
+  </section>
+
+  <!-- OBJEÇÃO -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="objection">
+        <h2 style="font-size:1.4rem; margin-top:12px;">"Meu site é bonito e meu webdesigner já colocou palavras-chave. Isso já não é SEO?"</h2>
+        <p class="lede">Ter palavras no site não é o mesmo que ter uma estratégia de busca. Um site pode ser bonito e ainda depender inteiramente de Instagram, indicação e anúncio para existir aos olhos de alguém.</p>
+        <div class="qmarks">
+          <div>Quais termos essas palavras realmente capturam?</div>
+          <div>Qual intenção de busca cada página responde?</div>
+          <div>Como o Google está indexando essas páginas hoje?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODO -->
+  <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Processo técnico e mensurável — sem promessa mágica</h2>
+      <div class="method-list">
+        <div class="method-row"><div class="num-badge">01</div><div><h3>Diagnóstico</h3><p>Levantamento completo de encontrabilidade, relevância, confiança e ação no site atual.</p></div></div>
+        <div class="method-row"><div class="num-badge">02</div><div><h3>Arquitetura</h3><p>Reestruturação de páginas, URLs e navegação em torno da intenção real de busca.</p></div></div>
+        <div class="method-row"><div class="num-badge">03</div><div><h3>Correção técnica</h3><p>Indexação, rastreamento, performance e sinais que o Google usa para decidir mostrar sua página.</p></div></div>
+      </div>
+      <p style="margin-top:8px;"><a class="cta-ghost" href="metodo/index.html">Ver o método completo →</a></p>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Dois contextos diferentes, mesma metodologia</h2>
+      <div class="case-grid">
+        <div class="case-panel">
+          <div class="bar"><span class="slug">/cases/momentvm-opvs</span><span class="pill">site existente</span></div>
+          <div class="body">
+            <h3>Momentvm Opvs</h3>
+            <p>Operação madura com problemas de visibilidade, tratados com correção técnica e de arquitetura sobre uma base já publicada.</p>
+            <div class="case-actions">
+              <a href="cases/momentvm-opvs/index.html">Ver case →</a>
+              <a href="https://momentvmopvs.com" target="_blank" rel="noopener noreferrer">Visitar site ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="case-panel">
+          <div class="bar"><span class="slug">/cases/zavati-estamparia</span><span class="pill">site novo</span></div>
+          <div class="body">
+            <h3>Zavati Estamparia</h3>
+            <p>Estrutura correta aplicada desde o primeiro commit, mostrando indexação e evolução de impressões desde o início.</p>
+            <div class="case-actions">
+              <a href="cases/zavati-estamparia/index.html">Ver case →</a>
+              <a href="https://zavatiestamparia.com" target="_blank" rel="noopener noreferrer">Visitar site ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLIOTECA -->
+  <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <h2 style="margin-top:14px;">Uma biblioteca organizada por pergunta real, não por novidade de SEO</h2>
+      <div class="lib-list">
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">Encontrabilidade</span><h3>Por que meu site não aparece no Google?</h3><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">Tráfego e demanda</span><h3>Instagram funciona, mas ninguém encontra minha empresa no Google.</h3><span class="q-slug">/respostas/instagram-x-google</span></a>
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">Concorrência</span><h3>Por que meu concorrente aparece e eu não?</h3><span class="q-slug">/respostas/concorrente-aparece</span></a>
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">Palavras-chave</span><h3>Ter palavras-chave no site não é ter uma estratégia.</h3><span class="q-slug">/respostas/palavra-chave-nao-e-estrategia</span></a>
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">IA e descoberta</span><h3>Como aparecer no ChatGPT e no Gemini.</h3><span class="q-slug">/respostas/aparecer-na-ia</span></a>
+        <a class="lib-row" href="respostas/index.html"><span class="cluster">Conversão</span><h3>Recebo visitas, mas ninguém entra em contato.</h3><span class="q-slug">/respostas/visitas-sem-contato</span></a>
+      </div>
+      <p style="margin-top:24px;"><a class="cta-ghost" href="respostas/index.html">Ver todas as respostas →</a></p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="final">
+        <h2>Seu site já existe. Agora descubra se ele está preparado para ser encontrado.</h2>
+        <p>O diagnóstico mostra exatamente em qual das quatro camadas está o problema — antes de qualquer conversa comercial.</p>
+        <a href="contato/index.html" class="cta-btn">Analisar meu site</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/header-footer/header-footer.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
