@@ -1,63 +1,142 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="intro-active">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>UNDERNEATH — Search Intelligence</title>
 <meta name="description" content="Seu site está no ar, mas quem procura pelo que você faz consegue encontrá-lo? Diagnóstico e correção da estrutura que faz o Google e as IAs mostrarem sua empresa.">
 <link rel="stylesheet" href="css/style.css">
+<script>
+  // Chegou aqui clicando no logo/"Início" de outra página: pula a abertura.
+  // Recarregar ou abrir o site de novo continua mostrando a animação.
+  try {
+    if (sessionStorage.getItem("skipIntro")) {
+      sessionStorage.removeItem("skipIntro");
+      document.documentElement.classList.remove("intro-active");
+    }
+  } catch (e) {}
+</script>
 </head>
-<body>
+<body class="has-hero">
+
+<!-- INTRO: UNDERNEATH é escrito à mão, o corte atravessa o nome, símbolo e "Search Intelligence" batem como placa, e a tela abre ao meio como porta de correr -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-door intro-door-left"><div class="intro-stage"><div class="intro-logo"><img class="intro-symbol" src="assets/images/intro-symbol.png" alt=""><div class="intro-word"><svg class="intro-pen" viewBox="0 0 480 60"><mask id="intro-mask-l" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="60"><path pathLength="1" d="M14 12V36A15 12 0 0 0 44 36V12"/><path pathLength="1" d="M63 53V12L95 53V12"/><path pathLength="1" d="M115 53V12M115 17H129A18 15.5 0 0 1 129 48H115"/><path pathLength="1" d="M193 17H165V48H193M165 32H189"/><path pathLength="1" d="M208 53V17H224A12 7.5 0 0 1 224 32H208M222 32L237 52"/><path pathLength="1" d="M255 53V12L287 53V12"/><path pathLength="1" d="M333 17H306V48H333M306 32H329"/><path pathLength="1" d="M343 53L361 13L380 53"/><path pathLength="1" d="M388 17H422M405 17V53"/><path pathLength="1" d="M435 12V53M465 12V53M435 32H465"/></mask><image href="assets/images/intro-word-full.png" width="480" height="60" mask="url(#intro-mask-l)"/></svg><img class="intro-cut-word" src="assets/images/intro-word.png" alt=""></div><img class="intro-tagline" src="assets/images/intro-tagline.png" alt=""></div></div></div>
+  <div class="intro-door intro-door-right"><div class="intro-stage"><div class="intro-logo"><img class="intro-symbol" src="assets/images/intro-symbol.png" alt=""><div class="intro-word"><svg class="intro-pen" viewBox="0 0 480 60"><mask id="intro-mask-r" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="60"><path pathLength="1" d="M14 12V36A15 12 0 0 0 44 36V12"/><path pathLength="1" d="M63 53V12L95 53V12"/><path pathLength="1" d="M115 53V12M115 17H129A18 15.5 0 0 1 129 48H115"/><path pathLength="1" d="M193 17H165V48H193M165 32H189"/><path pathLength="1" d="M208 53V17H224A12 7.5 0 0 1 224 32H208M222 32L237 52"/><path pathLength="1" d="M255 53V12L287 53V12"/><path pathLength="1" d="M333 17H306V48H333M306 32H329"/><path pathLength="1" d="M343 53L361 13L380 53"/><path pathLength="1" d="M388 17H422M405 17V53"/><path pathLength="1" d="M435 12V53M465 12V53M435 32H465"/></mask><image href="assets/images/intro-word-full.png" width="480" height="60" mask="url(#intro-mask-r)"/></svg><img class="intro-cut-word" src="assets/images/intro-word.png" alt=""></div><img class="intro-tagline" src="assets/images/intro-tagline.png" alt=""></div></div></div>
+  <span class="intro-cut"></span>
+</div>
 
 <header id="site-header"></header>
 
 <main id="top">
 
-  <!-- HERO -->
+  <!-- HERO: fundo escuro com a constelação; o nome aparece ao passar o mouse e o card ao clicar em cada ponto -->
   <section class="hero">
+    <svg class="constellation" viewBox="290 150 1160 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estrutura do site: website ligado a schema, robots.txt, canonical, meta tags, sitemap e index">
+      <defs>
+        <radialGradient id="c-glow-blue"><stop offset="0" stop-color="#4C8DFF" stop-opacity=".55"/><stop offset="1" stop-color="#4C8DFF" stop-opacity="0"/></radialGradient>
+        <radialGradient id="c-glow-gold"><stop offset="0" stop-color="#FFB938" stop-opacity=".6"/><stop offset="1" stop-color="#FFB938" stop-opacity="0"/></radialGradient>
+      </defs>
+      <g class="c-edges">
+        <line class="c-edge c-edge-gold" x1="338" y1="310" x2="621" y2="224"/>
+        <line class="c-edge c-edge-gold" x1="621" y1="224" x2="541" y2="497"/>
+        <line class="c-edge c-edge-gold" x1="621" y1="224" x2="920" y2="387"/>
+        <line class="c-edge" x1="920" y1="387" x2="1270" y2="289"/>
+        <line class="c-edge" x1="920" y1="387" x2="1014" y2="634"/>
+        <line class="c-edge" x1="1270" y1="289" x2="1388" y2="572"/>
+      </g>
+        <g class="c-node c-node-gold" tabindex="0" role="button" aria-label="website" data-node="website"><circle class="c-hit" cx="621" cy="224" r="36"/><circle class="c-glow" cx="621" cy="224" r="50"/><circle class="c-dot" cx="621" cy="224" r="12"/><text x="621" y="178" text-anchor="middle">website</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="schema" data-node="schema"><circle class="c-hit" cx="338" cy="310" r="36"/><circle class="c-glow" cx="338" cy="310" r="36"/><circle class="c-dot" cx="338" cy="310" r="11"/><text x="338" y="362" text-anchor="middle">schema</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="robots.txt" data-node="robots"><circle class="c-hit" cx="541" cy="497" r="36"/><circle class="c-glow" cx="541" cy="497" r="36"/><circle class="c-dot" cx="541" cy="497" r="11"/><text x="541" y="549" text-anchor="middle">robots.txt</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="canonical" data-node="canonical"><circle class="c-hit" cx="920" cy="387" r="36"/><circle class="c-glow" cx="920" cy="387" r="36"/><circle class="c-dot" cx="920" cy="387" r="11"/><text x="950" y="428" text-anchor="start">canonical</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="meta tags" data-node="meta"><circle class="c-hit" cx="1270" cy="289" r="36"/><circle class="c-glow" cx="1270" cy="289" r="36"/><circle class="c-dot" cx="1270" cy="289" r="11"/><text x="1270" y="243" text-anchor="middle">meta tags</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="sitemap" data-node="sitemap"><circle class="c-hit" cx="1014" cy="634" r="36"/><circle class="c-glow" cx="1014" cy="634" r="36"/><circle class="c-dot" cx="1014" cy="634" r="11"/><text x="1036" y="684" text-anchor="start">sitemap</text></g>
+        <g class="c-node" tabindex="0" role="button" aria-label="index" data-node="index"><circle class="c-hit" cx="1388" cy="572" r="36"/><circle class="c-glow" cx="1388" cy="572" r="36"/><circle class="c-dot" cx="1388" cy="572" r="11"/><text x="1388" y="624" text-anchor="middle">index</text></g>
+    </svg>
+    <!-- Cards da constelação: abrem ao clicar num ponto e fecham ao tirar o mouse -->
+    <div class="c-card c-card-gold" data-card="website" role="dialog" aria-label="site online">
+      <div class="c-card-title">site online</div>
+      <p>Com tudo configurado, seu site é rastreado, indexado e fica disponível nos resultados de busca. Pronto para ser encontrado pelo seu público!</p>
+      <div class="c-laptop" aria-hidden="true">
+        <div class="c-laptop-screen"><span class="c-laptop-cam"></span>
+          <div class="c-laptop-page">
+            <div class="c-laptop-nav"><b></b><i></i><i></i><i></i></div>
+            <div class="c-laptop-hero"><div><strong>Seu site<br>no ar!</strong><span class="c-laptop-btn"></span></div><svg class="c-laptop-img" viewBox="0 0 96 58"><rect width="96" height="58" fill="#0F2759"/><circle cx="70" cy="16" r="5" fill="#8DB0F5" opacity=".8"/><path d="M0 58 L28 26 L44 40 L62 20 L96 52 V58Z" fill="#2B5BBF"/><path d="M0 58 L22 40 L40 52 L60 36 L96 58Z" fill="#3E6FCE"/></svg></div>
+            <div class="c-laptop-lines"><i></i><i></i></div>
+          </div>
+        </div>
+        <div class="c-laptop-base"><span></span></div>
+      </div>
+      <span class="c-card-pill">Site online</span>
+    </div>
+    <div class="c-card" data-card="schema" role="dialog" aria-label="schema">
+      <div class="c-card-title">schema</div>
+      <p>O <strong>schema</strong> (dados estruturados) ajuda os mecanismos de busca a entenderem melhor o conteúdo do seu site, exibindo informações extras nos resultados.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Seu Site",
+  "url": "https://seusite.com"
+}</pre>
+      <span class="c-card-pill">Schema.org</span>
+    </div>
+    <div class="c-card" data-card="robots" role="dialog" aria-label="robots.txt">
+      <div class="c-card-title">robots.txt</div>
+      <p>O <strong>robots.txt</strong> diz aos buscadores quais áreas do site podem ser rastreadas e onde encontrar o mapa das páginas.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>User-agent: *
+Allow: /
+
+Sitemap: https://seusite.com/sitemap.xml</pre>
+      <span class="c-card-pill">robots.txt</span>
+    </div>
+    <div class="c-card" data-card="canonical" role="dialog" aria-label="canonical">
+      <div class="c-card-title">canonical</div>
+      <p>As tags canônicas evitam conteúdo duplicado, indicando aos buscadores qual é a versão principal de cada página.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>&lt;link rel="canonical"
+  href="https://seusite.com/" /&gt;</pre>
+      <span class="c-card-pill">Canonical</span>
+    </div>
+    <div class="c-card" data-card="meta" role="dialog" aria-label="meta tags">
+      <div class="c-card-title">meta tags</div>
+      <p>As <strong>meta tags</strong> definem o título e a descrição que aparecem no Google — o primeiro contato do público com o seu site.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>&lt;title&gt;Seu Site&lt;/title&gt;
+&lt;meta name="description"
+  content="O que você faz." /&gt;</pre>
+      <span class="c-card-pill">meta tags</span>
+    </div>
+    <div class="c-card" data-card="sitemap" role="dialog" aria-label="sitemap">
+      <div class="c-card-title">sitemap</div>
+      <p>O <strong>sitemap.xml</strong> lista todas as páginas do site, facilitando o rastreamento e a indexação pelos buscadores.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>&lt;urlset&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://seusite.com/&lt;/loc&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://seusite.com/sobre&lt;/loc&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;</pre>
+      <span class="c-card-pill">sitemap.xml</span>
+    </div>
+    <div class="c-card" data-card="index" role="dialog" aria-label="index">
+      <div class="c-card-title">index</div>
+      <p>O arquivo <strong>index.html</strong> é a página principal do seu site. É ele que estrutura o conteúdo e dá início à sua presença na web.</p>
+      <pre class="c-card-code"><span class="c-card-dots" aria-hidden="true"></span>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Seu Site&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;...&lt;/body&gt;
+&lt;/html&gt;</pre>
+      <span class="c-card-pill">index.html</span>
+    </div>
     <div class="hero-grid">
-      <div>
-        <h1 style="margin-top:16px;">Seu site está no ar. Mas quem procura pelo que você faz consegue encontrá-lo?</h1>
+      <div class="hero-copy">
+        <h1>Seu público encontra você?</h1>
         <p class="lede">Ter um site não é o mesmo que ser encontrado. Se seus clientes chegam por indicação, Instagram ou anúncios, o problema pode não estar no visual — pode estar na estrutura que existe abaixo da superfície.</p>
         <div class="hero-ctas">
-          <a href="contato/index.html" class="cta-btn">Descobrir por que meu site não é encontrado</a>
+          <a href="contato/index.html" class="cta-btn hero-cta">Descobrir por que meu site não é encontrado</a>
           <a href="diagnostico/index.html" class="cta-ghost">Ver o diagnóstico em 4 camadas</a>
         </div>
-      </div>
-      <div>
-        <svg class="illust" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama mostrando a superfície de busca acima e a estrutura técnica abaixo">
-          <rect class="under-bg" x="0" y="0" width="600" height="600"/>
-          <rect class="surface-bg" x="0" y="0" width="600" height="248"/>
-          <rect class="card-fill" x="46" y="58" width="380" height="132" rx="10"/>
-          <circle class="mag" cx="76" cy="86" r="8"/>
-          <line class="mag" x1="82" y1="92" x2="90" y2="100"/>
-          <rect fill="var(--paper)" x="100" y="80" width="280" height="12" rx="6"/>
-          <rect class="result-bar" x="66" y="122" width="340" height="9" rx="4.5"/>
-          <rect class="result-bar" x="66" y="141" width="260" height="9" rx="4.5"/>
-          <rect class="result-bar-hit" x="66" y="160" width="300" height="9" rx="4.5"/>
-          <text class="tag-label" x="66" y="182" fill="var(--gold-700)">encontrado</text>
-          <rect class="horizon" x="0" y="248" width="600" height="4"/>
-          <text class="tag-label" x="46" y="272">abaixo da superfície</text>
-          <g>
-            <line class="edge" x1="120" y1="330" x2="230" y2="300"/>
-            <line class="edge" x1="230" y1="300" x2="340" y2="360"/>
-            <line class="edge" x1="340" y1="360" x2="470" y2="320"/>
-            <line class="edge" x1="230" y1="300" x2="200" y2="420"/>
-            <line class="edge" x1="340" y1="360" x2="380" y2="470"/>
-            <line class="edge" x1="470" y1="320" x2="500" y2="440"/>
-            <circle class="node" cx="120" cy="330" r="6"/>
-            <circle class="node-gold" cx="230" cy="300" r="7"/>
-            <circle class="node" cx="340" cy="360" r="6"/>
-            <circle class="node" cx="470" cy="320" r="6"/>
-            <circle class="node" cx="200" cy="420" r="5"/>
-            <circle class="node" cx="380" cy="470" r="5"/>
-            <circle class="node" cx="500" cy="440" r="5"/>
-          </g>
-          <text class="tag-label" x="132" y="352">schema</text>
-          <text class="tag-label" x="352" y="382">canonical</text>
-          <text class="tag-label" x="392" y="492">sitemap</text>
-          <text class="tag-label" x="482" y="462">index</text>
-        </svg>
       </div>
     </div>
   </section>
@@ -67,12 +146,12 @@
     <div class="wrap">
       <h2 style="margin-top:14px;">Antes de saber que precisam de SEO, eles só sentem o sintoma</h2>
       <div class="q-list">
-        <a class="q-row" href="respostas/index.html"><span>Por que meu site não aparece no Google?</span><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
-        <a class="q-row" href="respostas/index.html"><span>Por que meu concorrente aparece e eu não?</span><span class="q-slug">/respostas/concorrente-aparece</span></a>
+        <a class="q-row" href="respostas/index.html#nao-aparece-no-google"><span>Por que meu site não aparece no Google?</span><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
+        <a class="q-row" href="respostas/index.html#concorrente-aparece"><span>Por que meu concorrente aparece e eu não?</span><span class="q-slug">/respostas/concorrente-aparece</span></a>
         <a class="q-row" href="respostas/index.html"><span>Preciso pagar Google Ads para aparecer?</span><span class="q-slug">/respostas/preciso-pagar-google-ads</span></a>
-        <a class="q-row" href="respostas/index.html"><span>Meu Instagram funciona. Preciso do Google?</span><span class="q-slug">/respostas/instagram-x-google</span></a>
-        <a class="q-row" href="respostas/index.html"><span>Como aparecer no ChatGPT e no Gemini?</span><span class="q-slug">/respostas/aparecer-na-ia</span></a>
-        <a class="q-row" href="respostas/index.html"><span>Recebo visitas, mas ninguém entra em contato</span><span class="q-slug">/respostas/visitas-sem-contato</span></a>
+        <a class="q-row" href="respostas/index.html#instagram-x-google"><span>Meu Instagram funciona. Preciso do Google?</span><span class="q-slug">/respostas/instagram-x-google</span></a>
+        <a class="q-row" href="respostas/index.html#aparecer-na-ia"><span>Como aparecer no ChatGPT e no Gemini?</span><span class="q-slug">/respostas/aparecer-na-ia</span></a>
+        <a class="q-row" href="respostas/index.html#visitas-sem-contato"><span>Recebo visitas, mas ninguém entra em contato</span><span class="q-slug">/respostas/visitas-sem-contato</span></a>
       </div>
     </div>
   </section>
@@ -154,9 +233,18 @@
   <!-- CASES -->
   <section class="section">
     <div class="wrap">
-      <h2 style="margin-top:14px;">Dois contextos diferentes, mesma metodologia</h2>
-      <div class="case-grid">
+      <h2 style="margin-top:14px;">Três contextos diferentes, mesma metodologia</h2>
+      <div class="case-carousel">
+        <button type="button" class="case-arrow case-arrow-prev" aria-label="Case anterior">←</button>
+        <div class="case-viewport">
+      <div class="case-grid case-track">
         <div class="case-panel">
+          <div class="case-shot">
+            <div class="case-browser">
+              <div class="case-browser-bar"><span class="case-browser-dots"><i></i><i></i><i></i></span><span class="case-browser-url">momentvmopvs.com</span></div>
+              <img src="assets/images/cases/momentvm-opvs.jpg" alt="Tela inicial do site Momentvm Opvs" width="1600" height="824" loading="lazy">
+            </div>
+          </div>
           <div class="bar"><span class="slug">/cases/momentvm-opvs</span><span class="pill">site existente</span></div>
           <div class="body">
             <h3>Momentvm Opvs</h3>
@@ -168,6 +256,12 @@
           </div>
         </div>
         <div class="case-panel">
+          <div class="case-shot">
+            <div class="case-browser">
+              <div class="case-browser-bar"><span class="case-browser-dots"><i></i><i></i><i></i></span><span class="case-browser-url">zavatiestamparia.com</span></div>
+              <img src="assets/images/cases/zavati-estamparia.jpg" alt="Tela inicial do site Zavati Estamparia" width="1600" height="824" loading="lazy">
+            </div>
+          </div>
           <div class="bar"><span class="slug">/cases/zavati-estamparia</span><span class="pill">site novo</span></div>
           <div class="body">
             <h3>Zavati Estamparia</h3>
@@ -178,6 +272,26 @@
             </div>
           </div>
         </div>
+        <div class="case-panel">
+          <div class="case-shot">
+            <div class="case-browser">
+              <div class="case-browser-bar"><span class="case-browser-dots"><i></i><i></i><i></i></span><span class="case-browser-url">victorpedreira.github.io/La-Morocha-Tattoo</span></div>
+              <img src="assets/images/cases/la-morocha-tattoo.jpg" alt="Tela inicial do novo site La Morocha Tattoo" width="1600" height="824" loading="lazy">
+            </div>
+          </div>
+          <div class="bar"><span class="slug">/cases/la-morocha-tattoo</span><span class="pill">novo foco</span></div>
+          <div class="body">
+            <h3>La Morocha Tattoo</h3>
+            <p>O site antigo não trazia resultados e o negócio mudou de foco. Um novo site, com o mesmo nome, estruturado para remoção de tatuagem a laser.</p>
+            <div class="case-actions">
+              <a href="cases/la-morocha-tattoo/index.html">Ver case →</a>
+              <a href="https://victorpedreira.github.io/La-Morocha-Tattoo/" target="_blank" rel="noopener noreferrer">Ver prévia ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <button type="button" class="case-arrow case-arrow-next" aria-label="Próximo case">→</button>
       </div>
     </div>
   </section>
@@ -187,12 +301,12 @@
     <div class="wrap">
       <h2 style="margin-top:14px;">Uma biblioteca organizada por pergunta real, não por novidade de SEO</h2>
       <div class="lib-list">
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">Encontrabilidade</span><h3>Por que meu site não aparece no Google?</h3><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">Tráfego e demanda</span><h3>Instagram funciona, mas ninguém encontra minha empresa no Google.</h3><span class="q-slug">/respostas/instagram-x-google</span></a>
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">Concorrência</span><h3>Por que meu concorrente aparece e eu não?</h3><span class="q-slug">/respostas/concorrente-aparece</span></a>
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">Palavras-chave</span><h3>Ter palavras-chave no site não é ter uma estratégia.</h3><span class="q-slug">/respostas/palavra-chave-nao-e-estrategia</span></a>
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">IA e descoberta</span><h3>Como aparecer no ChatGPT e no Gemini.</h3><span class="q-slug">/respostas/aparecer-na-ia</span></a>
-        <a class="lib-row" href="respostas/index.html"><span class="cluster">Conversão</span><h3>Recebo visitas, mas ninguém entra em contato.</h3><span class="q-slug">/respostas/visitas-sem-contato</span></a>
+        <a class="lib-row" href="respostas/index.html#nao-aparece-no-google"><span class="cluster">Encontrabilidade</span><h3>Por que meu site não aparece no Google?</h3><span class="q-slug">/respostas/nao-aparece-no-google</span></a>
+        <a class="lib-row" href="respostas/index.html#instagram-x-google"><span class="cluster">Tráfego e demanda</span><h3>Instagram funciona, mas ninguém encontra minha empresa no Google.</h3><span class="q-slug">/respostas/instagram-x-google</span></a>
+        <a class="lib-row" href="respostas/index.html#concorrente-aparece"><span class="cluster">Concorrência</span><h3>Por que meu concorrente aparece e eu não?</h3><span class="q-slug">/respostas/concorrente-aparece</span></a>
+        <a class="lib-row" href="respostas/index.html#palavra-chave-nao-e-estrategia"><span class="cluster">Palavras-chave</span><h3>Ter palavras-chave no site não é ter uma estratégia.</h3><span class="q-slug">/respostas/palavra-chave-nao-e-estrategia</span></a>
+        <a class="lib-row" href="respostas/index.html#aparecer-na-ia"><span class="cluster">IA e descoberta</span><h3>Como aparecer no ChatGPT e no Gemini.</h3><span class="q-slug">/respostas/aparecer-na-ia</span></a>
+        <a class="lib-row" href="respostas/index.html#visitas-sem-contato"><span class="cluster">Conversão</span><h3>Recebo visitas, mas ninguém entra em contato.</h3><span class="q-slug">/respostas/visitas-sem-contato</span></a>
       </div>
       <p style="margin-top:24px;"><a class="cta-ghost" href="respostas/index.html">Ver todas as respostas →</a></p>
     </div>

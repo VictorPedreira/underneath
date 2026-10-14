@@ -6,8 +6,64 @@
 <title>Biblioteca de respostas — UNDERNEATH</title>
 <meta name="description" content="Respostas organizadas por pergunta real de quem procura entender por que o site não aparece, não por novidade de SEO.">
 <link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Por que meu site não aparece no Google?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na maioria das vezes, o problema está na encontrabilidade: o Google não consegue descobrir, rastrear ou indexar as páginas — ou até indexa, mas não entende para qual busca elas servem. Ter um site no ar não garante que ele exista para quem procura. O primeiro passo é descobrir em qual das quatro camadas está o bloqueio — é isso que o diagnóstico faz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Instagram funciona, mas ninguém encontra minha empresa no Google.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Instagram mostra sua empresa para quem ainda não está procurando; o Google mostra para quem já decidiu procurar. São canais diferentes: um depende de você continuar postando ou pagando, o outro depende de estrutura. É mais fácil vender para quem já está procurando do que convencer alguém a procurar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que meu concorrente aparece e eu não?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normalmente não é sorte nem tamanho de empresa: o concorrente tem páginas que respondem melhor à busca e sinais técnicos que facilitam o trabalho do Google. Muitas vezes o site dele nem é mais bonito — só está mais bem estruturado. Comparar camada por camada mostra exatamente onde está a diferença — e o que corrigir primeiro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ter palavras-chave no site não é ter uma estratégia.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Palavras-chave soltas no texto não dizem ao Google qual página responde a qual pergunta. Estratégia é organizar o site em torno da intenção real de busca, com cada página cumprindo um papel claro. Ter palavras no site não é o mesmo que ter uma estratégia de busca — o método organiza isso na ordem certa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como aparecer no ChatGPT e no Gemini.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Assistentes como ChatGPT e Gemini citam empresas que conseguem entender com clareza: o que fazem, onde atendem e por que são confiáveis. A base é a mesma do Google — estrutura, conteúdo direto e sinais de autoridade. Não existe atalho para a IA: quem está bem estruturado para a busca já sai na frente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Recebo visitas, mas ninguém entra em contato.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando há visitas mas não há contato, o problema costuma estar na camada de ação: o visitante chega, mas não entende o que fazer em seguida — ou chegou por uma busca que não tem relação com o que você vende. Encontrabilidade sem conversão é tráfego desperdiçado — a página precisa guiar o próximo passo com clareza."
+      }
+    }
+  ]
+}
+</script>
 </head>
-<body>
+<body class="page-answers dark-page">
 
 <header id="site-header"></header>
 
@@ -18,22 +74,105 @@
       <div class="breadcrumb"><a href="../index.html">Início</a> / Respostas</div>
       <div class="tag-line" style="margin-top:18px;"><span class="dot"></span>Biblioteca</div>
       <h1>Uma biblioteca organizada por pergunta real, não por novidade de SEO</h1>
-      <p class="lede">Cada item abaixo parte de uma dúvida que um empresário digita de verdade — não de jargão técnico. Os artigos completos de cada tema estão em produção.</p>
+      <p class="lede">Cada pergunta parte de uma dúvida que um empresário digita de verdade — não de jargão técnico. Clique em uma delas e veja a resposta como ela deveria aparecer na busca.</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="lib-list">
-        <div class="lib-row"><span class="cluster">Encontrabilidade</span><h3>Por que meu site não aparece no Google?</h3><span class="q-slug">/respostas/nao-aparece-no-google</span></div>
-        <div class="lib-row"><span class="cluster">Tráfego e demanda</span><h3>Instagram funciona, mas ninguém encontra minha empresa no Google.</h3><span class="q-slug">/respostas/instagram-x-google</span></div>
-        <div class="lib-row"><span class="cluster">Concorrência</span><h3>Por que meu concorrente aparece e eu não?</h3><span class="q-slug">/respostas/concorrente-aparece</span></div>
-        <div class="lib-row"><span class="cluster">Palavras-chave</span><h3>Ter palavras-chave no site não é ter uma estratégia.</h3><span class="q-slug">/respostas/palavra-chave-nao-e-estrategia</span></div>
-        <div class="lib-row"><span class="cluster">IA e descoberta</span><h3>Como aparecer no ChatGPT e no Gemini.</h3><span class="q-slug">/respostas/aparecer-na-ia</span></div>
-        <div class="lib-row"><span class="cluster">Conversão</span><h3>Recebo visitas, mas ninguém entra em contato.</h3><span class="q-slug">/respostas/visitas-sem-contato</span></div>
-      </div>
+  <!-- RESPOSTAS: clicar numa pergunta "digita" a busca na janela ao lado e a
+       resposta aparece abaixo da barra, como um resultado em destaque -->
+  <section class="answers">
+    <div class="wrap answers-grid">
+      <ol class="ans-list" aria-label="Perguntas">
+        <li><button type="button" class="ans-q" data-answer="nao-aparece-no-google"><span class="cluster">Encontrabilidade</span><span class="ans-q-text">Por que meu site não aparece no Google?</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" class="ans-q" data-answer="instagram-x-google"><span class="cluster">Tráfego e demanda</span><span class="ans-q-text">Instagram funciona, mas ninguém encontra minha empresa no Google.</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" class="ans-q" data-answer="concorrente-aparece"><span class="cluster">Concorrência</span><span class="ans-q-text">Por que meu concorrente aparece e eu não?</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" class="ans-q" data-answer="palavra-chave-nao-e-estrategia"><span class="cluster">Palavras-chave</span><span class="ans-q-text">Ter palavras-chave no site não é ter uma estratégia.</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" class="ans-q" data-answer="aparecer-na-ia"><span class="cluster">IA e descoberta</span><span class="ans-q-text">Como aparecer no ChatGPT e no Gemini.</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" class="ans-q" data-answer="visitas-sem-contato"><span class="cluster">Conversão</span><span class="ans-q-text">Recebo visitas, mas ninguém entra em contato.</span><span class="ans-q-go" aria-hidden="true">→</span></button></li>
+      </ol>
 
-      <div class="final" style="margin-top:56px;">
+      <div class="ans-window" aria-live="polite">
+        <div class="ans-window-bar"><span class="case-browser-dots"><i></i><i></i><i></i></span><span class="ans-window-url">underneath.com.br/respostas</span></div>
+        <div class="ans-page">
+          <div class="ans-search">
+            <img class="ans-search-logo" src="../assets/images/logo-wordmark.png" alt="UNDERNEATH">
+            <div class="ans-search-bar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+              <span class="ans-query"></span><span class="ans-caret" aria-hidden="true"></span>
+              <span class="ans-placeholder">Escolha uma pergunta ao lado…</span>
+            </div>
+            <div class="ans-tabs"><span class="is-on">Tudo</span><span>Respostas</span><span>Cases</span></div>
+            <div class="ans-loading" aria-hidden="true"></div>
+          </div>
+          <div class="ans-meta">Cerca de 1 resposta (0,21 segundos)</div>
+          <div class="ans-results">
+          <article class="ans-result" data-answer="nao-aparece-no-google" data-query="Por que meu site não aparece no Google?">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › nao-aparece-no-google</small></span></div>
+            <h2>Por que meu site não aparece no Google?</h2>
+            <p class="ans-lead">Na maioria das vezes, o problema está na encontrabilidade: o Google não consegue descobrir, rastrear ou indexar as páginas — ou até indexa, mas não entende para qual busca elas servem. Ter um site no ar não garante que ele exista para quem procura.</p>
+            <ul><li>Páginas bloqueadas para rastreamento ou fora do índice (robots.txt, noindex ou sitemap ausente).</li><li>Estrutura confusa: URLs, títulos e navegação que não dizem do que cada página trata.</li><li>Conteúdo que não responde à busca real de quem procura o seu serviço.</li><li>Poucos sinais de confiança: sem dados estruturados, perfil no Google ou prova social.</li></ul>
+            <p class="ans-close">O primeiro passo é descobrir em qual das quatro camadas está o bloqueio — é isso que o diagnóstico faz.</p>
+            <a class="ans-link" href="../diagnostico/index.html">Ver o diagnóstico em 4 camadas</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="concorrente-aparece">Por que meu concorrente aparece e eu não?</button><button type="button" class="ans-related-q" data-answer="palavra-chave-nao-e-estrategia">Ter palavras-chave no site não é ter uma estratégia.</button></div>
+          </article>
+          <article class="ans-result" data-answer="instagram-x-google" data-query="Instagram funciona, mas ninguém encontra minha empresa no Google.">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › instagram-x-google</small></span></div>
+            <h2>Instagram funciona, mas ninguém encontra minha empresa no Google.</h2>
+            <p class="ans-lead">O Instagram mostra sua empresa para quem ainda não está procurando; o Google mostra para quem já decidiu procurar. São canais diferentes: um depende de você continuar postando ou pagando, o outro depende de estrutura.</p>
+            <ul><li>No Instagram, o alcance cai quando você para de postar ou de anunciar.</li><li>No Google, uma página bem estruturada continua aparecendo mês após mês.</li><li>Quem busca no Google já tem intenção — está mais perto de contratar.</li><li>Os dois se complementam: o Google captura a demanda que o Instagram ajuda a criar.</li></ul>
+            <p class="ans-close">É mais fácil vender para quem já está procurando do que convencer alguém a procurar.</p>
+            <a class="ans-link" href="../metodo/index.html">Ver como o método estrutura o site</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="nao-aparece-no-google">Por que meu site não aparece no Google?</button><button type="button" class="ans-related-q" data-answer="visitas-sem-contato">Recebo visitas, mas ninguém entra em contato.</button></div>
+          </article>
+          <article class="ans-result" data-answer="concorrente-aparece" data-query="Por que meu concorrente aparece e eu não?">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › concorrente-aparece</small></span></div>
+            <h2>Por que meu concorrente aparece e eu não?</h2>
+            <p class="ans-lead">Normalmente não é sorte nem tamanho de empresa: o concorrente tem páginas que respondem melhor à busca e sinais técnicos que facilitam o trabalho do Google. Muitas vezes o site dele nem é mais bonito — só está mais bem estruturado.</p>
+            <ul><li>Ele tem uma página específica para o serviço que as pessoas buscam.</li><li>Títulos e descrições usam a linguagem de quem procura, não o jargão do setor.</li><li>O site é rápido, indexado corretamente e sem páginas duplicadas.</li><li>Há sinais de confiança: avaliações, perfil no Google e dados estruturados.</li></ul>
+            <p class="ans-close">Comparar camada por camada mostra exatamente onde está a diferença — e o que corrigir primeiro.</p>
+            <a class="ans-link" href="../diagnostico/index.html">Ver o diagnóstico em 4 camadas</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="nao-aparece-no-google">Por que meu site não aparece no Google?</button><button type="button" class="ans-related-q" data-answer="aparecer-na-ia">Como aparecer no ChatGPT e no Gemini.</button></div>
+          </article>
+          <article class="ans-result" data-answer="palavra-chave-nao-e-estrategia" data-query="Ter palavras-chave no site não é ter uma estratégia.">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › palavra-chave-nao-e-estrategia</small></span></div>
+            <h2>Ter palavras-chave no site não é ter uma estratégia.</h2>
+            <p class="ans-lead">Palavras-chave soltas no texto não dizem ao Google qual página responde a qual pergunta. Estratégia é organizar o site em torno da intenção real de busca, com cada página cumprindo um papel claro.</p>
+            <ul><li>Uma página por intenção, em vez de todas as palavras em todas as páginas.</li><li>Arquitetura e URLs que refletem os serviços que você realmente vende.</li><li>Títulos e textos escritos na linguagem de quem pergunta.</li><li>Links internos que mostram ao Google como as páginas se relacionam.</li></ul>
+            <p class="ans-close">Ter palavras no site não é o mesmo que ter uma estratégia de busca — o método organiza isso na ordem certa.</p>
+            <a class="ans-link" href="../metodo/index.html">Ver as 7 etapas do método</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="concorrente-aparece">Por que meu concorrente aparece e eu não?</button><button type="button" class="ans-related-q" data-answer="nao-aparece-no-google">Por que meu site não aparece no Google?</button></div>
+          </article>
+          <article class="ans-result" data-answer="aparecer-na-ia" data-query="Como aparecer no ChatGPT e no Gemini.">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › aparecer-na-ia</small></span></div>
+            <h2>Como aparecer no ChatGPT e no Gemini.</h2>
+            <p class="ans-lead">Assistentes como ChatGPT e Gemini citam empresas que conseguem entender com clareza: o que fazem, onde atendem e por que são confiáveis. A base é a mesma do Google — estrutura, conteúdo direto e sinais de autoridade.</p>
+            <ul><li>Dados estruturados que descrevem a empresa, os serviços e as perguntas frequentes.</li><li>Conteúdo que responde perguntas de forma direta, como esta página.</li><li>Informações consistentes em todo lugar: site, perfil no Google e redes sociais.</li><li>Menções e avaliações que confirmam que a empresa é real e relevante.</li></ul>
+            <p class="ans-close">Não existe atalho para a IA: quem está bem estruturado para a busca já sai na frente.</p>
+            <a class="ans-link" href="../metodo/index.html">Ver a etapa de dados estruturados</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="concorrente-aparece">Por que meu concorrente aparece e eu não?</button><button type="button" class="ans-related-q" data-answer="instagram-x-google">Instagram funciona, mas ninguém encontra minha empresa no Google.</button></div>
+          </article>
+          <article class="ans-result" data-answer="visitas-sem-contato" data-query="Recebo visitas, mas ninguém entra em contato.">
+            <div class="ans-source"><span class="ans-favicon" aria-hidden="true">U</span><span><strong>UNDERNEATH</strong><small>underneath.com.br › respostas › visitas-sem-contato</small></span></div>
+            <h2>Recebo visitas, mas ninguém entra em contato.</h2>
+            <p class="ans-lead">Quando há visitas mas não há contato, o problema costuma estar na camada de ação: o visitante chega, mas não entende o que fazer em seguida — ou chegou por uma busca que não tem relação com o que você vende.</p>
+            <ul><li>A página não deixa claro o próximo passo: orçamento, WhatsApp ou formulário.</li><li>O conteúdo atrai buscas que não correspondem ao seu serviço.</li><li>Faltam sinais de confiança no momento da decisão: cases, avaliações e garantias.</li><li>O site é lento ou difícil de usar no celular.</li></ul>
+            <p class="ans-close">Encontrabilidade sem conversão é tráfego desperdiçado — a página precisa guiar o próximo passo com clareza.</p>
+            <a class="ans-link" href="../contato/index.html">Pedir uma análise do meu site</a>
+            <div class="ans-related"><span>Perguntas relacionadas</span><button type="button" class="ans-related-q" data-answer="nao-aparece-no-google">Por que meu site não aparece no Google?</button><button type="button" class="ans-related-q" data-answer="instagram-x-google">Instagram funciona, mas ninguém encontra minha empresa no Google.</button></div>
+          </article>
+          </div>
+          <div class="ans-empty">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <p>Clique em uma pergunta para ver a resposta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="final">
         <div class="tag-line"><span class="dot"></span>Próximo passo</div>
         <h2>Não achou sua pergunta aqui?</h2>
         <p>Fale diretamente com a UNDERNEATH e descreva o que está acontecendo com o seu site.</p>

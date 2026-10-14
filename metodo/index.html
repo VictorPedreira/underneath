@@ -7,7 +7,7 @@
 <meta name="description" content="Diagnóstico, arquitetura, correção técnica, conteúdo, dados estruturados, autoridade e acompanhamento — o processo técnico e mensurável da UNDERNEATH.">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-method dark-page">
 
 <header id="site-header"></header>
 
@@ -19,22 +19,102 @@
       <div class="tag-line" style="margin-top:18px;"><span class="dot"></span>Método</div>
       <h1>Processo técnico e mensurável — sem promessa mágica</h1>
       <p class="lede">Sete etapas, nessa ordem, aplicadas depois do diagnóstico. Cada uma resolve uma causa específica de um site não ser encontrado.</p>
+      <a class="method-jump" href="#etapa-01">Ver as 7 etapas ↓</a>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="method-list">
-        <div class="method-row"><div class="num-badge">01</div><div><h3>Diagnóstico</h3><p>Levantamento completo de encontrabilidade, relevância, confiança e ação no site atual. Veja o <a href="../diagnostico/index.html">diagnóstico em 4 camadas</a>.</p></div></div>
-        <div class="method-row"><div class="num-badge">02</div><div><h3>Arquitetura</h3><p>Reestruturação de páginas, URLs e navegação em torno da intenção real de busca.</p></div></div>
-        <div class="method-row"><div class="num-badge">03</div><div><h3>Correção técnica</h3><p>Indexação, rastreamento, performance e sinais que o Google usa para decidir mostrar sua página.</p></div></div>
-        <div class="method-row"><div class="num-badge">04</div><div><h3>Conteúdo e intenção</h3><p>Cada página passa a responder a uma pergunta real, na linguagem de quem pergunta.</p></div></div>
-        <div class="method-row"><div class="num-badge">05</div><div><h3>Dados estruturados</h3><p>Marcação que ajuda buscadores e IAs a entender e citar sua empresa corretamente.</p></div></div>
-        <div class="method-row"><div class="num-badge">06</div><div><h3>Autoridade e prova</h3><p>Sinais que constroem confiança — para quem busca e para quem indexa.</p></div></div>
-        <div class="method-row"><div class="num-badge">07</div><div><h3>Acompanhamento</h3><p>Medição contínua com Search Console e Analytics para orientar as próximas correções.</p></div></div>
+  <!-- MÉTODO: painel fixo à esquerda (número, progresso e etapas clicáveis)
+       enquanto as etapas rolam à direita -->
+  <section class="method-flow">
+    <div class="wrap method-flow-grid">
+      <aside class="method-rail" aria-label="Etapas do método">
+        <div class="method-rail-label">Etapa</div>
+        <div class="method-rail-count" aria-hidden="true"><div class="method-rail-num"><div class="method-rail-digits"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span></div></div><span class="method-rail-of">/07</span></div>
+        
+        <div class="method-rail-nav">
+          <span class="method-rail-track"><span class="method-rail-fill"></span></span>
+          <ol>
+            <li><button type="button" data-step="0"><span>01</span>Diagnóstico</button></li>
+            <li><button type="button" data-step="1"><span>02</span>Arquitetura</button></li>
+            <li><button type="button" data-step="2"><span>03</span>Correção técnica</button></li>
+            <li><button type="button" data-step="3"><span>04</span>Conteúdo e intenção</button></li>
+            <li><button type="button" data-step="4"><span>05</span>Dados estruturados</button></li>
+            <li><button type="button" data-step="5"><span>06</span>Autoridade e prova</button></li>
+            <li><button type="button" data-step="6"><span>07</span>Acompanhamento</button></li>
+          </ol>
+        </div>
+      </aside>
+      <div class="method-steps">
+        <article class="mstep" data-step="0" id="etapa-01">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <span class="mstep-num">01</span>
+          </div>
+          <h3>Diagnóstico</h3>
+          <p>Levantamento completo de encontrabilidade, relevância, confiança e ação no site atual. Veja o <a href="../diagnostico/index.html">diagnóstico em 4 camadas</a>.</p>
+          <ul class="mstep-tags"><li>Rastreamento</li><li>Indexação</li><li>Intenção de busca</li><li>Sinais de confiança</li></ul>
+        </article>
+        <article class="mstep" data-step="1" id="etapa-02">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="2.5" y="16" width="6" height="5" rx="1"/><rect x="15.5" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M5.5 16v-4h13v4"/></svg>
+            <span class="mstep-num">02</span>
+          </div>
+          <h3>Arquitetura</h3>
+          <p>Reestruturação de páginas, URLs e navegação em torno da intenção real de busca.</p>
+          <ul class="mstep-tags"><li>URLs</li><li>Navegação</li><li>Hierarquia de páginas</li><li>Links internos</li></ul>
+        </article>
+        <article class="mstep" data-step="2" id="etapa-03">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>
+            <span class="mstep-num">03</span>
+          </div>
+          <h3>Correção técnica</h3>
+          <p>Indexação, rastreamento, performance e sinais que o Google usa para decidir mostrar sua página.</p>
+          <ul class="mstep-tags"><li>Performance</li><li>Robots e sitemap</li><li>Canonicals</li><li>Erros de rastreamento</li></ul>
+        </article>
+        <article class="mstep" data-step="3" id="etapa-04">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4M9 11h6M9 14.5h6M9 18h4"/></svg>
+            <span class="mstep-num">04</span>
+          </div>
+          <h3>Conteúdo e intenção</h3>
+          <p>Cada página passa a responder a uma pergunta real, na linguagem de quem pergunta.</p>
+          <ul class="mstep-tags"><li>Perguntas reais</li><li>Títulos e descrições</li><li>Texto por intenção</li></ul>
+        </article>
+        <article class="mstep" data-step="4" id="etapa-05">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15"/></svg>
+            <span class="mstep-num">05</span>
+          </div>
+          <h3>Dados estruturados</h3>
+          <p>Marcação que ajuda buscadores e IAs a entender e citar sua empresa corretamente.</p>
+          <ul class="mstep-tags"><li>Schema.org</li><li>Organização</li><li>Serviços</li><li>Perguntas frequentes</li></ul>
+        </article>
+        <article class="mstep" data-step="5" id="etapa-06">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            <span class="mstep-num">06</span>
+          </div>
+          <h3>Autoridade e prova</h3>
+          <p>Sinais que constroem confiança — para quem busca e para quem indexa.</p>
+          <ul class="mstep-tags"><li>Cases</li><li>Avaliações</li><li>Perfil no Google</li><li>Menções</li></ul>
+        </article>
+        <article class="mstep" data-step="6" id="etapa-07">
+          <div class="mstep-head">
+            <svg class="mstep-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><path d="M6 16l4-5 3.5 3 5-7"/><path d="M15.5 7h3v3"/></svg>
+            <span class="mstep-num">07</span>
+          </div>
+          <h3>Acompanhamento</h3>
+          <p>Medição contínua com Search Console e Analytics para orientar as próximas correções.</p>
+          <ul class="mstep-tags"><li>Search Console</li><li>Analytics</li><li>Relatórios</li><li>Próximas correções</li></ul>
+        </article>
       </div>
+    </div>
+  </section>
 
-      <div class="content-block">
+  <section class="section">
+    <div class="wrap">
+      <div class="content-block" style="margin-top:0;">
         <h3>Por que nessa ordem</h3>
         <p>Corrigir conteúdo antes da arquitetura, ou dados estruturados antes da correção técnica, é comum — e é por isso que tanta correção de SEO não sustenta resultado. Cada etapa do método UNDERNEATH depende da anterior estar resolvida. Veja como isso se aplicou nos <a href="../cases/index.html">cases</a> de site existente e site novo.</p>
       </div>

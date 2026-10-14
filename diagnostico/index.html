@@ -7,13 +7,21 @@
 <meta name="description" content="O diagnóstico UNDERNEATH investiga encontrabilidade, relevância, confiança e ação — as quatro camadas que decidem se sua empresa é encontrada.">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="page-iceberg">
 
 <header id="site-header"></header>
 
 <main>
 
-  <section class="page-hero">
+  <!-- ICEBERG: o topo é o céu com a ponta do iceberg; cada camada do
+       diagnóstico é uma faixa da água, mais escura quanto mais fundo -->
+  <section class="page-hero ice-sky">
+    <svg class="ice-tip" viewBox="0 0 400 210" aria-hidden="true" preserveAspectRatio="none">
+      <path d="M30 210 L118 92 L160 118 L228 18 L284 104 L322 78 L392 210 Z" fill="#F7FAFF"/>
+      <path d="M228 18 L284 104 L262 210 L196 210 L214 120 Z" fill="#DCE7F7"/>
+      <path d="M322 78 L392 210 L330 210 L300 140 Z" fill="#C7D7EF"/>
+      <path d="M118 92 L160 118 L132 210 L30 210 Z" fill="#E6EEFA"/>
+    </svg>
     <div class="wrap">
       <div class="breadcrumb"><a href="../index.html">Início</a> / Diagnóstico</div>
       <div class="tag-line" style="margin-top:18px;"><span class="dot"></span>Diagnóstico</div>
@@ -22,39 +30,58 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="strata">
-        <div class="stratum">
-          <div class="swatch"></div>
-          <div class="content">
-            <h3>Encontrabilidade</h3>
-            <p>O site é descoberto, rastreado e indexado pelo Google? Sem isso, nenhuma das outras camadas importa — a página simplesmente não existe para quem busca.</p>
-          </div>
-        </div>
-        <div class="stratum">
-          <div class="swatch"></div>
-          <div class="content">
-            <h3>Relevância</h3>
-            <p>A página responde exatamente ao que foi buscado? Palavras no site não bastam — é preciso que a estrutura e o conteúdo casem com a intenção real de quem pesquisa.</p>
-          </div>
-        </div>
-        <div class="stratum">
-          <div class="swatch"></div>
-          <div class="content">
-            <h3>Confiança</h3>
-            <p>Há sinais suficientes de autoridade e legitimidade? Isso inclui dados estruturados, prova social e sinais técnicos que buscadores e IAs usam para decidir se citam sua empresa.</p>
-          </div>
-        </div>
-        <div class="stratum">
-          <div class="swatch"></div>
-          <div class="content">
-            <h3>Ação</h3>
-            <p>O visitante entende o que fazer depois de chegar? Encontrabilidade sem conversão é tráfego desperdiçado — a página precisa guiar o próximo passo com clareza.</p>
-          </div>
-        </div>
-      </div>
+  <div class="ice-water">
+    <div class="ice-waterline" aria-hidden="true"></div>
+    <div class="ice-rays" aria-hidden="true"><i></i><i></i><i></i></div>
+    <svg class="ice-body" viewBox="0 0 400 1000" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="ice-body-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E4EEFF" stop-opacity=".55"/>
+          <stop offset=".45" stop-color="#A9C2F5" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#5B86D6" stop-opacity=".04"/>
+        </linearGradient>
+        <linearGradient id="ice-body-facet" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M30 0 L392 0 L400 170 L356 400 L384 590 L296 810 L214 1000 L146 850 L58 690 L18 470 L0 210 Z" fill="url(#ice-body-fill)"/>
+      <path d="M196 0 L262 0 L300 260 L232 520 L190 300 Z" fill="url(#ice-body-facet)"/>
+      <path d="M30 0 L132 0 L96 240 L18 470 L0 210 Z" fill="url(#ice-body-facet)"/>
+    </svg>
+    <div class="ice-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
+    <section class="section ice-layer ice-layer-1">
+      <div class="wrap">
+        <div class="ice-depth"><span class="dot"></span>Camada 01 · logo abaixo da superfície</div>
+        <h2>Encontrabilidade</h2>
+        <p>O site é descoberto, rastreado e indexado pelo Google? Sem isso, nenhuma das outras camadas importa — a página simplesmente não existe para quem busca.</p>
+      </div>
+    </section>
+    <section class="section ice-layer ice-layer-2">
+      <div class="wrap">
+        <div class="ice-depth"><span class="dot"></span>Camada 02 · mais fundo</div>
+        <h2>Relevância</h2>
+        <p>A página responde exatamente ao que foi buscado? Palavras no site não bastam — é preciso que a estrutura e o conteúdo casem com a intenção real de quem pesquisa.</p>
+      </div>
+    </section>
+    <section class="section ice-layer ice-layer-3">
+      <div class="wrap">
+        <div class="ice-depth"><span class="dot"></span>Camada 03 · onde quase ninguém olha</div>
+        <h2>Confiança</h2>
+        <p>Há sinais suficientes de autoridade e legitimidade? Isso inclui dados estruturados, prova social e sinais técnicos que buscadores e IAs usam para decidir se citam sua empresa.</p>
+      </div>
+    </section>
+    <section class="section ice-layer ice-layer-4">
+      <div class="wrap">
+        <div class="ice-depth"><span class="dot"></span>Camada 04 · a base de tudo</div>
+        <h2>Ação</h2>
+        <p>O visitante entende o que fazer depois de chegar? Encontrabilidade sem conversão é tráfego desperdiçado — a página precisa guiar o próximo passo com clareza.</p>
+      </div>
+    </section>
+
+    <section class="section ice-abyss">
+      <div class="wrap">
       <div class="content-block">
         <h3>Como o diagnóstico é feito</h3>
         <p>Antes de qualquer correção, mapeamos as quatro camadas no site como ele está hoje — sem depender de suposições. O que normalmente entra nessa checagem:</p>
@@ -75,6 +102,7 @@
       </div>
     </div>
   </section>
+  </div>
 
 </main>
 
