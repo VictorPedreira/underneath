@@ -369,7 +369,7 @@ body.has-hero{
   .c-node.is-open .c-hit{animation:none; opacity:0;}
   .c-hint{
     display:flex; align-items:center; justify-content:center; gap:8px; width:max-content; max-width:calc(100% - 40px);
-    margin:6px auto 0; padding:8px 16px; border-radius:999px;
+    margin:6px auto 40px; padding:8px 16px; border-radius:999px;
     font-family:'Bellota Text', system-ui, sans-serif; font-weight:700; font-size:.86rem; color:#F4F6FB;
     background:rgba(76,141,255,.16); border:1px solid rgba(91,155,255,.4);
   }
