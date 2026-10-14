@@ -329,14 +329,57 @@ body.has-hero{
 .c-node.is-open .c-glow{transform:scale(1.5);}
 .c-node{cursor:pointer;}
 .c-card{
-  position:absolute; z-index:3; width:350px; padding:20px 20px 22px; pointer-events:none;
+  position:absolute; z-index:3; width:350px; max-width:calc(100vw - 32px); padding:20px 20px 22px; pointer-events:none;
   background:rgba(8,22,54,.88); border:1px solid rgba(91,155,255,.35); border-radius:14px;
   box-shadow:0 0 0 1px rgba(91,155,255,.08), 0 18px 50px rgba(0,0,0,.45), 0 0 40px rgba(76,141,255,.18);
   backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#C9D4EA;
-  opacity:0; visibility:hidden; transform:translateY(8px) scale(.97);
-  transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s;
+  opacity:0; visibility:hidden;
+  transition:opacity .22s ease, visibility 0s linear .22s;
 }
-.c-card.is-open{opacity:1; visibility:visible; transform:none; transition:opacity .3s ease, transform .3s ease, visibility 0s;}
+.c-card.is-open{opacity:1; visibility:visible; transition:opacity .22s ease, visibility 0s;}
+/* a bolinha que cresce e vira o card (animada pelo main.js) */
+.c-morph{
+  position:absolute; z-index:3; pointer-events:none;
+  background:rgba(8,22,54,.92); border:1px solid rgba(91,155,255,.55);
+  box-shadow:0 0 24px rgba(76,141,255,.45), 0 18px 50px rgba(0,0,0,.4);
+}
+.c-morph-gold{border-color:rgba(255,198,77,.6); box-shadow:0 0 24px rgba(255,185,56,.45), 0 18px 50px rgba(0,0,0,.4);}
+/* balão "clique" acima do ponteiro (só com mouse) */
+.c-tip{
+  position:absolute; z-index:4; top:0; left:0; pointer-events:none; padding:4px 10px; border-radius:999px;
+  font-family:'IBM Plex Mono', monospace; font-size:.7rem; letter-spacing:.08em; color:#0A1F3D; background:#F4F6FB;
+  box-shadow:0 6px 18px rgba(0,0,0,.35); opacity:0; transform:translate(-50%, -100%) translateY(-14px) scale(.9);
+  transition:opacity .2s ease, transform .2s ease;
+}
+.c-tip::after{content:""; position:absolute; left:50%; bottom:-4px; width:8px; height:8px; margin-left:-4px; background:#F4F6FB; transform:rotate(45deg);}
+.c-tip.is-on{opacity:1; transform:translate(-50%, -100%) translateY(-18px) scale(1);}
+/* celular: aviso e pontos pulsando */
+.c-hint{display:none;}
+@media (hover:none){
+  .c-tip{display:none;}
+  .c-node text{opacity:.9; transform:none;}
+  .c-hit{stroke:#8DB0F5; stroke-width:2; transform-box:fill-box; transform-origin:center; animation:c-ring 2.4s ease-out infinite;}
+  .c-node-gold .c-hit{stroke:#FFC64D;}
+  .c-node:nth-of-type(2) .c-hit{animation-delay:.35s;}
+  .c-node:nth-of-type(3) .c-hit{animation-delay:.7s;}
+  .c-node:nth-of-type(4) .c-hit{animation-delay:1.05s;}
+  .c-node:nth-of-type(5) .c-hit{animation-delay:1.4s;}
+  .c-node:nth-of-type(6) .c-hit{animation-delay:1.75s;}
+  .c-node:nth-of-type(7) .c-hit{animation-delay:2.1s;}
+  .c-node.is-open .c-hit{animation:none; opacity:0;}
+  .c-hint{
+    display:flex; align-items:center; justify-content:center; gap:8px; width:max-content; max-width:calc(100% - 40px);
+    margin:6px auto 0; padding:8px 16px; border-radius:999px;
+    font-family:'Bellota Text', system-ui, sans-serif; font-weight:700; font-size:.86rem; color:#F4F6FB;
+    background:rgba(76,141,255,.16); border:1px solid rgba(91,155,255,.4);
+  }
+  .c-hint svg{width:20px; height:20px; fill:none; stroke:#FFC64D; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; animation:c-tap 1.6s ease-in-out infinite;}
+}
+@keyframes c-ring{from{transform:scale(.35); opacity:.9;} to{transform:scale(1.15); opacity:0;}}
+@keyframes c-tap{0%,100%{transform:translateY(0);} 50%{transform:translateY(-3px) scale(.92);}}
+@media (min-width:961px) and (hover:none){
+  .c-hint{position:absolute; z-index:2; right:6%; bottom:9%; margin:0;}
+}
 .c-card-title{font-family:'Doppio One', system-ui, sans-serif; font-size:1.35rem; color:#F4F6FB; line-height:1.1;}
 .c-card p{margin:10px 0 16px; font-size:.92rem; line-height:1.5;}
 .c-card p strong{color:#F4F6FB;}
