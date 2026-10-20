@@ -274,7 +274,7 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
     }
   });
 
-  // Home: carrossel de cases. As setas deslizam um card por vez; cada seta
+  // Carrossel de cases (home e /cases, 3 por vez). As setas deslizam um card por vez; cada seta
   // some quando não há mais cards naquela direção.
   document.addEventListener("DOMContentLoaded", function () {
     var carousel = document.querySelector(".case-carousel");
@@ -284,7 +284,7 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
     var prev = carousel.querySelector(".case-arrow-prev");
     var next = carousel.querySelector(".case-arrow-next");
     var index = 0;
-    var perView = function () { return window.innerWidth <= 760 ? 1 : 2; };
+    var perView = function () { return window.innerWidth <= 760 ? 1 : window.innerWidth <= 1020 ? 2 : 3; };
     var update = function () {
       var max = Math.max(0, cards.length - perView());
       index = Math.min(Math.max(index, 0), max);
