@@ -88,36 +88,82 @@
 
   <section class="section" style="padding-top:0;">
     <div class="wrap">
-      <form id="contactForm" class="form-grid">
-        <div class="form-field">
-          <label for="name">Nome</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-field">
-          <label for="site">Site da sua empresa</label>
-          <input type="url" id="site" name="site" placeholder="https://">
-        </div>
-        <div class="form-field">
-          <label for="message">O que está acontecendo com o seu site?</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <div>
-          <button type="submit" class="cta-btn" style="border:none; cursor:pointer;">Analisar meu site</button>
-          <p class="form-note">Ao enviar, seu programa de e-mail padrão abrirá com a mensagem pronta para envio.</p>
-        </div>
-      </form>
+      <div class="ct-panel">
+        <!-- constelação de fundo, no mesmo desenho do topo da home -->
+        <svg class="ct-stars" viewBox="0 0 1200 640" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <g class="ct-stars-lines"><path d="M80 120L260 70L420 190L610 110M420 190L360 360L520 470M610 110L760 250L980 160L1130 300M760 250L840 520L1040 560"/></g>
+          <g class="ct-stars-dots"><circle cx="80" cy="120" r="3"/><circle cx="260" cy="70" r="4"/><circle cx="420" cy="190" r="3"/><circle cx="610" cy="110" r="5" class="gold"/><circle cx="360" cy="360" r="3"/><circle cx="520" cy="470" r="4"/><circle cx="760" cy="250" r="3"/><circle cx="980" cy="160" r="4"/><circle cx="1130" cy="300" r="3"/><circle cx="840" cy="520" r="3"/><circle cx="1040" cy="560" r="4"/></g>
+        </svg>
 
-      <!--
-        ATENÇÃO: substitua o e-mail abaixo (em contato/index.html e em js/main.js,
-        constante CONTACT_EMAIL) pelo e-mail comercial real da UNDERNEATH antes de publicar.
-      -->
-      <div class="contact-info">
-        <div><strong>E-mail:</strong> <a href="mailto:contato@underneath.com.br">contato@underneath.com.br</a></div>
-        <div><strong>WhatsApp:</strong> a definir</div>
+        <div class="ct-side">
+          <div class="slug">// o que acontece depois do envio</div>
+          <h2>Seu relato vira um diagnóstico em quatro camadas.</h2>
+          <p>Cada camada é analisada na ordem, da superfície até a base. Você recebe o ponto exato onde o site trava, antes de qualquer proposta.</p>
+
+          <ol class="ct-layers">
+            <li><span class="ct-layer-num">01</span><div><strong>Encontrabilidade</strong><span>O Google descobre, rastreia e indexa o site?</span></div></li>
+            <li><span class="ct-layer-num">02</span><div><strong>Relevância</strong><span>As páginas respondem ao que o cliente procura?</span></div></li>
+            <li><span class="ct-layer-num">03</span><div><strong>Confiança</strong><span>Há sinais de autoridade para buscadores e IAs?</span></div></li>
+            <li><span class="ct-layer-num">04</span><div><strong>Ação</strong><span>Quem chega encontra o próximo passo?</span></div></li>
+          </ol>
+
+          <!--
+            ATENÇÃO: substitua o e-mail abaixo (em contato/index.html e em js/main.js,
+            constante CONTACT_EMAIL) pelo e-mail comercial real da UNDERNEATH antes de publicar.
+          -->
+          <div class="ct-direct">
+            <div class="slug">// prefere falar direto?</div>
+            <a href="mailto:contato@underneath.com.br">contato@underneath.com.br</a>
+            <span>WhatsApp: a definir</span>
+          </div>
+        </div>
+
+        <form id="contactForm" class="ct-form" novalidate>
+          <div class="ct-form-head">
+            <span class="slug">diagnostico.solicitar()</span>
+            <span class="ct-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          </div>
+
+          <fieldset class="ct-symptoms">
+            <legend>O que mais incomoda hoje?</legend>
+            <label><input type="radio" name="symptom" value="Meu site não aparece no Google"><span>Não aparece no Google</span></label>
+            <label><input type="radio" name="symptom" value="Aparece, mas não traz contatos"><span>Aparece, mas não traz contatos</span></label>
+            <label><input type="radio" name="symptom" value="O site é lento"><span>Site lento</span></label>
+            <label><input type="radio" name="symptom" value="O negócio mudou de foco"><span>Mudei de foco</span></label>
+            <label><input type="radio" name="symptom" value="Ainda não tenho site"><span>Ainda não tenho site</span></label>
+          </fieldset>
+
+          <div class="ct-row">
+            <div class="ct-field">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="ct-field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="ct-field">
+            <label for="site">Site da sua empresa</label>
+            <input type="url" id="site" name="site" placeholder="https://" autocomplete="url">
+            <div class="ct-preview" aria-live="polite">
+              <span class="case-browser-dots"><i></i><i></i><i></i></span>
+              <span class="ct-preview-url">seusite.com.br</span>
+              <span class="ct-preview-status">aguardando endereço</span>
+            </div>
+          </div>
+
+          <div class="ct-field">
+            <label for="message">O que está acontecendo com o seu site?</label>
+            <textarea id="message" name="message" required placeholder="Ex.: o site existe há dois anos, mas quase ninguém chega pelo Google…"></textarea>
+          </div>
+
+          <div class="ct-submit">
+            <button type="submit" class="ct-btn">Analisar meu site <span aria-hidden="true">→</span></button>
+            <p class="form-note">Ao enviar, seu programa de e-mail abrirá com a mensagem pronta.</p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
