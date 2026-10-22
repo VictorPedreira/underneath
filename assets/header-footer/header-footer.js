@@ -44,12 +44,11 @@
     return currentPath.indexOf("/" + match + "/") !== -1;
   }
 
-  // Computador: o App fica num box branco logo depois do logo, seguido do
-  // Home e das demais abas.
+  // Computador: o App fica num box branco logo depois do logo, seguido das
+  // demais abas. A home não tem aba própria: o logo já leva até ela.
   var isHome = !NAV_LINKS.some(function (link) { return isActive(link.match); });
-  var DESKTOP_LINKS = [NAV_LINKS[0], { label: "Home", href: HOME_HREF, home: true }].concat(NAV_LINKS.slice(1));
-  var navLinksHTML = DESKTOP_LINKS.map(function (link) {
-    var active = link.home ? isHome : isActive(link.match);
+  var navLinksHTML = NAV_LINKS.map(function (link) {
+    var active = isActive(link.match);
     var classes = "navlink" + (link.match === "app" ? " navlink-app" : "") + (active ? " is-active" : "");
     return '<a class="' + classes + '" href="' + link.href + '"' + (active ? ' aria-current="page"' : "") + ">" + link.label + "</a>";
   }).join("\n    ");
