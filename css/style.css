@@ -884,6 +884,15 @@ a.lib-row{display:grid;}
 /* Rodapé padrão: logo no centro, redes dos lados, links legais e créditos */
 footer{border-top:1px solid var(--line); padding:52px 0 40px;}
 .foot{display:flex; flex-direction:column; align-items:center; text-align:center;}
+/* Voltar ao topo: triângulo no dourado do logotipo, no canto direito do rodapé */
+.foot{position:relative;}
+.foot-top-btn{
+  position:absolute; top:0; right:20px; display:block; padding:8px; margin:0; background:none; border:0; cursor:pointer;
+  color:#E6B02B; transition:transform .25s ease, opacity .25s ease; -webkit-tap-highlight-color:transparent;
+}
+.foot-top-btn svg{display:block; width:22px; height:18px; fill:currentColor;}
+.foot-top-btn:hover{transform:translateY(-3px);}
+.foot-top-btn:focus-visible{outline:2px solid #E6B02B; outline-offset:2px; border-radius:6px;}
 .foot-top{display:flex; align-items:center; justify-content:center; gap:clamp(18px, 5vw, 56px);}
 .foot-logo img{display:block; width:190px; height:auto;}
 .foot-socials{display:flex; gap:12px;}
@@ -1062,8 +1071,21 @@ footer{border-top:1px solid var(--line); padding:52px 0 40px;}
   .nav-more-item.is-active .nav-more-icon{border-color:rgba(255,198,77,.6); box-shadow:0 0 16px rgba(255,185,56,.3);}
 }
 
-/* Com App e Blog são 7 abas: em telas médias o espaço entre elas diminui */
-@media (min-width:901px) and (max-width:1180px){ nav.links{gap:20px;} nav.links a.navlink{font-size:.92rem;} }
+/* App em destaque: box branco de cantos arredondados entre o logo e o Home
+   (mesmo visual nas páginas claras e escuras) */
+nav.links a.navlink.navlink-app,
+.has-hero header nav.links a.navlink.navlink-app,
+.dark-page header nav.links a.navlink.navlink-app{
+  background:#FFFFFF; color:var(--navy-950); padding:6px 16px; border-radius:12px;
+  border:1px solid var(--line); box-shadow:0 2px 10px rgba(4,11,26,.08);
+}
+nav.links a.navlink.navlink-app:hover,
+.has-hero header nav.links a.navlink.navlink-app:hover,
+.dark-page header nav.links a.navlink.navlink-app:hover,
+header nav.links a.navlink.navlink-app.is-active{color:var(--navy-600);}
+
+/* Com App, Home e Blog são 8 abas: em telas médias o espaço entre elas diminui */
+@media (min-width:901px) and (max-width:1180px){ nav.links{gap:18px;} nav.links a.navlink{font-size:.9rem;} nav.links a.navlink.navlink-app{padding:5px 12px;} }
 
 /* ---------------- PÁGINAS "EM BREVE" (App e Blog) ----------------
    Uma prévia do conteúdo fica borrada ao fundo e o aviso "Em breve" fica

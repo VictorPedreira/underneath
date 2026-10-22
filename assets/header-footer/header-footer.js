@@ -44,9 +44,14 @@
     return currentPath.indexOf("/" + match + "/") !== -1;
   }
 
-  var navLinksHTML = NAV_LINKS.map(function (link) {
-    var activeClass = isActive(link.match) ? " is-active" : "";
-    return '<a class="navlink' + activeClass + '" href="' + link.href + '">' + link.label + "</a>";
+  // Computador: o App fica num box branco logo depois do logo, seguido do
+  // Home e das demais abas.
+  var isHome = !NAV_LINKS.some(function (link) { return isActive(link.match); });
+  var DESKTOP_LINKS = [NAV_LINKS[0], { label: "Home", href: HOME_HREF, home: true }].concat(NAV_LINKS.slice(1));
+  var navLinksHTML = DESKTOP_LINKS.map(function (link) {
+    var active = link.home ? isHome : isActive(link.match);
+    var classes = "navlink" + (link.match === "app" ? " navlink-app" : "") + (active ? " is-active" : "");
+    return '<a class="' + classes + '" href="' + link.href + '"' + (active ? ' aria-current="page"' : "") + ">" + link.label + "</a>";
   }).join("\n    ");
 
   // Celular: barra inferior estilo aplicativo, com ícone dentro da barra e o
@@ -61,7 +66,6 @@
     app: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
     blog: '<path d="M5 3.5h10l4 4v13H5z"/><path d="M14.5 3.5v4.5h4.5M8.5 12h7M8.5 15.5h7M8.5 9h3"/>'
   };
-  var isHome = !NAV_LINKS.some(function (link) { return isActive(link.match); });
   var TABS = [{ label: "Início", href: HOME_HREF, match: "inicio", active: isHome }].concat(
     NAV_LINKS.filter(function (link) { return !link.mobileMenu; }).map(function (link) {
       return { label: link.label, href: link.href, match: link.match, active: isActive(link.match) };
@@ -151,6 +155,8 @@
 
   var footerHTML =
     '<div class="wrap foot">' +
+    '  <button type="button" class="foot-top-btn" id="backToTop" aria-label="Voltar ao topo">' +
+    '<svg viewBox="0 0 24 20" aria-hidden="true"><path d="M12 1L23 19H1z"/></svg></button>' +
     '  <div class="foot-top">' +
     '    <div class="foot-socials">' + socialLink("whatsapp") + socialLink("instagram") + "</div>" +
     '    <a class="foot-logo" href="' + HOME_HREF + '"><img src="' + ROOT + "assets/images/" + FOOTER_LOGO + '" alt="UNDERNEATH — Search Intelligence"></a>' +
@@ -171,6 +177,13 @@
     var footerMount = document.getElementById("site-footer");
     if (headerMount) headerMount.innerHTML = headerHTML;
     if (footerMount) footerMount.innerHTML = footerHTML;
+
+    var backToTop = document.getElementById("backToTop");
+    if (backToTop) {
+      backToTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
 
     var more = document.getElementById("navMore");
     var moreMenu = document.getElementById("navMoreMenu");
