@@ -128,7 +128,7 @@
       icon: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>' },
     email: { label: "E-mail", href: "mailto:" + (typeof CONTACT_EMAIL !== "undefined" ? CONTACT_EMAIL : "underneath.search@gmail.com"),
       icon: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>' },
-    twitter: { label: "X (Twitter)", href: "https://x.com/imderneathsi",
+    twitter: { label: "X (Twitter)", href: "https://x.com/underneathsi",
       icon: '<path d="M4.5 4.5l15 15M19.5 4.5l-15 15" stroke-width="1.9"/>' }
   };
   var LEGAL = [
