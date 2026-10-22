@@ -32,11 +32,11 @@
   // que abre na seta ao lado do logo.
   var NAV_LINKS = [
     { label: "App", href: ROOT + "app/", match: "app", mobileMenu: true },
-    { label: "Diagnóstico", href: ROOT + "diagnostico/", match: "diagnostico" },
+    { label: "Sobre", href: ROOT + "sobre/", match: "sobre" },
     { label: "Método", href: ROOT + "metodo/", match: "metodo" },
+    { label: "Diagnóstico", href: ROOT + "diagnostico/", match: "diagnostico" },
     { label: "Cases", href: ROOT + "cases/", match: "cases" },
     { label: "Respostas", href: ROOT + "respostas/", match: "respostas" },
-    { label: "Sobre", href: ROOT + "sobre/", match: "sobre" },
     { label: "Blog", href: ROOT + "blog/", match: "blog", mobileMenu: true }
   ];
 
@@ -58,11 +58,11 @@
   // nome escrito logo abaixo, fora dela.
   var TAB_ICONS = {
     inicio: '<path d="M3.5 10.5L12 4l8.5 6.5"/><path d="M6 9v10.5h4.5V14h3v5.5H18V9"/>',
-    diagnostico: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+    sobre: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/>',
     metodo: '<circle cx="5.5" cy="6" r="2"/><circle cx="5.5" cy="18" r="2"/><circle cx="18.5" cy="12" r="2"/><path d="M7.5 6h3a3 3 0 013 3v0a3 3 0 003 3M7.5 18h3a3 3 0 003-3v0a3 3 0 013-3"/>',
+    diagnostico: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
     cases: '<rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V6a1.5 1.5 0 011.5-1.5h3A1.5 1.5 0 0115 6v1.5M3.5 12.5h17"/>',
     respostas: '<path d="M4 5.5h16v10H9l-5 4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/>',
-    sobre: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/>',
     app: '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
     blog: '<path d="M5 3.5h10l4 4v13H5z"/><path d="M14.5 3.5v4.5h4.5M8.5 12h7M8.5 15.5h7M8.5 9h3"/>'
   };
@@ -122,13 +122,13 @@
   // lados, links legais e créditos embaixo.
   // IMPORTANTE: troque os links de SOCIAL e LEGAL pelos endereços reais.
   var SOCIAL = {
-    whatsapp: { label: "WhatsApp", href: "https://wa.me/5500000000000",
+    whatsapp: { label: "WhatsApp", href: "https://wa.me/5511940881109",
       icon: '<path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/><path d="M9.2 8.6c.2-.5.6-.5.9-.5.3 0 .5.4.8 1 .2.5-.4.9-.4 1.2.4 1 1.3 1.9 2.3 2.3.3 0 .7-.6 1.2-.4.6.3 1 .5 1 .8 0 .3 0 .7-.5.9-.6.4-1.7.4-3.2-.5a7.6 7.6 0 0 1-2.4-2.4c-.8-1.5-.8-2.6-.4-3.1z"/>' },
-    instagram: { label: "Instagram", href: "https://instagram.com/",
+    instagram: { label: "Instagram", href: "https://instagram.com/underneathsi",
       icon: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>' },
-    email: { label: "E-mail", href: "mailto:" + (typeof CONTACT_EMAIL !== "undefined" ? CONTACT_EMAIL : "contato@underneath.com.br"),
+    email: { label: "E-mail", href: "mailto:" + (typeof CONTACT_EMAIL !== "undefined" ? CONTACT_EMAIL : "underneath.search@gmail.com"),
       icon: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>' },
-    twitter: { label: "X (Twitter)", href: "https://x.com/",
+    twitter: { label: "X (Twitter)", href: "https://x.com/imderneathsi",
       icon: '<path d="M4.5 4.5l15 15M19.5 4.5l-15 15" stroke-width="1.9"/>' }
   };
   var LEGAL = [
@@ -168,7 +168,7 @@
       return '<a href="' + link.href + '"' + (link.strong ? ' class="is-strong"' : "") + ">" + link.label + "</a>";
     }).join('<span aria-hidden="true">|</span>') +
     "  </nav>" +
-    '  <p class="foot-copy"><strong>© ' + new Date().getFullYear() + " UNDERNEATH. Desenvolvimento: UNDERNEATH. Todos os direitos reservados.</strong></p>" +
+    '  <p class="foot-copy">© ' + new Date().getFullYear() + " UNDERNEATH - Search Intelligence. Desenvolvimento: UNDERNEATH. Todos os direitos reservados.</p>" +
     '  <p class="foot-updated">Site atualizado em: ' + updatedText + "</p>" +
     "</div>";
 
