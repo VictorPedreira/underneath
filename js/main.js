@@ -329,19 +329,56 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
     var form = document.getElementById("contactForm");
     if (!form) return;
 
+    // Barra de progresso: um segmento por campo (sintoma, nome, e-mail e relato).
+    var bars = form.querySelectorAll(".ct-progress i");
+    var preview = form.querySelector(".ct-preview");
+    var previewUrl = form.querySelector(".ct-preview-url");
+    var previewStatus = form.querySelector(".ct-preview-status");
+    var refresh = function () {
+      var steps = [
+        !!form.querySelector("input[name=symptom]:checked"),
+        form.name.value.trim() !== "",
+        form.email.validity.valid && form.email.value.trim() !== "",
+        form.message.value.trim() !== ""
+      ];
+      Array.prototype.forEach.call(bars, function (bar, i) { bar.classList.toggle("on", steps[i]); });
+
+      // Prévia do endereço numa barra de navegador, sem o "https://" e a barra final.
+      if (preview) {
+        var host = form.site.value.trim().replace(/^https?:\/\//i, "").replace(/\/$/, "");
+        var ready = /^[^\s.]+\.[^\s]{2,}/.test(host);
+        preview.classList.toggle("ready", ready);
+        previewUrl.textContent = host || "seusite.com.br";
+        previewStatus.textContent = ready ? "pronto para analisar" : "aguardando endereço";
+      }
+    };
+    form.addEventListener("input", refresh);
+    form.addEventListener("change", refresh);
+    refresh();
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
+
+      // O formulário usa novalidate para estilizar os erros do nosso jeito.
+      if (!form.checkValidity()) {
+        form.classList.add("tried");
+        var firstInvalid = form.querySelector(":invalid");
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
 
       var name = form.name.value.trim();
       var email = form.email.value.trim();
       var site = form.site.value.trim();
       var message = form.message.value.trim();
+      var symptom = form.querySelector("input[name=symptom]:checked");
 
       var subject = "Analisar meu site — " + (name || "novo contato");
       var bodyLines = [
         "Nome: " + name,
         "E-mail: " + email,
         site ? "Site: " + site : null,
+        symptom ? "Principal incômodo: " + symptom.value : null,
         "",
         message
       ].filter(function (line) { return line !== null; });
