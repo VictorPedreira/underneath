@@ -222,7 +222,8 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
     var urlEl = win.querySelector(".ans-window-url");
     var baseUrl = urlEl.textContent;
     var results = win.querySelectorAll(".ans-result");
-    var questions = document.querySelectorAll(".ans-q");
+    var questions = document.querySelectorAll(".ans-q, .ans-sub");
+    var cards = document.querySelectorAll(".ans-card");
     var typing = null, reveal = null, current = null;
 
     var show = function (slug, instant) {
@@ -260,15 +261,52 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
       }, 22);
     };
 
+    // Fecha a resposta e volta a janela para o estado inicial.
+    var clear = function () {
+      current = null;
+      clearInterval(typing);
+      clearTimeout(reveal);
+      Array.prototype.forEach.call(questions, function (q) { q.classList.remove("is-active"); });
+      Array.prototype.forEach.call(results, function (r) { r.classList.remove("is-open"); });
+      win.classList.remove("has-answer", "is-loading", "has-query");
+      queryEl.textContent = "";
+      urlEl.textContent = baseUrl;
+      try { history.replaceState(null, "", window.location.pathname + window.location.search); } catch (e) {}
+    };
+    // Abre um card (e fecha os outros); null fecha todos.
+    var openCard = function (card) {
+      Array.prototype.forEach.call(cards, function (c) {
+        var open = c === card;
+        c.classList.toggle("is-open", open);
+        c.querySelector(".ans-q").setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    };
+    var cardFor = function (slug) {
+      var q = document.querySelector('.ans-q[data-answer="' + slug + '"], .ans-sub[data-answer="' + slug + '"]');
+      return q && q.closest(".ans-card");
+    };
+
     document.addEventListener("click", function (event) {
-      var trigger = event.target.closest && event.target.closest(".ans-q, .ans-related-q");
+      var trigger = event.target.closest && event.target.closest(".ans-q, .ans-sub, .ans-related-q");
       if (!trigger) return;
-      show(trigger.getAttribute("data-answer"));
-      if (window.innerWidth <= 960) win.scrollIntoView({ behavior: "smooth", block: "start" });
+      var slug = trigger.getAttribute("data-answer");
+      if (trigger.classList.contains("ans-q")) {
+        var card = trigger.closest(".ans-card");
+        // Clicar de novo no card aberto fecha o card e tira a resposta.
+        if (card.classList.contains("is-open")) { openCard(null); clear(); return; }
+        openCard(card);
+      } else {
+        openCard(cardFor(slug));
+      }
+      show(slug);
+      if (window.innerWidth <= 960 && !trigger.classList.contains("ans-related-q")) {
+        win.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
 
     var initial = window.location.hash.slice(1);
     if (initial && win.querySelector('.ans-result[data-answer="' + initial + '"]')) {
+      openCard(cardFor(initial));
       show(initial, true);
       win.scrollIntoView({ block: "start" });
     }

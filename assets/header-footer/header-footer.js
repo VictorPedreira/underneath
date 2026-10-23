@@ -31,25 +31,25 @@
   // mobileMenu: no celular a aba sai da barra inferior e vai para o menu
   // que abre na seta ao lado do logo.
   var NAV_LINKS = [
-    { label: "App", href: ROOT + "app/", match: "app", mobileMenu: true },
     { label: "Sobre", href: ROOT + "sobre/", match: "sobre" },
     { label: "Método", href: ROOT + "metodo/", match: "metodo" },
     { label: "Diagnóstico", href: ROOT + "diagnostico/", match: "diagnostico" },
     { label: "Cases", href: ROOT + "cases/", match: "cases" },
     { label: "Respostas", href: ROOT + "respostas/", match: "respostas" },
-    { label: "Blog", href: ROOT + "blog/", match: "blog", mobileMenu: true }
+    { label: "Blog", href: ROOT + "blog/", match: "blog", mobileMenu: true },
+    { label: "App", href: ROOT + "app/", match: "app", mobileMenu: true }
   ];
 
   function isActive(match) {
     return currentPath.indexOf("/" + match + "/") !== -1;
   }
 
-  // Computador: o App fica num box branco logo depois do logo, seguido das
-  // demais abas. A home não tem aba própria: o logo já leva até ela.
+  // Computador: abas lado a lado, com o App por último. A home não tem aba
+  // própria: o logo já leva até ela.
   var isHome = !NAV_LINKS.some(function (link) { return isActive(link.match); });
   var navLinksHTML = NAV_LINKS.map(function (link) {
     var active = isActive(link.match);
-    var classes = "navlink" + (link.match === "app" ? " navlink-app" : "") + (active ? " is-active" : "");
+    var classes = "navlink" + (active ? " is-active" : "");
     return '<a class="' + classes + '" href="' + link.href + '"' + (active ? ' aria-current="page"' : "") + ">" + link.label + "</a>";
   }).join("\n    ");
 
@@ -182,6 +182,12 @@
       backToTop.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
+      // Aparece assim que a página sai do topo.
+      var toggleBackToTop = function () {
+        backToTop.classList.toggle("is-visible", window.scrollY > 40);
+      };
+      window.addEventListener("scroll", toggleBackToTop, { passive: true });
+      toggleBackToTop();
     }
 
     var more = document.getElementById("navMore");
