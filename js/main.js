@@ -208,7 +208,8 @@ var CONTACT_EMAIL = "contato@underneath.com.br";
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.addEventListener("click", function () {
         var step = steps[Number(btn.getAttribute("data-step"))];
-        if (step) step.scrollIntoView({ behavior: "smooth", block: "center" });
+        // Alinha o card ao topo da tela (margem em .mstep scroll-margin-top), ao lado do painel fixo.
+        if (step) step.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
   });

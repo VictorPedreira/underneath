@@ -740,6 +740,7 @@ body.page-method{
 
 .method-steps{display:flex; flex-direction:column; gap:28px;}
 .mstep{
+  scroll-margin-top:16px;
   position:relative; min-height:min(64vh, 540px); display:flex; flex-direction:column; justify-content:center;
   padding:48px 46px; border-radius:16px; overflow:hidden;
   background:linear-gradient(160deg, rgba(20,45,100,.55), rgba(6,18,46,.55));
@@ -1241,6 +1242,145 @@ footer{border-top:1px solid var(--line); padding:52px 0 40px;}
 
 /* Com App e Blog são 7 abas: em telas médias o espaço entre elas diminui */
 @media (min-width:901px) and (max-width:1180px){ nav.links{gap:18px;} nav.links a.navlink{font-size:.9rem;} }
+
+/* ---------------- BLOG ----------------
+   Mesmo fundo escuro do Método. Cada matéria tem a sua cor de tema em
+   --accent (definida no <body> da matéria e em cada card do índice), usada
+   na categoria, na ilustração e nos destaques do texto. */
+body.page-blog, body.page-post{
+  --paper:#061631; --paper-2:rgba(255,255,255,0.04);
+  --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
+  --navy-600:#8DB0F5; --gold-700:#D9A94D;
+  background:
+    radial-gradient(55% 45% at 88% 8%, rgba(76,141,255,.2), rgba(76,141,255,0) 70%),
+    radial-gradient(45% 40% at 6% 92%, rgba(27,77,166,.32), rgba(27,77,166,0) 70%),
+    radial-gradient(rgba(141,176,245,.14) 1px, transparent 1.2px) 0 0 / 26px 26px,
+    linear-gradient(165deg, #071739 0%, #050F28 55%, #030A1C 100%);
+  background-attachment:fixed;
+}
+.post-cat{
+  display:inline-flex; align-items:center; gap:8px; font-size:.8rem; font-weight:700; letter-spacing:.04em; color:var(--accent, var(--gold-400));
+}
+.post-cat::before{content:""; width:8px; height:8px; border-radius:50%; background:currentColor; box-shadow:0 0 12px currentColor;}
+
+/* ilustração do tema */
+.post-art{width:100%; height:auto; overflow:visible; color:var(--accent);}
+.post-art *{fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
+.post-art circle:not(.art-ring):not(.art-line), .post-art .art-fill{fill:currentColor; stroke:none;}
+.post-art .art-ring{stroke-opacity:.55;}
+.post-art .art-line{stroke-opacity:.45;}
+.post-art .art-strong{stroke-opacity:.9;}
+.post-art .art-faint{stroke-opacity:.2;}
+.post-art .art-thick{stroke-width:5;}
+.post-art .art-core-box{fill:currentColor; fill-opacity:.14; stroke-opacity:.8;}
+.post-art .art-cursor{fill:#F4F6FB; stroke:none;}
+.post-art .art-core{fill:currentColor; stroke:none; filter:drop-shadow(0 0 10px currentColor); transform-box:fill-box; transform-origin:center; animation:art-pulse 2.4s ease-in-out infinite;}
+.post-art .art-spark{fill:currentColor; stroke:none; transform-box:fill-box; transform-origin:center; animation:art-spark 2.4s ease-in-out infinite;}
+.post-art .art-shift-a{animation:art-shift 4s ease-in-out infinite;}
+.post-art .art-shift-b{animation:art-shift 4s ease-in-out infinite reverse;}
+@keyframes art-spark{0%, 100%{opacity:.35; transform:scale(.7);} 50%{opacity:1; transform:scale(1.15);}}
+@keyframes art-pulse{0%, 100%{transform:scale(1);} 50%{transform:scale(1.35);}}
+@keyframes art-shift{0%, 100%{transform:translateY(0);} 50%{transform:translateY(3px);}}
+
+/* índice: grade de cards; o primeiro ocupa a largura toda */
+.post-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:20px;}
+.post-card{
+  position:relative; display:flex; flex-direction:column; overflow:hidden; border-radius:14px;
+  border:1px solid rgba(169,194,245,.18); background:linear-gradient(160deg, rgba(20,45,100,.5), rgba(6,18,46,.55));
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.post-card:hover{transform:translateY(-4px); border-color:color-mix(in srgb, var(--accent) 55%, transparent); box-shadow:0 18px 40px rgba(0,0,0,.35), 0 0 30px color-mix(in srgb, var(--accent) 18%, transparent);}
+.post-card-art{
+  display:grid; place-items:center; height:190px; border-bottom:1px solid rgba(255,255,255,.08);
+  background:radial-gradient(60% 80% at 50% 50%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%), rgba(4,12,30,.5);
+}
+.post-card-art .post-art{width:118px;}
+.post-card-body{display:flex; flex-direction:column; gap:10px; flex:1; padding:24px 24px 26px;}
+.post-card h2, .post-card h3{font-size:1.3rem; line-height:1.2; color:#F5F8FF; max-width:none; margin:0;}
+.post-card p{margin:0; color:var(--muted); font-size:.94rem;}
+.post-card-meta{margin-top:auto; padding-top:8px; font-family:'IBM Plex Mono', monospace; font-size:.76rem; color:#8FA3CE;}
+.post-card-meta span{display:inline-block; color:var(--accent); transition:transform .3s ease;}
+.post-card:hover .post-card-meta span{transform:translateX(4px);}
+.post-card-featured{grid-column:1 / -1; flex-direction:row;}
+.post-card-featured .post-card-art{flex:0 0 42%; height:auto; min-height:300px; border-bottom:0; border-right:1px solid rgba(255,255,255,.08);}
+.post-card-featured .post-card-art .post-art{width:170px;}
+.post-card-featured .post-card-body{justify-content:center; padding:40px;}
+.post-card-featured h2{font-size:clamp(1.6rem, 2.6vw, 2.1rem);}
+.post-card-featured p{font-size:1.02rem; max-width:520px;}
+
+/* matéria */
+.post-hero{padding:48px 0 40px;}
+.post-hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) 260px; gap:48px; align-items:center;}
+.post-back{display:inline-block; margin-bottom:22px; font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:#8FA3CE;}
+.post-back:hover{color:#FFFFFF;}
+.post-hero .post-cat{display:flex;}
+.post-hero h1{margin-top:14px; font-size:clamp(2rem, 4vw, 3rem); line-height:1.1; max-width:820px;}
+.post-hero .lede{max-width:680px; font-size:1.1rem;}
+.post-meta{display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:.76rem; color:#8FA3CE;}
+.post-meta span + span::before{content:"·"; margin-right:18px; color:rgba(143,163,206,.5);}
+.post-hero-art{
+  display:grid; place-items:center; aspect-ratio:1; border-radius:24px; border:1px solid rgba(169,194,245,.18);
+  background:radial-gradient(60% 60% at 50% 50%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 72%), rgba(4,12,30,.45);
+}
+.post-hero-art .post-art{width:62%;}
+
+.post-figure{margin:0 0 48px;}
+.post-figure img{display:block; width:100%; height:auto; border-radius:14px;}
+.post-figure-todo{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; aspect-ratio:16 / 7; padding:28px;
+  border:1.5px dashed color-mix(in srgb, var(--accent) 45%, transparent); border-radius:14px; text-align:center;
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0 14px, rgba(255,255,255,0) 14px 28px), rgba(4,12,30,.4);
+}
+.post-figure-todo strong{color:#F5F8FF; font-size:1rem;}
+.post-figure-todo span{max-width:560px; color:var(--muted); font-size:.9rem;}
+.post-figure-icon svg{width:34px; height:34px; fill:none; stroke:var(--accent); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
+
+.post-body{max-width:740px; margin:0 auto;}
+.post-body h2{margin:44px 0 14px; max-width:none; font-size:clamp(1.4rem, 2.4vw, 1.75rem); color:#F5F8FF;}
+.post-body h2:first-child{margin-top:0;}
+.post-body p{margin:0 0 16px; color:#C9D4EA; font-size:1.06rem; line-height:1.75;}
+.post-body strong{color:#F5F8FF;}
+.post-body code{font-family:'IBM Plex Mono', monospace; font-size:.9em; padding:1px 6px; border-radius:4px; background:rgba(255,255,255,.08); color:#F5F8FF;}
+.post-body ul{margin:0 0 18px; padding:0; list-style:none;}
+.post-body li{position:relative; margin:0 0 10px; padding-left:22px; color:#C9D4EA; font-size:1.02rem; line-height:1.65;}
+.post-body li::before{content:""; position:absolute; left:2px; top:.72em; width:10px; height:1.5px; background:var(--accent);}
+.post-callout{
+  margin:30px 0; padding:22px 24px; border-radius:12px; border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-left:3px solid var(--accent); background:color-mix(in srgb, var(--accent) 8%, rgba(4,12,30,.5));
+}
+.post-callout > strong{display:block; margin-bottom:6px; color:var(--accent); font-size:.85rem; letter-spacing:.04em; text-transform:uppercase;}
+.post-callout p{margin:0; font-size:1rem;}
+.post-layers{
+  margin:44px 0 0; padding:26px; border-radius:14px; border:1px solid rgba(169,194,245,.2);
+  background:linear-gradient(160deg, rgba(20,45,100,.5), rgba(6,18,46,.5));
+}
+.post-layers-title{display:block; margin-bottom:10px; font-size:.8rem; font-weight:700; letter-spacing:.04em; color:var(--gold-400);}
+.post-layers p{margin:0 0 14px; font-size:1rem;}
+.post-layers a{font-weight:700; color:#A9C2F5;}
+.post-layers a:hover{color:#FFFFFF;}
+.post-sources{max-width:740px; margin:36px auto 0; padding-top:24px; border-top:1px solid var(--line);}
+.post-sources h2{margin:0 0 12px; font-size:1rem; color:#8FA3CE;}
+.post-sources ul{margin:0; padding:0; list-style:none;}
+.post-sources li{margin:0 0 8px; font-size:.88rem;}
+.post-sources a{color:#A9C2F5;}
+.post-sources a:hover{text-decoration:underline; text-underline-offset:3px;}
+.post-final{margin-top:64px;}
+.post-more{padding:72px 0 100px;}
+.post-more > h2{margin-bottom:24px;}
+.post-grid-2 .post-card-art{height:150px;}
+
+@media (max-width:900px){
+  .post-hero-grid{grid-template-columns:1fr; gap:28px;}
+  .post-hero-art{width:180px;}
+  .post-card-featured{flex-direction:column;}
+  .post-card-featured .post-card-art{flex:none; min-height:220px; border-right:0; border-bottom:1px solid rgba(255,255,255,.08);}
+  .post-card-featured .post-card-body{padding:26px 24px 28px;}
+}
+@media (max-width:700px){
+  .post-grid{grid-template-columns:1fr;}
+  .post-figure-todo{aspect-ratio:auto; min-height:220px;}
+  .post-body p{font-size:1rem;}
+}
 
 /* ---------------- PÁGINAS "EM BREVE" (App e Blog) ----------------
    Uma prévia do conteúdo fica borrada ao fundo e o aviso "Em breve" fica
