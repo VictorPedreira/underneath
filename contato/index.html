@@ -6,9 +6,13 @@
 <title>Analisar meu site — Contato | UNDERNEATH</title>
 <meta name="description" content="Fale com a UNDERNEATH e peça a análise do seu site: descubra em qual das quatro camadas está o motivo de ele não ser encontrado.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../assets/css/global.css">
+<link rel="stylesheet" href="../contato/contato.css">
 <!-- SEO -->
 <link rel="canonical" href="https://underneathsi.com/contato/">
+<link rel="alternate" hreflang="pt-BR" href="https://underneathsi.com/contato/">
+<link rel="alternate" hreflang="en" href="https://underneathsi.com/en/contact/">
+<link rel="alternate" hreflang="x-default" href="https://underneathsi.com/contato/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0A1F3D">
 <link rel="icon" href="../favicon.ico" sizes="any">
@@ -105,13 +109,10 @@
             <li><span class="ct-layer-num">04</span><div><strong>Ação</strong><span>Quem chega encontra o próximo passo?</span></div></li>
           </ol>
 
-          <!--
-            ATENÇÃO: substitua o e-mail abaixo (em contato/index.html e em js/main.js,
-            constante CONTACT_EMAIL) pelo e-mail comercial real da UNDERNEATH antes de publicar.
-          -->
+          <!-- E-mail de contato: também definido em assets/js/global.js (constante CONTACT_EMAIL). -->
           <div class="ct-direct">
             <div class="slug">// prefere falar direto?</div>
-            <a href="mailto:contato@underneath.com.br">contato@underneath.com.br</a>
+            <a href="mailto:contact@underneathsi.com">contact@underneathsi.com</a>
             <span>WhatsApp: a definir</span>
           </div>
         </div>
@@ -144,7 +145,7 @@
 
           <div class="ct-field">
             <label for="site">Site da sua empresa</label>
-            <input type="url" id="site" name="site" placeholder="https://" autocomplete="url">
+            <div class="ct-url"><span class="ct-url-prefix" aria-hidden="true">https://</span><input type="text" id="site" name="site" placeholder="seusite.com.br" autocomplete="url" inputmode="url" spellcheck="false" autocapitalize="off"></div>
             <div class="ct-preview" aria-live="polite">
               <span class="case-browser-dots"><i></i><i></i><i></i></span>
               <span class="ct-preview-url">seusite.com.br</span>
@@ -157,9 +158,12 @@
             <textarea id="message" name="message" required placeholder="Ex.: o site existe há dois anos, mas quase ninguém chega pelo Google…"></textarea>
           </div>
 
+          <!-- anti-spam do Web3Forms: campo invisível que só robôs marcam -->
+          <input type="checkbox" name="botcheck" class="ct-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="ct-submit">
             <button type="submit" class="ct-btn">Analisar meu site <span aria-hidden="true">→</span></button>
-            <p class="form-note">Ao enviar, seu programa de e-mail abrirá com a mensagem pronta.</p>
+            <p class="form-note">Respondemos no e-mail que você informar.</p>
+            <p class="ct-status" role="status" aria-live="polite"></p>
           </div>
         </form>
       </div>
@@ -170,7 +174,7 @@
 
 <footer id="site-footer"></footer>
 
-<script src="../assets/header-footer/header-footer.js"></script>
-<script src="../js/main.js"></script>
+<script src="../assets/js/global.js"></script>
+<script src="../contato/contato.js"></script>
 </body>
 </html>

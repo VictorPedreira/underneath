@@ -1,0 +1,14 @@
+/* Cases: lista (cases/index.html) e a página de cada case (uma pasta por case).
+   Os cards e o carrossel são compartilhados com a home e ficam no global.css. */
+
+.case-shot-lg{border-radius:var(--radius); padding:48px 56px 0; margin-bottom:56px;}
+.case-shot-lg .case-browser-url{max-width:340px; font-size:.78rem;}
+@media (max-width:720px){
+  .case-shot-lg{padding:28px 20px 0;}
+}
+/* ---------------- CASE DETAIL PAGE ---------------- */
+.case-meta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
+.case-meta span{
+  font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted);
+  border:1px solid var(--line); border-radius:20px; padding:5px 12px;
+}

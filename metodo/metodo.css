@@ -1,0 +1,96 @@
+/* Página Método: painel fixo com as 7 etapas. Carregado depois do global.css. */
+
+/* ---------------- MÉTODO: TEMA ESCURO ----------------
+   A página inteira fica escura, com fundo próprio (diferente da home): uma
+   malha fina de "planta técnica" com brilhos azuis suaves, fixa atrás do
+   conteúdo. */
+body.page-method{
+  --paper:#061631; --paper-2:rgba(255,255,255,0.04);
+  --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
+  --navy-600:#8DB0F5; --gold-700:#D9A94D;
+  background:
+    radial-gradient(55% 45% at 88% 8%, rgba(76,141,255,.22), rgba(76,141,255,0) 70%),
+    radial-gradient(45% 40% at 6% 92%, rgba(27,77,166,.35), rgba(27,77,166,0) 70%),
+    radial-gradient(30% 30% at 50% 55%, rgba(255,198,77,.05), rgba(255,198,77,0) 70%),
+    linear-gradient(rgba(141,176,245,.055) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(90deg, rgba(141,176,245,.055) 1px, transparent 1px) 0 0 / 56px 56px,
+    linear-gradient(165deg, #071739 0%, #050F28 55%, #030A1C 100%);
+  background-attachment:fixed;
+}
+/* Método: "Por que nessa ordem" em destaque — painel com faixa dourada e texto maior */
+.content-block.method-order{
+  position:relative; max-width:900px; padding:30px 36px 30px 38px; border-radius:14px; overflow:hidden;
+  background:rgba(255,255,255,.03); border:1px solid rgba(169,194,245,.14);
+}
+.method-order::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(217,169,77,.7);}
+.content-block.method-order h3{font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:#D9A94D; margin-bottom:10px;}
+.content-block.method-order p{margin:0; font-size:1.12rem; line-height:1.7; color:#DCE5F7;}
+.dark-page .content-block.method-order a{color:#D9A94D; text-decoration:underline; text-underline-offset:4px;}
+@media (max-width:720px){
+  .method-order{padding:28px 22px 28px 26px;}
+}
+/* ---------------- MÉTODO: PROCESSO COM PAINEL FIXO ----------------
+   Faixa escura (mesmo fundo da home). À esquerda, um painel fixo mostra o
+   número da etapa atual (rola como um contador), a barra de progresso e a
+   lista de etapas clicáveis; à direita, as etapas rolam. O metodo.js marca a
+   etapa ativa. */
+.method-jump{display:inline-block; margin-top:26px; font-weight:700; color:var(--navy-600);}
+.method-jump:hover{text-decoration:underline; text-underline-offset:3px;}
+.method-flow{position:relative; padding:40px 0 110px; color:var(--ink);}
+.method-flow-grid{display:grid; grid-template-columns:300px 1fr; gap:80px; align-items:start;}
+.method-rail{position:sticky; top:110px;}
+.method-rail-label{font-family:'IBM Plex Mono', monospace; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-400);}
+.method-rail-count{display:flex; align-items:flex-end; margin-top:10px; font-family:'Doppio One', system-ui, sans-serif; font-size:7.5rem; line-height:1;}
+.method-rail-num{height:1em; overflow:hidden; padding-right:.04em; color:#FFFFFF;}
+.method-rail-digits{transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.method-rail-digits span{display:block; height:1em;
+  background:linear-gradient(#FFFFFF 30%, #8DB0F5); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.method-rail-of{margin:0 0 .14em .12em; font-size:.3em; color:transparent; -webkit-text-stroke:1px rgba(169,194,245,.6);}
+.method-rail-nav{position:relative; margin-top:40px; padding-left:22px;}
+.method-rail-track{position:absolute; left:0; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,.12); border-radius:2px;}
+.method-rail-fill{position:absolute; left:0; top:0; width:100%; height:0; background:linear-gradient(#FFC64D, #4C8DFF); border-radius:2px; box-shadow:0 0 10px rgba(76,141,255,.6); transition:height .6s cubic-bezier(.2,.7,.2,1);}
+.method-rail ol{list-style:none; margin:0; padding:0;}
+.method-rail button{
+  display:flex; gap:12px; align-items:baseline; width:100%; padding:7px 0; border:0; background:none; cursor:pointer; text-align:left;
+  font-family:'Bellota Text', system-ui, sans-serif; font-weight:700; font-size:.98rem; color:rgba(174,187,214,.55); transition:color .3s ease, transform .3s ease;
+}
+.method-rail button span{font-family:'IBM Plex Mono', monospace; font-weight:400; font-size:.75rem;}
+.method-rail button:hover{color:#F4F6FB;}
+.method-rail button.is-active{color:#FFFFFF; transform:translateX(4px);}
+.method-rail button.is-active span{color:var(--gold-400);}
+.method-steps{display:flex; flex-direction:column; gap:28px;}
+.mstep{
+  scroll-margin-top:16px;
+  position:relative; min-height:min(64vh, 540px); display:flex; flex-direction:column; justify-content:center;
+  padding:48px 46px; border-radius:16px; overflow:hidden;
+  background:linear-gradient(160deg, rgba(20,45,100,.55), rgba(6,18,46,.55));
+  border:1px solid rgba(169,194,245,.14); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  opacity:.4; transform:scale(.97); transition:opacity .5s ease, transform .5s ease, border-color .5s ease, box-shadow .5s ease;
+}
+.mstep.is-active{opacity:1; transform:none; border-color:rgba(91,155,255,.4); box-shadow:0 0 0 1px rgba(91,155,255,.08), 0 30px 80px rgba(0,0,0,.35), 0 0 60px rgba(76,141,255,.15);}
+.mstep-head{display:flex; justify-content:space-between; align-items:flex-start;}
+.mstep-icon{width:54px; height:54px; padding:13px; border-radius:14px; fill:none; stroke:#8DB0F5; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
+  background:rgba(76,141,255,.12); border:1px solid rgba(91,155,255,.3); box-shadow:0 0 24px rgba(76,141,255,.2);}
+.mstep.is-active .mstep-icon{stroke:#FFFFFF;}
+.mstep-num{font-family:'Doppio One', system-ui, sans-serif; font-size:5.5rem; line-height:.8; color:transparent; -webkit-text-stroke:1px rgba(169,194,245,.35);}
+.mstep h3{font-size:clamp(1.8rem, 3vw, 2.4rem); color:#FFFFFF; margin-top:34px;}
+.mstep p{color:#C9D4EA; font-size:1.08rem; max-width:520px; margin:14px 0 0;}
+/* links dentro das etapas: azul claro com seta; no hover uma linha em
+   degradê se desenha por baixo e a seta avança */
+.mstep p a{
+  color:#BFD3FA; font-weight:700; text-decoration:none; white-space:nowrap;
+  background:linear-gradient(90deg, #FFC64D, #4C8DFF) left bottom / 0 1.5px no-repeat;
+  padding-bottom:2px; transition:background-size .35s ease, color .35s ease;
+}
+.mstep p a::after{content:"→"; display:inline-block; margin-left:6px; transition:transform .35s ease;}
+.mstep p a:hover, .mstep p a:focus-visible{color:#FFFFFF; background-size:100% 1.5px;}
+.mstep p a:hover::after, .mstep p a:focus-visible::after{transform:translateX(4px);}
+.mstep-tags{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:26px 0 0; padding:0;}
+.mstep-tags li{padding:6px 14px; border-radius:999px; font-size:.82rem; font-weight:700; color:#DCE7FF; background:rgba(40,90,200,.25); border:1px solid rgba(91,155,255,.3);}
+@media (max-width:960px){
+  .method-flow{padding:64px 0;}
+  .method-flow-grid{grid-template-columns:1fr; gap:0;}
+  .method-rail{display:none;}
+  .mstep{min-height:0; padding:34px 26px; opacity:1; transform:none;}
+  .mstep-num{font-size:3.6rem;}
+}

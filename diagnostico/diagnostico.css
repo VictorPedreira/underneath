@@ -1,0 +1,86 @@
+/* Página Diagnóstico: o iceberg com as 4 camadas. Carregado depois do global.css. */
+
+/* ---------------- DIAGNÓSTICO: ICEBERG ----------------
+   O topo é o céu (off-white) com a ponta do iceberg; abaixo da linha d'água
+   cada camada é uma faixa mais escura que a anterior, com a parte submersa
+   do iceberg atravessando todas como fundo. */
+body.page-iceberg{
+  --ink:#F4F6FB; --muted:#BCC8E2; --line:rgba(255,255,255,0.14);
+  --paper-2:rgba(255,255,255,0.05); --navy-600:#A9C2F5; --gold-700:#E2B65E;
+  background:#040B1A;
+}
+.page-iceberg header, .page-iceberg .ice-sky{
+  --paper:#EFEEEB; --ink:#0B1220; --muted:#5B6478; --line:rgba(11,18,32,0.12);
+  --navy-600:#1B4DA6; --gold-700:#8F661D;
+}
+.ice-sky{position:relative; padding-bottom:150px; background:linear-gradient(#EFEEEB 55%, #E3E9F3);}
+.ice-sky .wrap{position:relative; z-index:2;}
+.ice-sky .lede{max-width:560px;}
+.ice-tip, .ice-body{animation:ice-bob 7s ease-in-out infinite alternate;}
+.ice-tip{
+  position:absolute; right:7%; bottom:-14px; width:min(36vw, 440px); height:190px; z-index:1;
+  filter:drop-shadow(0 -6px 24px rgba(27,77,166,.12));
+}
+.ice-water{position:relative; z-index:2; overflow:hidden; background:linear-gradient(#6F9BE3 0%, #3E6FCE 16%, #1B4DA6 34%, #12356B 52%, #0A1F3D 70%, #050E21 86%, #040B1A 100%);}
+.ice-waterline{
+  position:absolute; top:-1px; left:0; right:0; height:22px; z-index:2;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='22' viewBox='0 0 240 22'%3E%3Cpath d='M0 8 Q30 0 60 8 T120 8 T180 8 T240 8 V0 H0Z' fill='%23E3E9F3'/%3E%3Cpath d='M0 8 Q30 0 60 8 T120 8 T180 8 T240 8' fill='none' stroke='%23FFFFFF' stroke-opacity='.7' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x;
+  animation:ice-wave 9s linear infinite;
+}
+.ice-body{
+  position:absolute; top:0; right:calc(7% - min(2vw, 24px)); width:min(40vw, 488px); height:64%; z-index:0; pointer-events:none;
+}
+.ice-rays{position:absolute; top:0; left:0; right:0; height:40%; z-index:0; pointer-events:none; overflow:hidden;}
+.ice-rays i{
+  position:absolute; top:-10%; width:120px; height:120%; transform:skewX(-18deg);
+  background:linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,0));
+  animation:ice-ray 8s ease-in-out infinite alternate;
+}
+.ice-rays i:nth-child(1){left:12%;}
+.ice-rays i:nth-child(2){left:38%; width:70px; animation-delay:-3s;}
+.ice-rays i:nth-child(3){left:58%; width:150px; animation-delay:-5s;}
+.ice-bubbles{position:absolute; inset:0; z-index:0; pointer-events:none;}
+.ice-bubbles i{
+  position:absolute; bottom:-20px; width:6px; height:6px; border-radius:50%;
+  border:1px solid rgba(220,232,255,.55); background:rgba(220,232,255,.12);
+  animation:ice-bubble 14s linear infinite; opacity:0;
+}
+.ice-bubbles i:nth-child(1){left:6%; animation-delay:-1s;}
+.ice-bubbles i:nth-child(2){left:14%; width:4px; height:4px; animation-delay:-6s; animation-duration:11s;}
+.ice-bubbles i:nth-child(3){left:23%; animation-delay:-9s; animation-duration:17s;}
+.ice-bubbles i:nth-child(4){left:31%; width:9px; height:9px; animation-delay:-3s;}
+.ice-bubbles i:nth-child(5){left:42%; width:4px; height:4px; animation-delay:-12s; animation-duration:12s;}
+.ice-bubbles i:nth-child(6){left:50%; animation-delay:-7s; animation-duration:16s;}
+.ice-bubbles i:nth-child(7){left:57%; width:8px; height:8px; animation-delay:-2s; animation-duration:19s;}
+.ice-bubbles i:nth-child(8){left:64%; width:4px; height:4px; animation-delay:-10s;}
+.ice-bubbles i:nth-child(9){left:71%; animation-delay:-5s; animation-duration:13s;}
+.ice-bubbles i:nth-child(10){left:78%; width:10px; height:10px; animation-delay:-13s; animation-duration:18s;}
+.ice-bubbles i:nth-child(11){left:84%; width:4px; height:4px; animation-delay:-4s; animation-duration:10s;}
+.ice-bubbles i:nth-child(12){left:89%; animation-delay:-8s; animation-duration:15s;}
+.ice-bubbles i:nth-child(13){left:94%; width:7px; height:7px; animation-delay:-11s;}
+.ice-bubbles i:nth-child(14){left:3%; width:5px; height:5px; animation-delay:-14s; animation-duration:20s;}
+.ice-layer{position:relative; z-index:1; min-height:62vh; display:flex; align-items:center; padding:110px 0;}
+.ice-layer .wrap{width:100%;}
+.ice-layer h2{font-size:clamp(2rem, 4vw, 3rem); color:#FFFFFF; margin-top:0; max-width:560px;}
+.ice-layer p{color:#D6E1F5; max-width:520px; font-size:1.08rem; margin:16px 0 0;}
+.ice-layer + .ice-layer::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.18) 20%, rgba(255,255,255,.18) 80%, transparent);
+}
+.ice-abyss{position:relative; z-index:1;}
+.ice-abyss .content-block a{color:#A9C2F5;}
+@media (max-width:720px){
+  .ice-tip{right:4%; width:56vw; height:130px;}
+  .ice-body{right:2%; width:60vw; opacity:.6;}
+  .ice-sky{padding-bottom:120px;}
+}
+@keyframes ice-bob{from{transform:translateY(0);} to{transform:translateY(9px);}}
+@keyframes ice-wave{to{background-position-x:240px;}}
+@keyframes ice-ray{from{opacity:.25;} to{opacity:.9;}}
+@keyframes ice-bubble{
+  0%{transform:translate(0,0); opacity:0;}
+  10%{opacity:.8;}
+  50%{transform:translate(10px,-50vh);}
+  90%{opacity:.6;}
+  100%{transform:translate(-6px,-100vh); opacity:0;}
+}
