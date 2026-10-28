@@ -18,18 +18,27 @@ var WEB3FORMS_KEY = "";
     if (!form) return;
 
     // Textos do formulário no idioma da página.
-    var EN = document.documentElement.lang.toLowerCase().indexOf("en") === 0;
-    var TXT = EN ? {
-      waiting: "waiting for an address", ready: "ready to analyze", placeholder: "yoursite.com",
-      subject: "Analyze my site — ", newContact: "new contact", name: "Name: ", email: "Email: ", site: "Site: ", symptom: "Main issue: ",
-      sending: "Sending…", sent: "<strong>Message sent.</strong> We received your message and will reply to ", fail: "Sending failed",
-      error: "We couldn't send it right now. Try again or ", errorLink: "send it from your email", formName: "UNDERNEATH website"
-    } : {
-      waiting: "aguardando endereço", ready: "pronto para analisar", placeholder: "seusite.com.br",
-      subject: "Analisar meu site — ", newContact: "novo contato", name: "Nome: ", email: "E-mail: ", site: "Site: ", symptom: "Principal incômodo: ",
-      sending: "Enviando…", sent: "<strong>Mensagem enviada.</strong> Recebemos o seu relato e respondemos no e-mail ", fail: "Falha no envio",
-      error: "Não foi possível enviar agora. Tente de novo ou ", errorLink: "envie pelo seu e-mail", formName: "Site UNDERNEATH"
+    var TEXTS = {
+      en: {
+        waiting: "waiting for an address", ready: "ready to analyze", placeholder: "yoursite.com",
+        subject: "Analyze my site — ", newContact: "new contact", name: "Name: ", email: "Email: ", site: "Site: ", symptom: "Main issue: ",
+        sending: "Sending…", sent: "<strong>Message sent.</strong> We received your message and will reply to ", fail: "Sending failed",
+        error: "We couldn't send it right now. Try again or ", errorLink: "send it from your email", formName: "UNDERNEATH website"
+      },
+      es: {
+        waiting: "esperando una dirección", ready: "lista para analizar", placeholder: "tuweb.es",
+        subject: "Analizar mi web — ", newContact: "nuevo contacto", name: "Nombre: ", email: "Correo: ", site: "Web: ", symptom: "Principal problema: ",
+        sending: "Enviando…", sent: "<strong>Mensaje enviado.</strong> Hemos recibido tu mensaje y te responderemos en el correo ", fail: "Error en el envío",
+        error: "No hemos podido enviarlo ahora. Inténtalo de nuevo o ", errorLink: "envíalo desde tu correo", formName: "Web UNDERNEATH"
+      },
+      pt: {
+        waiting: "aguardando endereço", ready: "pronto para analisar", placeholder: "seusite.com.br",
+        subject: "Analisar meu site — ", newContact: "novo contato", name: "Nome: ", email: "E-mail: ", site: "Site: ", symptom: "Principal incômodo: ",
+        sending: "Enviando…", sent: "<strong>Mensagem enviada.</strong> Recebemos o seu relato e respondemos no e-mail ", fail: "Falha no envio",
+        error: "Não foi possível enviar agora. Tente de novo ou ", errorLink: "envie pelo seu e-mail", formName: "Site UNDERNEATH"
+      }
     };
+    var TXT = TEXTS[document.documentElement.lang.toLowerCase().slice(0, 2)] || TEXTS.pt;
 
     // Barra de progresso: um segmento por campo (sintoma, nome, e-mail e relato).
     var bars = form.querySelectorAll(".ct-progress i");

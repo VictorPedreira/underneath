@@ -136,7 +136,7 @@ nav.links a.navlink.is-active{color:var(--navy-600);}
 }
 /* Seletor de idioma (PT | EN), à direita do botão do cabeçalho: duas bolinhas
    dentro de um contorno arredondado. O idioma atual mostra a bandeira (PT = Brasil, EN = Estados
-   Unidos) bem suave ao fundo; o outro fica só com o texto, sobre o fundo da
+   Unidos, ES = Espanha) bem suave ao fundo; o outro fica só com o texto, sobre o fundo da
    página. Texto azul-marinho nas páginas claras e branco nas escuras (home e
    .dark-page). No celular aparece no canto direito da barra do topo. */
 .lang-switch{
@@ -152,15 +152,15 @@ nav.links a.navlink.is-active{color:var(--navy-600);}
 }
 .lang-switch a:hover{opacity:1;}
 .lang-switch a.is-active{cursor:default;}
-.lang-switch.is-pt a[hreflang="pt-BR"], .lang-switch.is-en a[hreflang="en"]{opacity:1; font-weight:600;}
+.lang-switch.is-pt a[hreflang="pt-BR"], .lang-switch.is-en a[hreflang="en"], .lang-switch.is-es a[hreflang="es-ES"]{opacity:1; font-weight:600;}
 .lang-switch a:focus-visible{outline:2px solid var(--gold-400); outline-offset:2px;}
-/* bolinha com a bandeira bem suave: desliza entre PT e EN, e a bandeira troca
-   no caminho (Brasil -> Estados Unidos e vice-versa) */
+/* bolinha com a bandeira bem suave: desliza entre PT, EN e ES, e a bandeira troca
+   no caminho (Brasil, Estados Unidos e Espanha; a da Espanha fica no <i> de dentro) */
 .lang-switch-thumb{
   position:absolute; top:3px; left:3px; width:var(--ls-size); height:var(--ls-size); border-radius:50%; overflow:hidden;
   transition:transform .42s cubic-bezier(.65,0,.35,1);
 }
-.lang-switch-thumb::before, .lang-switch-thumb::after{
+.lang-switch-thumb::before, .lang-switch-thumb::after, .lang-switch-thumb i{
   content:""; position:absolute; inset:0; background-position:center; background-size:cover; transition:opacity .42s ease;
 }
 .lang-switch-thumb::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23009C3B'/%3E%3Cpolygon points='15,2.2 27.6,10 15,17.8 2.4,10' fill='%23FFDF00'/%3E%3Ccircle cx='15' cy='10' r='4.7' fill='%23002776'/%3E%3Cpath d='M10.6 9.2c3-.8 6.2-.5 8.9.9' stroke='%23fff' stroke-width='.7' fill='none'/%3E%3C/svg%3E"); opacity:.38;}
@@ -168,6 +168,10 @@ nav.links a.navlink.is-active{color:var(--navy-600);}
 .lang-switch.is-en .lang-switch-thumb{transform:translateX(calc(var(--ls-size) + var(--ls-gap)));}
 .lang-switch.is-en .lang-switch-thumb::before{opacity:0;}
 .lang-switch.is-en .lang-switch-thumb::after{opacity:.38;}
+.lang-switch-thumb i{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23AA151B'/%3E%3Crect y='5' width='30' height='10' fill='%23F1BF00'/%3E%3C/svg%3E"); opacity:0;}
+.lang-switch.is-es .lang-switch-thumb{transform:translateX(calc((var(--ls-size) + var(--ls-gap)) * 2));}
+.lang-switch.is-es .lang-switch-thumb::before{opacity:0;}
+.lang-switch.is-es .lang-switch-thumb i{opacity:.38;}
 
 /* Textos da página na troca de idioma: somem ao sair e aparecem ao chegar */
 main, nav.links a{transition:opacity .38s ease, filter .38s ease, transform .38s ease;}

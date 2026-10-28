@@ -4,9 +4,9 @@
 
    1. Configuração do site (e-mail de contato)
    2. Cabeçalho e rodapé: montados aqui para todas as páginas, em português
-      ou inglês conforme o <html lang> da página, com o seletor de idioma.
+      inglês ou espanhol conforme o <html lang> da página, com o seletor de idioma.
       Para mudar o menu, as redes sociais ou o rodapé do site inteiro, edite
-      este arquivo (textos dos dois idiomas em TEXT e NAV).
+      este arquivo (textos dos três idiomas em TEXT e NAV).
    3. Comportamentos usados em várias páginas: seções que entram deslizando
       ao rolar e o carrossel de cases (home e /cases).
 
@@ -36,9 +36,16 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
   // Current page path, used to highlight the active nav link.
   var currentPath = window.location.pathname;
 
-  // Idioma da página (<html lang>): o site tem português (raiz) e inglês (/en/).
-  var LANG = (document.documentElement.lang || "pt").toLowerCase().indexOf("en") === 0 ? "en" : "pt";
-  var BASE = ROOT + (LANG === "en" ? "en/" : "");
+  // Idioma da página (<html lang>): o site tem português (raiz), inglês (/en/) e espanhol (/es/).
+  var HTML_LANG = (document.documentElement.lang || "pt").toLowerCase();
+  var LANG = HTML_LANG.indexOf("en") === 0 ? "en" : HTML_LANG.indexOf("es") === 0 ? "es" : "pt";
+  var BASE = ROOT + (LANG === "pt" ? "" : LANG + "/");
+  // Pasta de cada página em cada idioma (contato e respostas aparecem no menu e no rodapé).
+  var PATHS = {
+    pt: { contact: "contato/", answers: "respostas/" },
+    en: { contact: "contact/", answers: "answers/" },
+    es: { contact: "contacto/", answers: "respuestas/" }
+  }[LANG];
 
   // Troca de idioma animada: a bolinha desliza na página de origem (no
   // clique) e a página nova já abre com ela no lugar certo. Aqui os textos
@@ -59,10 +66,17 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     },
     en: {
       home: "Home", cta: "Analyze my site", more: "More options", openMenu: "Open menu", mainNav: "Main navigation",
-      language: "Language", backToTop: "Back to top", legalNav: "Legal links", slogan: "Strengthen the foundation and stand out.",
+      language: "Language", backToTop: "Back to top", legalNav: "Legal links", slogan: "Build below. Rise above.",
       privacy: "Privacy Policy", terms: "Terms of Use", cookies: "Cookie Policy", faq: "FAQ",
       copy: "UNDERNEATH - Search Intelligence. Development: UnderneathSI. All rights reserved.",
       updated: "Site updated on: "
+    },
+    es: {
+      home: "Inicio", cta: "Analizar mi web", more: "Más opciones", openMenu: "Abrir menú", mainNav: "Navegación principal",
+      language: "Idioma", backToTop: "Volver arriba", legalNav: "Enlaces legales", slogan: "Construye abajo. Destaca arriba.",
+      privacy: "Política de Privacidad", terms: "Aviso Legal", cookies: "Política de Cookies", faq: "Preguntas Frecuentes",
+      copy: "UNDERNEATH - Search Intelligence. Desarrollo: UnderneathSI. Todos los derechos reservados.",
+      updated: "Web actualizada el: "
     }
   }[LANG];
 
@@ -91,6 +105,15 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       { label: "Answers", path: "answers/", icon: "respostas" },
       { label: "Blog", path: "blog/", icon: "blog", mobileMenu: true },
       { label: "App", path: "app/", icon: "app", mobileMenu: true }
+    ],
+    es: [
+      { label: "Nosotros", path: "sobre-nosotros/", icon: "sobre" },
+      { label: "Método", path: "metodo/", icon: "metodo" },
+      { label: "Diagnóstico", path: "diagnostico/", icon: "diagnostico" },
+      { label: "Casos", path: "casos/", icon: "cases" },
+      { label: "Respuestas", path: "respuestas/", icon: "respostas" },
+      { label: "Blog", path: "blog/", icon: "blog", mobileMenu: true },
+      { label: "App", path: "app/", icon: "app", mobileMenu: true }
     ]
   };
   var NAV_LINKS = NAV[LANG].map(function (link) {
@@ -99,15 +122,17 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
 
   // Seletor de idioma: leva para a mesma página no outro idioma, usando os
   // <link rel="alternate" hreflang> da página (sem eles, vai para a home).
+  var LANGS = [["pt", "PT", "pt-BR", "Português"], ["en", "EN", "en", "English"], ["es", "ES", "es-ES", "Español"]];
   function alternateHref(lang) {
-    var link = document.querySelector('link[rel="alternate"][hreflang="' + (lang === "en" ? "en" : "pt-BR") + '"]');
-    var path = link ? new URL(link.href).pathname.replace(/^\//, "") : (lang === "en" ? "en/" : "");
+    var code = LANGS.filter(function (l) { return l[0] === lang; })[0][2];
+    var link = document.querySelector('link[rel="alternate"][hreflang="' + code + '"]');
+    var path = link ? new URL(link.href).pathname.replace(/^\//, "") : (lang === "pt" ? "" : lang + "/");
     return ROOT + path || "./";
   }
   var langSwitchHTML = function (extraClass) {
     return '<div class="lang-switch is-' + LANG + (extraClass ? " " + extraClass : "") + '" role="group" aria-label="' + TEXT.language + '">' +
-      '<span class="lang-switch-thumb" aria-hidden="true"></span>' +
-      [["pt", "PT", "pt-BR", "Português"], ["en", "EN", "en", "English"]].map(function (l) {
+      '<span class="lang-switch-thumb" aria-hidden="true"><i></i></span>' +
+      LANGS.map(function (l) {
         var current = l[0] === LANG;
         return '<a href="' + (current ? "#" : alternateHref(l[0])) + '" hreflang="' + l[2] + '" lang="' + l[2] + '" title="' + l[3] + '"' +
           (current ? ' class="is-active" aria-current="true"' : "") + ">" + l[1] + "</a>";
@@ -179,7 +204,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     "    " + navLinksHTML +
     "  </nav>" +
     '  <div class="nav-right">' +
-    '    <a class="cta-btn nav-cta" href="' + BASE + (LANG === "en" ? "contact/" : "contato/") + '">' + TEXT.cta + '<span class="nav-cta-fill nav-cta-trail" aria-hidden="true"></span><span class="nav-cta-fill" aria-hidden="true"></span><span class="nav-cta-fill nav-cta-text" aria-hidden="true">' + TEXT.cta + "</span></a>" +
+    '    <a class="cta-btn nav-cta" href="' + BASE + PATHS.contact + '">' + TEXT.cta + '<span class="nav-cta-fill nav-cta-trail" aria-hidden="true"></span><span class="nav-cta-fill" aria-hidden="true"></span><span class="nav-cta-fill nav-cta-text" aria-hidden="true">' + TEXT.cta + "</span></a>" +
     "    " + langSwitchHTML() +
     '    <button class="menu-toggle" id="menuToggle" aria-label="' + TEXT.openMenu + '" aria-expanded="false"><span></span><span></span><span></span></button>' +
     "  </div>" +
@@ -210,7 +235,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     { label: TEXT.privacy, href: "#" },
     { label: TEXT.terms, href: "#" },
     { label: TEXT.cookies, href: "#" },
-    { label: TEXT.faq, href: BASE + (LANG === "en" ? "answers/" : "respostas/"), strong: true }
+    { label: TEXT.faq, href: BASE + PATHS.answers, strong: true }
   ];
 
   function socialLink(key) {
@@ -275,14 +300,14 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       a.addEventListener("click", function (event) {
         if (a.classList.contains("is-active")) { event.preventDefault(); return; }
         if (event.ctrlKey || event.metaKey || event.shiftKey) return;
-        var to = a.getAttribute("hreflang") === "en" ? "en" : "pt";
+        var to = a.getAttribute("hreflang").slice(0, 2);
         try {
           sessionStorage.setItem("langFrom", LANG);
           if (isHome) sessionStorage.setItem("skipIntro", "1");
         } catch (e) {}
         // a bolinha desliza, os textos somem e a nova página abre em seguida
         event.preventDefault();
-        switches.forEach(function (s) { s.classList.remove("is-pt", "is-en"); s.classList.add("is-" + to); });
+        switches.forEach(function (s) { s.classList.remove("is-pt", "is-en", "is-es"); s.classList.add("is-" + to); });
         document.documentElement.classList.add("lang-leave");
         setTimeout(function () { window.location.href = a.href; }, 420);
       });
@@ -291,7 +316,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     window.addEventListener("pageshow", function (event) {
       if (event.persisted) {
         document.documentElement.classList.remove("lang-leave");
-        switches.forEach(function (s) { s.classList.remove("is-pt", "is-en"); s.classList.add("is-" + LANG); });
+        switches.forEach(function (s) { s.classList.remove("is-pt", "is-en", "is-es"); s.classList.add("is-" + LANG); });
       }
     });
     // Entrada vinda de outro idioma: os textos aparecem.
