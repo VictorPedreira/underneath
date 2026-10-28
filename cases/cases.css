@@ -12,3 +12,6 @@
   font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted);
   border:1px solid var(--line); border-radius:20px; padding:5px 12px;
 }
+
+/* Título do card como H2 (na lista de cases), com o mesmo visual do H3 da home */
+.case-panel h2.case-title{color:#F5F8FF; font-size:1.28rem; margin:0 0 10px; max-width:none; line-height:1.12;}

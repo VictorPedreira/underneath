@@ -340,6 +340,8 @@ main{overflow-x:clip;}
 .case-panel .case-actions a:hover{text-decoration:underline; text-underline-offset:3px;}
 .content-block{margin-top:44px; max-width:720px;}
 .content-block h3{font-size:1.2rem; margin-bottom:12px;}
+/* subtítulo de bloco como H2, com o visual do H3 (mantém a hierarquia H1 > H2) */
+.content-block h2.cb-h{font-size:1.2rem; margin-bottom:12px; max-width:none; line-height:1.12;}
 .content-block p{color:var(--muted); margin:0 0 16px; font-size:1rem;}
 .content-block ul{color:var(--muted); padding-left:20px; margin:0 0 16px;}
 .content-block li{margin-bottom:8px;}

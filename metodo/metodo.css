@@ -94,3 +94,7 @@ body.page-method{
   .mstep{min-height:0; padding:34px 26px; opacity:1; transform:none;}
   .mstep-num{font-size:3.6rem;}
 }
+
+/* títulos das etapas e do bloco final como H2, com o mesmo visual dos H3 */
+.mstep h2.mstep-title{font-size:clamp(1.8rem, 3vw, 2.4rem); color:#FFFFFF; margin-top:34px; max-width:none; line-height:1.12;}
+.content-block.method-order h2.cb-h{font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:#D9A94D; margin-bottom:10px;}
