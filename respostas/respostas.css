@@ -1,9 +1,4 @@
-/* Página Respostas: cards por tema e a janela de busca. Carregado depois do global.css. */
 
-/* ---------------- RESPOSTAS: BUSCA ----------------
-   Página escura com fundo de pontos. À esquerda as perguntas; à direita uma
-   janela com uma página de busca: ao clicar, a pergunta é "digitada" na
-   barra e a resposta aparece abaixo como resultado em destaque (respostas.js). */
 body.page-answers{
   --paper:#061631; --paper-2:rgba(255,255,255,0.04);
   --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
@@ -25,8 +20,6 @@ body.page-answers{
 }
 .ans-q .cluster{grid-column:1; font-size:.78rem; font-weight:700; color:var(--gold-400); letter-spacing:.04em;}
 .ans-q-text{grid-column:1; font-family:'Doppio One', system-ui, sans-serif; font-size:1.12rem; line-height:1.3;}
-/* Seta minimalista (ponta de flecha) no dourado do logotipo, do lado de fora
-   do card, à esquerda: aparece ao passar o mouse e fica no card aberto */
 .ans-card{position:relative;}
 .ans-q-go{
   position:absolute; left:-30px; top:50%; display:flex; color:#E6B02B; pointer-events:none;
@@ -36,14 +29,12 @@ body.page-answers{
 .ans-q-go svg{width:13px; height:18px; fill:currentColor; stroke:currentColor; stroke-width:1.2; stroke-linejoin:round;}
 .ans-q:hover, .ans-q.is-active{background:linear-gradient(90deg, rgba(76,141,255,.14), rgba(76,141,255,0)); padding-left:16px;}
 .ans-q:hover .ans-q-go, .ans-card.is-open .ans-q-go{opacity:1; transform:translate(0, -50%);}
-/* Card aberto: a seta gira para baixo, com um leve "quique" no fim */
 .ans-q-go svg{transition:transform .45s cubic-bezier(.34,1.56,.64,1);}
 .ans-card.is-open .ans-q-go svg{transform:rotate(90deg);}
 @media (max-width:720px){
   .ans-q-go{left:-17px;}
   .ans-q-go svg{width:10px; height:14px;}
 }
-/* Card: a borda passa para o item inteiro, que cresce ao abrir */
 .ans-card{border-bottom:1px solid var(--line); transition:background-color .3s ease;}
 .ans-card .ans-q{border-bottom:0;}
 .ans-card.is-open{background:linear-gradient(90deg, rgba(76,141,255,.14), rgba(76,141,255,0));}

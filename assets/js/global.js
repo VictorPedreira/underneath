@@ -1,61 +1,29 @@
-/* ==========================================================================
-   UNDERNEATH — Search Intelligence
-   JS GLOBAL — carregado por todas as páginas, antes do JS da própria página.
 
-   1. Configuração do site (e-mail de contato)
-   2. Cabeçalho e rodapé: montados aqui para todas as páginas, em português
-      inglês ou espanhol conforme o <html lang> da página, com o seletor de idioma.
-      Para mudar o menu, as redes sociais ou o rodapé do site inteiro, edite
-      este arquivo (textos dos três idiomas em TEXT e NAV).
-   3. Comportamentos usados em várias páginas: seções que entram deslizando
-      ao rolar e o carrossel de cases (home e /cases).
-
-   Como o arquivo acha a raiz do site: a tag <script> de cada página aponta
-   para este arquivo ("assets/js/global.js", "../assets/js/global.js",
-   "../../assets/js/global.js"...). O caminho é lido de volta e o final
-   "assets/js/global.js" é removido, então os links do menu e do rodapé
-   funcionam em qualquer profundidade de pasta.
-
-   O que é específico de uma página fica no JS da pasta dela
-   (ex.: respostas/respostas.js).
-   ========================================================================== */
-
-// 1. E-mail que recebe os contatos do site (usado no rodapé e no formulário).
 var CONTACT_EMAIL = "contact@underneathsi.com";
 
-// 2. Cabeçalho e rodapé
 (function () {
   "use strict";
 
-  // Capture this script's own path synchronously (must happen at the top
-  // level of the script, not inside a later callback).
   var thisScript = document.currentScript;
   var scriptSrc = thisScript ? thisScript.getAttribute("src") || "" : "";
   var ROOT = scriptSrc.replace(/assets\/js\/global\.js.*$/, "");
 
-  // Current page path, used to highlight the active nav link.
   var currentPath = window.location.pathname;
 
-  // Idioma da página (<html lang>): o site tem português (raiz), inglês (/en/) e espanhol (/es/).
   var HTML_LANG = (document.documentElement.lang || "pt").toLowerCase();
   var LANG = HTML_LANG.indexOf("en") === 0 ? "en" : HTML_LANG.indexOf("es") === 0 ? "es" : "pt";
   var BASE = ROOT + (LANG === "pt" ? "" : LANG + "/");
-  // Pasta de cada página em cada idioma (contato e respostas aparecem no menu e no rodapé).
   var PATHS = {
     pt: { contact: "contato/", answers: "respostas/" },
     en: { contact: "contact/", answers: "answers/" },
     es: { contact: "contacto/", answers: "respuestas/" }
   }[LANG];
 
-  // Troca de idioma animada: a bolinha desliza na página de origem (no
-  // clique) e a página nova já abre com ela no lugar certo. Aqui os textos
-  // começam escondidos e aparecem no mount() — só quando veio de uma troca.
   var LANG_FROM = null;
   try { LANG_FROM = sessionStorage.getItem("langFrom"); sessionStorage.removeItem("langFrom"); } catch (e) {}
   if (LANG_FROM === LANG) LANG_FROM = null;
   if (LANG_FROM) document.documentElement.classList.add("lang-enter");
 
-  // Textos do cabeçalho, da barra do celular e do rodapé em cada idioma.
   var TEXT = {
     pt: {
       home: "Início", cta: "Analisar meu site", more: "Mais opções", openMenu: "Abrir menu", mainNav: "Navegação principal",
@@ -80,13 +48,8 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     }
   }[LANG];
 
-  // Link da home sem "/index.html" ("./" quando já estamos na raiz).
   var HOME_HREF = BASE || "./";
 
-  // Abas do menu. path = pasta da página no idioma; match = trecho do endereço
-  // que marca a aba como ativa; icon = ícone da barra do celular.
-  // mobileMenu: no celular a aba sai da barra inferior e vai para o menu
-  // que abre na seta ao lado do logo.
   var NAV = {
     pt: [
       { label: "Sobre", path: "sobre/", icon: "sobre" },
@@ -120,8 +83,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     return { label: link.label, href: BASE + link.path, match: link.path.replace("/", ""), icon: link.icon, mobileMenu: link.mobileMenu };
   });
 
-  // Seletor de idioma: leva para a mesma página no outro idioma, usando os
-  // <link rel="alternate" hreflang> da página (sem eles, vai para a home).
   // Espanhol oculto até a publicação: para reativar, descomente a linha do ES.
   var LANGS = [["pt", "PT", "pt-BR", "Português"], ["en", "EN", "en", "English"]
     // , ["es", "ES", "es-ES", "Español"]
@@ -145,8 +106,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     return currentPath.indexOf("/" + match + "/") !== -1;
   }
 
-  // Computador: abas lado a lado, com o App por último. A home não tem aba
-  // própria: o logo já leva até ela.
   var isHome = !NAV_LINKS.some(function (link) { return isActive(link.match); });
   var navLinksHTML = NAV_LINKS.map(function (link) {
     var active = isActive(link.match);
@@ -154,8 +113,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     return '<a class="' + classes + '" href="' + link.href + '"' + (active ? ' aria-current="page"' : "") + ">" + link.label + "</a>";
   }).join("\n    ");
 
-  // Celular: barra inferior estilo aplicativo, com ícone dentro da barra e o
-  // nome escrito logo abaixo, fora dela.
   var TAB_ICONS = {
     inicio: '<path d="M3.5 10.5L12 4l8.5 6.5"/><path d="M6 9v10.5h4.5V14h3v5.5H18V9"/>',
     sobre: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6" fill="currentColor"/>',
@@ -178,7 +135,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       '<span class="tab-label">' + tab.label + "</span></a>";
   }).join("");
 
-  // Celular: seta ao lado do logo abre um menu com App e Blog.
   var moreLinks = NAV_LINKS.filter(function (link) { return link.mobileMenu; });
   var moreActive = moreLinks.some(function (link) { return isActive(link.match); });
   var moreHTML =
@@ -213,18 +169,12 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     "  " + langSwitchHTML("lang-switch-mobile") +
     "</div>";
 
-  // Páginas que terminam em fundo escuro (home, diagnóstico e as .dark-page) usam o logo
-  // com texto claro no rodapé.
   var darkFooter = document.body &&
     (document.body.classList.contains("has-hero") || document.body.classList.contains("page-iceberg") ||
      document.body.classList.contains("dark-page"));
   var FOOTER_LOGO = darkFooter ? "logo-full-light.png" : "logo-full.png";
 
-  // Rodapé padrão de todas as páginas: logo no centro, redes sociais dos
-  // lados, links legais e créditos embaixo.
-  // IMPORTANTE: troque os links de SOCIAL e LEGAL pelos endereços reais.
   var SOCIAL = {
-    // WhatsApp do Brasil no site em português; o internacional nas demais versões.
     whatsapp: { label: "WhatsApp", href: LANG === "pt" ? "https://wa.me/5511939525622" : "https://wa.me/5511940881109",
       icon: '<path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/><path d="M9.2 8.6c.2-.5.6-.5.9-.5.3 0 .5.4.8 1 .2.5-.4.9-.4 1.2.4 1 1.3 1.9 2.3 2.3.3 0 .7-.6 1.2-.4.6.3 1 .5 1 .8 0 .3 0 .7-.5.9-.6.4-1.7.4-3.2-.5a7.6 7.6 0 0 1-2.4-2.4c-.8-1.5-.8-2.6-.4-3.1z"/>' },
     instagram: { label: "Instagram", href: "https://instagram.com/underneathsi",
@@ -249,7 +199,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       '<svg viewBox="0 0 24 24" aria-hidden="true">' + item.icon + "</svg></a>";
   }
 
-  // Data/hora da última atualização do arquivo publicado (vem do servidor).
   var updated = new Date(document.lastModified);
   if (isNaN(updated.getTime())) updated = new Date();
   var pad = function (n) { return (n < 10 ? "0" : "") + n; };
@@ -288,7 +237,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       backToTop.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
-      // Aparece assim que a página sai do topo.
       var toggleBackToTop = function () {
         backToTop.classList.toggle("is-visible", window.scrollY > 40);
       };
@@ -296,8 +244,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       toggleBackToTop();
     }
 
-    // Idioma: o link do idioma atual não recarrega a página. Trocar de idioma
-    // na home abre a home do outro idioma sem repetir a animação de abertura.
     var switches = document.querySelectorAll(".lang-switch");
     document.querySelectorAll(".lang-switch a").forEach(function (a) {
       a.addEventListener("click", function (event) {
@@ -308,21 +254,18 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
           sessionStorage.setItem("langFrom", LANG);
           if (isHome) sessionStorage.setItem("skipIntro", "1");
         } catch (e) {}
-        // a bandeira escolhida fica nítida, os textos somem e a nova página abre em seguida
         event.preventDefault();
         switches.forEach(function (s) { s.classList.remove("is-pt", "is-en", "is-es"); s.classList.add("is-" + to); });
         document.documentElement.classList.add("lang-leave");
         setTimeout(function () { window.location.href = a.href; }, 420);
       });
     });
-    // Ao voltar pelo botão "voltar" do navegador, a página não fica escondida.
     window.addEventListener("pageshow", function (event) {
       if (event.persisted) {
         document.documentElement.classList.remove("lang-leave");
         switches.forEach(function (s) { s.classList.remove("is-pt", "is-en", "is-es"); s.classList.add("is-" + LANG); });
       }
     });
-    // Entrada vinda de outro idioma: os textos aparecem.
     if (document.documentElement.classList.contains("lang-enter")) {
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { document.documentElement.classList.remove("lang-enter"); });
@@ -354,9 +297,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
       document.body.appendChild(tabbar);
     }
 
-    // Botão do cabeçalho: um brilho azul em degradê segue o mouse e uma
-    // segunda camada, mais lenta, vem atrás formando o rastro. As posições
-    // vão para --x/--y (frente) e --tx/--ty (rastro); o CSS desenha.
     var cta = document.querySelector(".nav-cta");
     if (cta) {
       var target = { x: 0, y: 0 };
@@ -400,8 +340,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     }
   }
 
-  // Links para a home (logo, "Início"): na própria home só voltam ao topo,
-  // sem recarregar; vindos de outra página, abrem a home sem a abertura.
   var HOME_PATH = new URL(HOME_HREF + "index.html", window.location.href).pathname;
   function isHomePath(path) {
     return path === HOME_PATH || path === HOME_PATH.replace(/index\.html$/, "");
@@ -426,13 +364,9 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
   }
 })();
 
-// 3. Comportamentos compartilhados
 (function () {
   "use strict";
 
-  // Seções abaixo do topo: cada bloco desliza para dentro vindo de um lado,
-  // alternando esquerda/direita por seção, sempre que entra na tela — ao
-  // descer e também ao subir de volta (sai da tela, volta a ficar escondido).
   document.addEventListener("DOMContentLoaded", function () {
     if (!("IntersectionObserver" in window)) return;
     var sections = document.querySelectorAll("main .section");
@@ -452,8 +386,6 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     });
   });
 
-  // Carrossel de cases (home e /cases, 3 por vez). As setas deslizam um card por vez; cada seta
-  // some quando não há mais cards naquela direção.
   document.addEventListener("DOMContentLoaded", function () {
     var carousel = document.querySelector(".case-carousel");
     if (!carousel) return;

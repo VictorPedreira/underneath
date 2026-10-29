@@ -1,9 +1,4 @@
-/* Página Método: painel fixo com as 7 etapas. Carregado depois do global.css. */
 
-/* ---------------- MÉTODO: TEMA ESCURO ----------------
-   A página inteira fica escura, com fundo próprio (diferente da home): uma
-   malha fina de "planta técnica" com brilhos azuis suaves, fixa atrás do
-   conteúdo. */
 body.page-method{
   --paper:#061631; --paper-2:rgba(255,255,255,0.04);
   --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
@@ -17,7 +12,6 @@ body.page-method{
     linear-gradient(165deg, #071739 0%, #050F28 55%, #030A1C 100%);
   background-attachment:fixed;
 }
-/* Método: "Por que nessa ordem" em destaque — painel com faixa dourada e texto maior */
 .content-block.method-order{
   position:relative; max-width:900px; padding:30px 36px 30px 38px; border-radius:14px; overflow:hidden;
   background:rgba(255,255,255,.03); border:1px solid rgba(169,194,245,.14);
@@ -29,11 +23,6 @@ body.page-method{
 @media (max-width:720px){
   .method-order{padding:28px 22px 28px 26px;}
 }
-/* ---------------- MÉTODO: PROCESSO COM PAINEL FIXO ----------------
-   Faixa escura (mesmo fundo da home). À esquerda, um painel fixo mostra o
-   número da etapa atual (rola como um contador), a barra de progresso e a
-   lista de etapas clicáveis; à direita, as etapas rolam. O metodo.js marca a
-   etapa ativa. */
 .method-jump{display:inline-block; margin-top:26px; font-weight:700; color:var(--navy-600);}
 .method-jump:hover{text-decoration:underline; text-underline-offset:3px;}
 .method-flow{position:relative; padding:40px 0 110px; color:var(--ink);}
@@ -75,8 +64,6 @@ body.page-method{
 .mstep-num{font-family:'Doppio One', system-ui, sans-serif; font-size:5.5rem; line-height:.8; color:transparent; -webkit-text-stroke:1px rgba(169,194,245,.35);}
 .mstep h3{font-size:clamp(1.8rem, 3vw, 2.4rem); color:#FFFFFF; margin-top:34px;}
 .mstep p{color:#C9D4EA; font-size:1.08rem; max-width:520px; margin:14px 0 0;}
-/* links dentro das etapas: azul claro com seta; no hover uma linha em
-   degradê se desenha por baixo e a seta avança */
 .mstep p a{
   color:#BFD3FA; font-weight:700; text-decoration:none; white-space:nowrap;
   background:linear-gradient(90deg, #FFC64D, #4C8DFF) left bottom / 0 1.5px no-repeat;
@@ -95,6 +82,5 @@ body.page-method{
   .mstep-num{font-size:3.6rem;}
 }
 
-/* títulos das etapas e do bloco final como H2, com o mesmo visual dos H3 */
 .mstep h2.mstep-title{font-size:clamp(1.8rem, 3vw, 2.4rem); color:#FFFFFF; margin-top:34px; max-width:none; line-height:1.12;}
 .content-block.method-order h2.cb-h{font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:#D9A94D; margin-bottom:10px;}

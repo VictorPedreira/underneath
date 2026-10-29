@@ -1,9 +1,6 @@
-/* Página Método: painel fixo que acompanha as etapas. Carregado depois do global.js. */
 (function () {
   "use strict";
 
-  // Método: marca a etapa no centro da tela como ativa, gira o número do
-  // painel fixo, enche a barra de progresso e deixa as etapas clicáveis.
   document.addEventListener("DOMContentLoaded", function () {
     var flow = document.querySelector(".method-flow");
     if (!flow || !("IntersectionObserver" in window)) return;
@@ -27,7 +24,6 @@
     Array.prototype.forEach.call(buttons, function (btn) {
       btn.addEventListener("click", function () {
         var step = steps[Number(btn.getAttribute("data-step"))];
-        // Alinha o card ao topo da tela (margem em .mstep scroll-margin-top), ao lado do painel fixo.
         if (step) step.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });

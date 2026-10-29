@@ -1,9 +1,4 @@
-/* Página Sobre. Carregado depois do global.css. */
 
-/* ---------------- SOBRE ----------------
-   Página escura com fundo de curvas de nível (o "abaixo da superfície"),
-   símbolo da marca em destaque no topo, manifesto com o slogan, princípios
-   em cards e um mini manual da marca. */
 body.page-about{
   --paper:#061631; --paper-2:rgba(255,255,255,0.04);
   --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
@@ -31,11 +26,8 @@ body.page-about{
 .about-split h2, .about-brand h2, .about-h2{font-size:clamp(1.8rem, 3.2vw, 2.5rem); margin-top:16px;}
 .about-text p, .about-text-p{color:var(--muted); font-size:1.05rem; margin:0 0 16px;}
 .about-text-p{margin-top:18px;}
-/* Título da identidade: dentro do quadro, entre o logo e as cores */
 .about-brand-title{margin:22px 0 18px; font-family:'Doppio One', system-ui, sans-serif; font-size:clamp(1.05rem, 1.6vw, 1.25rem); line-height:1.3; color:#FFFFFF; text-align:center;}
 .about-text .compare{margin-top:30px;}
-/* Bloco "Aqui não falamos em SEO": grade de 2 linhas — título ao lado do texto e
-   a frase centralizada na altura dos cards */
 .about-split-claim{row-gap:0;}
 .about-split-claim .about-claim{align-self:center;}
 .about-split-claim .about-text .compare{margin-top:14px;}
@@ -48,7 +40,6 @@ body.page-about{
   transition:transform .4s ease, border-color .4s ease, box-shadow .4s ease;
 }
 .about-principle:nth-child(4), .about-principle:nth-child(5){grid-column:span 3;}
-/* 6º princípio: maior, de uma ponta à outra da grade */
 .about-principle-wide{grid-column:1 / -1; padding-top:38px; padding-bottom:38px;}
 .about-principle.about-principle-wide h3{font-size:clamp(1.35rem, 2.2vw, 1.75rem); max-width:none; padding-right:90px;}
 .about-principle.about-principle-wide p{font-size:1.05rem; max-width:680px;}

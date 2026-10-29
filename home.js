@@ -1,9 +1,6 @@
-/* Início (index.html): abertura animada, botão do topo e constelação.
-   Carregado depois do assets/js/global.js. */
 (function () {
   "use strict";
 
-  // Intro da home — remove a camada assim que as portas terminam de abrir.
   document.addEventListener("DOMContentLoaded", function () {
     var intro = document.getElementById("intro");
     if (!intro) return;
@@ -18,7 +15,6 @@
     }, 5000);
   });
 
-  // Botão principal do topo: o neon atrás dele segue o mouse com leve atraso.
   document.addEventListener("DOMContentLoaded", function () {
     var btn = document.querySelector(".hero-cta");
     if (!btn) return;
@@ -42,9 +38,6 @@
     btn.addEventListener("mousemove", function (event) { aim(event, false); });
   });
 
-  // Constelação: passar o mouse mostra o nome e um balão "clique" acima do
-  // ponteiro; clicar faz a bolinha crescer e virar o card. Tirar o mouse do
-  // ponto (ou tocar fora) fecha, com o card voltando para a bolinha.
   document.addEventListener("DOMContentLoaded", function () {
     var hero = document.querySelector(".hero");
     if (!hero) return;
@@ -66,7 +59,6 @@
       if (morph && morph.parentNode) morph.parentNode.removeChild(morph);
       morph = null;
     };
-    // anima uma bolinha (14px) até o retângulo do card, ou o contrário
     var animateMorph = function (card, from, to, done) {
       clearMorph();
       morph = document.createElement("div");
@@ -81,7 +73,7 @@
       var current = morph, finished = false;
       var finish = function () { if (finished || morph !== current) return; finished = true; done(); };
       anim.onfinish = finish;
-      setTimeout(finish, 560); // garantia: o card abre mesmo se a animação não terminar
+      setTimeout(finish, 560);
     };
 
     var close = function () {
@@ -107,11 +99,9 @@
       var c = dotCenter(node);
       var w = card.offsetWidth, h = card.offsetHeight, edge = 16, left, top;
       if (hero.clientWidth < 600) {
-        // celular: card centralizado logo abaixo do ponto
         left = (hero.clientWidth - w) / 2;
         top = c.y + 34;
       } else {
-        // ao lado do ponto, de preferência à direita (longe do título)
         var gap = 72;
         left = c.x + gap;
         if (left + w > hero.clientWidth - edge) left = c.x - gap - w;

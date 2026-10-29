@@ -1,9 +1,4 @@
-/* Página Diagnóstico: o iceberg com as 4 camadas. Carregado depois do global.css. */
 
-/* ---------------- DIAGNÓSTICO: ICEBERG ----------------
-   O topo é o céu (off-white) com a ponta do iceberg; abaixo da linha d'água
-   cada camada é uma faixa mais escura que a anterior, com a parte submersa
-   do iceberg atravessando todas como fundo. */
 body.page-iceberg{
   --ink:#F4F6FB; --muted:#BCC8E2; --line:rgba(255,255,255,0.14);
   --paper-2:rgba(255,255,255,0.05); --navy-600:#A9C2F5; --gold-700:#E2B65E;

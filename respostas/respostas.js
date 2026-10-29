@@ -1,9 +1,6 @@
-/* Página Respostas: cards por tema e a janela de busca. Carregado depois do global.js. */
 (function () {
   "use strict";
 
-  // Respostas: clicar numa pergunta "digita" a busca na janela, mostra a
-  // barrinha de carregamento e abre a resposta. O #slug na URL abre direto.
   document.addEventListener("DOMContentLoaded", function () {
     var win = document.querySelector(".ans-window");
     if (!win) return;
@@ -33,7 +30,7 @@
       var text = result.getAttribute("data-query");
       var finish = function () {
         queryEl.textContent = text;
-        void win.offsetWidth; // reinicia a animação da barrinha de carregamento
+        void win.offsetWidth;
         win.classList.add("is-loading");
         reveal = setTimeout(function () {
           result.classList.add("is-open");
@@ -50,7 +47,6 @@
       }, 22);
     };
 
-    // Fecha a resposta e volta a janela para o estado inicial.
     var clear = function () {
       current = null;
       clearInterval(typing);
@@ -62,7 +58,6 @@
       urlEl.textContent = baseUrl;
       try { history.replaceState(null, "", window.location.pathname + window.location.search); } catch (e) {}
     };
-    // Abre um card (e fecha os outros); null fecha todos.
     var openCard = function (card) {
       Array.prototype.forEach.call(cards, function (c) {
         var open = c === card;
@@ -81,7 +76,6 @@
       var slug = trigger.getAttribute("data-answer");
       if (trigger.classList.contains("ans-q")) {
         var card = trigger.closest(".ans-card");
-        // Clicar de novo no card aberto fecha o card e tira a resposta.
         if (card.classList.contains("is-open")) { openCard(null); clear(); return; }
         openCard(card);
       } else {

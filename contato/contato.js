@@ -1,23 +1,13 @@
-/* Página Contato: formulário (progresso, prévia do site e envio).
-   Usa CONTACT_EMAIL, definido no assets/js/global.js. */
 
-// Envio automático do formulário de contato pelo Web3Forms (https://web3forms.com).
-// Gere a chave gratuita em web3forms.com com o e-mail acima e cole aqui.
-// Enquanto estiver vazia, o formulário abre o programa de e-mail da pessoa.
 var WEB3FORMS_KEY = "";
 
 (function () {
   "use strict";
 
-  // Contact form (only present on /contato/index.html) — builds a mailto:
-  // link from the fields and hands off to the visitor's own mail client.
-  // There is no backend here, so this is the honest way to "send" a
-  // message without pretending a submission was received.
   document.addEventListener("DOMContentLoaded", function () {
     var form = document.getElementById("contactForm");
     if (!form) return;
 
-    // Textos do formulário no idioma da página.
     var TEXTS = {
       en: {
         waiting: "waiting for an address", ready: "ready to analyze", placeholder: "yoursite.com",
@@ -40,7 +30,6 @@ var WEB3FORMS_KEY = "";
     };
     var TXT = TEXTS[document.documentElement.lang.toLowerCase().slice(0, 2)] || TEXTS.pt;
 
-    // Barra de progresso: um segmento por campo (sintoma, nome, e-mail e relato).
     var bars = form.querySelectorAll(".ct-progress i");
     var preview = form.querySelector(".ct-preview");
     var previewUrl = form.querySelector(".ct-preview-url");
@@ -54,7 +43,6 @@ var WEB3FORMS_KEY = "";
       ];
       Array.prototype.forEach.call(bars, function (bar, i) { bar.classList.toggle("on", steps[i]); });
 
-      // Prévia do endereço numa barra de navegador, sem o "https://" e a barra final.
       if (preview) {
         var host = form.site.value.trim().replace(/^https?:\/\//i, "").replace(/\/$/, "");
         var ready = /^[^\s.]+\.[^\s]{2,}/.test(host);
@@ -63,7 +51,6 @@ var WEB3FORMS_KEY = "";
         previewStatus.textContent = ready ? TXT.ready : TXT.waiting;
       }
     };
-    // Campo do site: o "https://" já está fixo; se a pessoa colar com ele, tira do texto.
     form.site.addEventListener("input", function () {
       var clean = form.site.value.replace(/^\s*https?:\/\//i, "");
       if (clean !== form.site.value) form.site.value = clean;
@@ -75,7 +62,6 @@ var WEB3FORMS_KEY = "";
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      // O formulário usa novalidate para estilizar os erros do nosso jeito.
       if (!form.checkValidity()) {
         form.classList.add("tried");
         var firstInvalid = form.querySelector(":invalid");
@@ -85,7 +71,6 @@ var WEB3FORMS_KEY = "";
 
       var name = form.name.value.trim();
       var email = form.email.value.trim();
-      // O "https://" fica fixo no campo; aqui ele volta para o endereço completo.
       var siteHost = form.site.value.trim().replace(/^https?:\/\//i, "");
       var site = siteHost ? "https://" + siteHost : "";
       var message = form.message.value.trim();
@@ -106,13 +91,11 @@ var WEB3FORMS_KEY = "";
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(bodyLines.join("\n"));
 
-      // Sem chave configurada (ou navegador sem fetch): abre o e-mail da pessoa.
       if (!WEB3FORMS_KEY || !window.fetch) {
         window.location.href = mailtoUrl;
         return;
       }
 
-      // Envio automático: a mensagem vai direto para o CONTACT_EMAIL.
       var button = form.querySelector(".ct-btn");
       var status = form.querySelector(".ct-status");
       var setStatus = function (kind, html) {

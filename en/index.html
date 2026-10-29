@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css">
 <link rel="stylesheet" href="../home.css">
-<!-- SEO -->
 <link rel="canonical" href="https://underneathsi.com/en/">
 <link rel="alternate" hreflang="pt-BR" href="https://underneathsi.com/">
 <link rel="alternate" hreflang="en" href="https://underneathsi.com/en/">
@@ -121,10 +120,7 @@
   ]
 }
 </script>
-<!-- /SEO -->
 <script>
-  // Chegou aqui clicando no logo/"Início" de outra página: pula a abertura.
-  // Recarregar ou abrir o site de novo continua mostrando a animação.
   try {
     if (sessionStorage.getItem("skipIntro")) {
       sessionStorage.removeItem("skipIntro");
@@ -135,8 +131,6 @@
 </head>
 <body class="has-hero">
 
-<!-- FUNDO: círculos do topo e da base girando devagar (os internos num sentido, os externos no outro).
-     viewBox no tamanho da imagem de fundo + "slice" = mesmo enquadramento do background "cover". -->
 <svg class="bg-orbits" viewBox="0 0 1652 952" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <g>
       <circle class="orbit-line" cx="1680.2" cy="-283.4" r="431.8"/>
@@ -160,7 +154,6 @@
     </g>
 </svg>
 
-<!-- INTRO: UNDERNEATH é escrito à mão, símbolo e "Search Intelligence" batem como placa, e por último o corte atravessa o nome e a tela se abre na horizontal por ele -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="intro-door intro-door-top"><div class="intro-stage"><div class="intro-logo"><img class="intro-symbol" src="../assets/images/intro-symbol.png" alt=""><div class="intro-word"><svg class="intro-pen" viewBox="0 0 480 60"><mask id="intro-mask-l" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="60"><path pathLength="1" d="M14 12V36A15 12 0 0 0 44 36V12"/><path pathLength="1" d="M63 53V12L95 53V12"/><path pathLength="1" d="M115 53V12M115 17H129A18 15.5 0 0 1 129 48H115"/><path pathLength="1" d="M193 17H165V48H193M165 32H189"/><path pathLength="1" d="M208 53V17H224A12 7.5 0 0 1 224 32H208M222 32L237 52"/><path pathLength="1" d="M255 53V12L287 53V12"/><path pathLength="1" d="M333 17H306V48H333M306 32H329"/><path pathLength="1" d="M343 53L361 13L380 53"/><path pathLength="1" d="M388 17H422M405 17V53"/><path pathLength="1" d="M435 12V53M465 12V53M435 32H465"/></mask><image href="../assets/images/intro-word-full.png" width="480" height="60" mask="url(#intro-mask-l)"/></svg><img class="intro-cut-word" src="../assets/images/intro-word.png" alt=""></div><img class="intro-tagline" src="../assets/images/intro-tagline.png" alt=""></div></div></div>
   <div class="intro-door intro-door-bottom"><div class="intro-stage"><div class="intro-logo"><img class="intro-symbol" src="../assets/images/intro-symbol.png" alt=""><div class="intro-word"><svg class="intro-pen" viewBox="0 0 480 60"><mask id="intro-mask-r" maskUnits="userSpaceOnUse" x="0" y="0" width="480" height="60"><path pathLength="1" d="M14 12V36A15 12 0 0 0 44 36V12"/><path pathLength="1" d="M63 53V12L95 53V12"/><path pathLength="1" d="M115 53V12M115 17H129A18 15.5 0 0 1 129 48H115"/><path pathLength="1" d="M193 17H165V48H193M165 32H189"/><path pathLength="1" d="M208 53V17H224A12 7.5 0 0 1 224 32H208M222 32L237 52"/><path pathLength="1" d="M255 53V12L287 53V12"/><path pathLength="1" d="M333 17H306V48H333M306 32H329"/><path pathLength="1" d="M343 53L361 13L380 53"/><path pathLength="1" d="M388 17H422M405 17V53"/><path pathLength="1" d="M435 12V53M465 12V53M435 32H465"/></mask><image href="../assets/images/intro-word-full.png" width="480" height="60" mask="url(#intro-mask-r)"/></svg><img class="intro-cut-word" src="../assets/images/intro-word.png" alt=""></div><img class="intro-tagline" src="../assets/images/intro-tagline.png" alt=""></div></div></div>
@@ -170,7 +163,6 @@
 
 <main id="top">
 
-  <!-- HERO: fundo escuro com a constelação; o nome aparece ao passar o mouse e o card ao clicar em cada ponto -->
   <section class="hero">
     <svg class="constellation" viewBox="290 150 1160 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Site structure: website connected to schema, robots.txt, canonical, meta tags, sitemap and index">
       <defs>
@@ -193,13 +185,11 @@
         <g class="c-node" tabindex="0" role="button" aria-label="sitemap" data-node="sitemap"><circle class="c-hit" cx="1014" cy="634" r="36"/><circle class="c-glow" cx="1014" cy="634" r="36"/><circle class="c-dot" cx="1014" cy="634" r="11"/><text x="1036" y="684" text-anchor="start">sitemap</text></g>
         <g class="c-node" tabindex="0" role="button" aria-label="index" data-node="index"><circle class="c-hit" cx="1388" cy="572" r="36"/><circle class="c-glow" cx="1388" cy="572" r="36"/><circle class="c-dot" cx="1388" cy="572" r="11"/><text x="1388" y="624" text-anchor="middle">index</text></g>
     </svg>
-    <!-- Celular: aviso de que os pontos são tocáveis. Computador: balão "clique" acima do ponteiro -->
     <div class="c-hint" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a5.5 5.5 0 0 1-4.6-2.5L4.6 14.8a1.5 1.5 0 0 1 2.4-1.8L9 15"/></svg>
       <span>Touch the dots to explore</span>
     </div>
     <div class="c-tip" aria-hidden="true">click</div>
-    <!-- Cards da constelação: abrem ao clicar num ponto e fecham ao tirar o mouse -->
     <div class="c-card c-card-gold" data-card="website" role="dialog" aria-label="site online">
       <div class="c-card-title">site online</div>
       <p>With everything configured, your site is crawled, indexed and available in search results. Ready to be found by your audience!</p>
@@ -283,7 +273,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- PERGUNTAS REAIS -->
   <section class="section">
     <div class="wrap">
       <h2 style="margin-top:14px;">Most site owners don't know what needs to be done, but they all know the same symptoms.</h2>
@@ -293,7 +282,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- 4 CAMADAS -->
   <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
     <div class="wrap">
       <h2 style="margin-top:14px;">Any website that isn't found organically has problems in one of these 4 layers — or in all of them:</h2>
@@ -319,7 +307,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- MOSTRAR X ENCONTRAR -->
   <section class="section">
     <div class="wrap">
       <h2 style="margin-top:14px;">Promotion brings people to your site. But being found is better, <span class="text-gold-fade">just like you found us.</span></h2>
@@ -338,7 +325,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
       <p class="keyphrase">"It's easier to sell to someone who is already looking for what you sell than to convince someone to buy."</p>
   </section>
 
-  <!-- OBJEÇÃO -->
   <section class="section" style="padding-top:0;">
     <div class="wrap">
       <div class="objection">
@@ -354,7 +340,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- METODO -->
   <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
     <div class="wrap">
       <h2 style="margin-top:14px;">Meet the 7 steps of a technical, measurable process — no false promises</h2>
@@ -367,7 +352,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- CASES -->
   <section class="section">
     <div class="wrap">
       <h2 style="margin-top:14px;"><strong>4</strong> different contexts, one methodology. See some of our success stories.</h2>
@@ -446,7 +430,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- BIBLIOTECA -->
   <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
     <div class="wrap">
       <h2 style="margin-top:14px;">A library organized around real questions — get your answers here.</h2>
@@ -457,7 +440,6 @@ Sitemap: https://yoursite.com/sitemap.xml</pre>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
   <section class="section">
     <div class="wrap">
       <div class="final">

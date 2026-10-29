@@ -1,12 +1,5 @@
-/* Página Contato: painel com as camadas e o formulário. Carregado depois do global.css. */
 
-/* ---------------- FORM (contato) ---------------- */
 .form-note{color:var(--muted); font-size:0.85rem; margin-top:6px;}
-/* ---------------- CONTATO: painel escuro com as 4 camadas + formulário ----------------
-   À esquerda, as camadas do diagnóstico com um ponto dourado descendo por
-   elas; à direita, o formulário. A barra no topo do formulário acende conforme
-   os campos obrigatórios são preenchidos, e o endereço digitado aparece numa
-   barra de navegador logo abaixo do campo. */
 .ct-panel{
   position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr); gap:56px;
   margin-top:20px; padding:56px; border-radius:14px; border:1px solid rgba(169,194,245,.22);
@@ -24,7 +17,6 @@
 .ct-side h2{color:#F5F8FF; margin-top:14px; font-size:clamp(1.5rem, 2.4vw, 2rem);}
 .ct-side > p{color:#AEBBD6; margin:14px 0 0; max-width:420px;}
 .ct-layers{position:relative; list-style:none; margin:34px 0 0; padding:0 0 0 4px;}
-/* trilho vertical que liga as camadas, com o ponto dourado descendo */
 .ct-layers::before{content:""; position:absolute; left:21px; top:16px; bottom:16px; width:1px; background:linear-gradient(rgba(143,176,245,.5), rgba(143,176,245,.12));}
 .ct-layers::after{
   content:""; position:absolute; left:17px; top:12px; width:9px; height:9px; border-radius:50%;
@@ -81,7 +73,6 @@
 .ct-field input::placeholder, .ct-field textarea::placeholder{color:#7083AA;}
 .ct-field input:focus, .ct-field textarea:focus{outline:none; border-color:var(--gold-400); background:rgba(255,255,255,.08); box-shadow:0 0 0 3px rgba(217,169,77,.18);}
 .ct-field textarea{resize:vertical; min-height:120px;}
-/* Campo do site com "https://" fixo à esquerda, como parte do campo */
 .ct-url{
   display:flex; align-items:center; border:1px solid rgba(143,176,245,.25); border-radius:8px; background:rgba(255,255,255,.05);
   transition:border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
@@ -91,8 +82,6 @@
 .ct-field .ct-url input:focus{border:0; background:none; box-shadow:none;}
 .ct-url:focus-within{border-color:var(--gold-400); background:rgba(255,255,255,.08); box-shadow:0 0 0 3px rgba(217,169,77,.18);}
 .ct-field .ct-url input:-webkit-autofill{border:0;}
-/* Autopreenchimento do navegador: o fundo e a borda ficam iguais aos dos outros
-   campos (a troca de cor do navegador é "adiada" para nunca acontecer) */
 .ct-field input:-webkit-autofill,
 .ct-field input:-webkit-autofill:hover,
 .ct-field input:-webkit-autofill:focus{

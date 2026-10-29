@@ -1,10 +1,4 @@
-/* Blog: lista de matérias (blog/index.html) e as matérias (uma pasta por matéria).
-   Cada matéria define a cor do tema em --accent, no <body>. */
 
-/* ---------------- BLOG ----------------
-   Mesmo fundo escuro do Método. Cada matéria tem a sua cor de tema em
-   --accent (definida no <body> da matéria e em cada card do índice), usada
-   na categoria, na ilustração e nos destaques do texto. */
 body.page-blog, body.page-post{
   --paper:#061631; --paper-2:rgba(255,255,255,0.04);
   --ink:#F4F6FB; --muted:#AEBBD6; --line:rgba(255,255,255,0.12);
@@ -20,7 +14,6 @@ body.page-blog, body.page-post{
   display:inline-flex; align-items:center; gap:8px; font-size:.8rem; font-weight:700; letter-spacing:.04em; color:var(--accent, var(--gold-400));
 }
 .post-cat::before{content:""; width:8px; height:8px; border-radius:50%; background:currentColor; box-shadow:0 0 12px currentColor;}
-/* ilustração do tema */
 .post-art{width:100%; height:auto; overflow:visible; color:var(--accent);}
 .post-art *{fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
 .post-art circle:not(.art-ring):not(.art-line), .post-art .art-fill{fill:currentColor; stroke:none;}
@@ -35,7 +28,6 @@ body.page-blog, body.page-post{
 .post-art .art-spark{fill:currentColor; stroke:none; transform-box:fill-box; transform-origin:center; animation:art-spark 2.4s ease-in-out infinite;}
 .post-art .art-shift-a{animation:art-shift 4s ease-in-out infinite;}
 .post-art .art-shift-b{animation:art-shift 4s ease-in-out infinite reverse;}
-/* índice: grade de cards; o primeiro ocupa a largura toda */
 .post-grid{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:20px;}
 .post-card{
   position:relative; display:flex; flex-direction:column; overflow:hidden; border-radius:14px;
@@ -60,7 +52,6 @@ body.page-blog, body.page-post{
 .post-card-featured .post-card-body{justify-content:center; padding:40px;}
 .post-card-featured h2{font-size:clamp(1.6rem, 2.6vw, 2.1rem);}
 .post-card-featured p{font-size:1.02rem; max-width:520px;}
-/* matéria */
 .post-hero{padding:48px 0 40px;}
 .post-hero-grid{display:grid; grid-template-columns:minmax(0, 1fr) 260px; gap:48px; align-items:center;}
 .post-back{display:inline-block; margin-bottom:22px; font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:#8FA3CE;}
