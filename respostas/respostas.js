@@ -92,6 +92,8 @@
       openCard(cardFor(initial));
       show(initial, true);
       win.scrollIntoView({ block: "start" });
+    } else if (initial && document.getElementById(initial) && document.getElementById(initial).classList.contains("ans-card")) {
+      openCard(document.getElementById(initial));
     }
   });
 })();

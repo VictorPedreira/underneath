@@ -91,6 +91,8 @@ body.page-answers{
 .ans-result ul{margin:12px 0 0; padding-left:20px; font-size:.9rem; line-height:1.55; color:#3C4043;}
 .ans-result li{margin-bottom:5px;}
 .ans-close{margin:12px 0 0; font-size:.9rem; color:#3C4043; font-style:italic;}
+.ans-text{margin:10px 0 0; font-size:.9rem; line-height:1.6; color:#3C4043;}
+.ans-result code{padding:1px 5px; border-radius:4px; background:#F1F3F4; font-family:'IBM Plex Mono', monospace; font-size:.85em; color:#202124; white-space:nowrap;}
 .ans-link{display:inline-block; margin-top:14px; font-size:.88rem; font-weight:700; color:#1B4DA6;}
 .ans-link::after{content:" →";}
 .ans-link:hover{text-decoration:underline; text-underline-offset:3px;}
