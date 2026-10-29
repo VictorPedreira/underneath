@@ -17,10 +17,11 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
   var HTML_LANG = (document.documentElement.lang || "pt").toLowerCase();
   var LANG = HTML_LANG.indexOf("en") === 0 ? "en" : HTML_LANG.indexOf("es") === 0 ? "es" : "pt";
   var BASE = ROOT + (LANG === "pt" ? "" : LANG + "/");
+  // O espanhol ainda não tem páginas legais próprias: o rodapé dele aponta para as versões em inglês.
   var PATHS = {
-    pt: { contact: "contato/", answers: "respostas/" },
-    en: { contact: "contact/", answers: "answers/" },
-    es: { contact: "contacto/", answers: "respuestas/" }
+    pt: { contact: "contato/", answers: "respostas/", privacy: "privacidade/", terms: "termos/", cookies: "cookies/" },
+    en: { contact: "contact/", answers: "answers/", privacy: "privacy/", terms: "terms/", cookies: "cookies/" },
+    es: { contact: "contacto/", answers: "respuestas/", privacy: "../en/privacy/", terms: "../en/terms/", cookies: "../en/cookies/" }
   }[LANG];
 
   var LANG_FROM = null;
@@ -191,11 +192,10 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     twitter: { label: "X (Twitter)", href: "https://x.com/underneathsi",
       icon: '<path d="M4.5 4.5l15 15M19.5 4.5l-15 15" stroke-width="1.9"/>' }
   };
-  // PENDENTE: Privacidade, Termos e Cookies ainda apontam para "#". Troque pelos endereços reais.
   var LEGAL = [
-    { label: TEXT.privacy, href: "#" },
-    { label: TEXT.terms, href: "#" },
-    { label: TEXT.cookies, href: "#" },
+    { label: TEXT.privacy, href: BASE + PATHS.privacy },
+    { label: TEXT.terms, href: BASE + PATHS.terms },
+    { label: TEXT.cookies, href: BASE + PATHS.cookies },
     { label: TEXT.faq, href: BASE + PATHS.answers, strong: true }
   ];
 

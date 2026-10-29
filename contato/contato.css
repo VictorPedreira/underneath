@@ -110,6 +110,7 @@
 .ct-btn:hover{background:#E4B865; transform:translateY(-2px); box-shadow:0 14px 34px rgba(217,169,77,.4);}
 .ct-btn:hover span{transform:translateX(4px);}
 .ct-submit .form-note{margin:0; color:#8C9CC0; font-size:.82rem;}
+.ct-submit .form-note a{color:#C9D5EE; text-decoration:underline; text-underline-offset:2px;}
 .ct-botcheck{position:absolute; left:-9999px; width:1px; height:1px; opacity:0;}
 .ct-status{flex-basis:100%; margin:0; font-size:.9rem; color:#AEBBD6;}
 .ct-status:empty{display:none;}

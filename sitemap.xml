@@ -170,6 +170,36 @@
     <lastmod>2026-10-26</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://underneathsi.com/privacidade/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://underneathsi.com/termos/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://underneathsi.com/cookies/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://underneathsi.com/en/privacy/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://underneathsi.com/en/terms/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://underneathsi.com/en/cookies/</loc>
+    <lastmod>2026-10-29</lastmod>
+    <priority>0.3</priority>
+  </url>
   <!-- espanhol oculto até a publicação
   <url>
     <loc>https://underneathsi.com/es/</loc>
