@@ -134,44 +134,28 @@ nav.links a.navlink.is-active{color:var(--navy-600);}
   background:none;
   --mask:radial-gradient(circle var(--r) at var(--x, 50%) var(--y, 50%), #000 22%, transparent 42%);
 }
-/* Seletor de idioma (PT | EN), à direita do botão do cabeçalho: duas bolinhas
-   dentro de um contorno arredondado. O idioma atual mostra a bandeira (PT = Brasil, EN = Estados
-   Unidos, ES = Espanha) bem suave ao fundo; o outro fica só com o texto, sobre o fundo da
-   página. Texto azul-marinho nas páginas claras e branco nas escuras (home e
-   .dark-page). No celular aparece no canto direito da barra do topo. */
+/* Seletor de idioma, à direita do botão do cabeçalho: só as bandeiras (PT = Brasil,
+   EN = Estados Unidos, ES = Espanha) em bolinhas dentro de um contorno arredondado.
+   A bandeira nítida é o idioma atual; as outras ficam apagadas. O nome do idioma
+   fica no aria-label e no title. No celular aparece no canto direito da barra do topo. */
 .lang-switch{
-  --ls-fg:var(--navy-950); --ls-line:rgba(10,31,61,.3); --ls-size:28px; --ls-gap:3px;
+  --ls-line:rgba(10,31,61,.3); --ls-size:28px; --ls-gap:3px;
   position:relative; display:inline-flex; align-items:center; gap:var(--ls-gap); padding:3px;
   border-radius:999px; border:1.5px solid var(--ls-line);
 }
-.has-hero .lang-switch, .dark-page .lang-switch{--ls-fg:#F4F6FB; --ls-line:rgba(244,246,251,.35);}
+.has-hero .lang-switch, .dark-page .lang-switch{--ls-line:rgba(244,246,251,.35);}
 .lang-switch a{
-  position:relative; z-index:1; display:grid; place-items:center; width:var(--ls-size); height:var(--ls-size); border-radius:50%;
-  font-family:'IBM Plex Mono', monospace; font-size:.68rem; font-weight:500; letter-spacing:.03em; color:var(--ls-fg);
-  opacity:.6; transition:opacity .3s ease, font-weight .3s ease;
+  display:block; width:var(--ls-size); height:var(--ls-size); border-radius:50%;
+  background-position:center; background-size:cover;
+  opacity:.32; filter:saturate(.35); transition:opacity .42s ease, filter .42s ease;
 }
-.lang-switch a:hover{opacity:1;}
+.lang-switch a[hreflang="pt-BR"]{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23009C3B'/%3E%3Cpolygon points='15,2.2 27.6,10 15,17.8 2.4,10' fill='%23FFDF00'/%3E%3Ccircle cx='15' cy='10' r='4.7' fill='%23002776'/%3E%3Cpath d='M10.6 9.2c3-.8 6.2-.5 8.9.9' stroke='%23fff' stroke-width='.7' fill='none'/%3E%3C/svg%3E");}
+.lang-switch a[hreflang="en"]{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23fff'/%3E%3Crect y='0.000' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='3.077' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='6.154' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='9.231' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='12.308' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='15.385' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='18.462' width='30' height='1.538' fill='%23B22234'/%3E%3Crect width='12' height='10.77' fill='%233C3B6E'/%3E%3C/svg%3E");}
+.lang-switch a[hreflang="es-ES"]{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23AA151B'/%3E%3Crect y='5' width='30' height='10' fill='%23F1BF00'/%3E%3C/svg%3E");}
+.lang-switch a:hover{opacity:.7; filter:saturate(.8);}
 .lang-switch a.is-active{cursor:default;}
-.lang-switch.is-pt a[hreflang="pt-BR"], .lang-switch.is-en a[hreflang="en"], .lang-switch.is-es a[hreflang="es-ES"]{opacity:1; font-weight:600;}
+.lang-switch.is-pt a[hreflang="pt-BR"], .lang-switch.is-en a[hreflang="en"], .lang-switch.is-es a[hreflang="es-ES"]{opacity:1; filter:none;}
 .lang-switch a:focus-visible{outline:2px solid var(--gold-400); outline-offset:2px;}
-/* bolinha com a bandeira bem suave: desliza entre PT, EN e ES, e a bandeira troca
-   no caminho (Brasil, Estados Unidos e Espanha; a da Espanha fica no <i> de dentro) */
-.lang-switch-thumb{
-  position:absolute; top:3px; left:3px; width:var(--ls-size); height:var(--ls-size); border-radius:50%; overflow:hidden;
-  transition:transform .42s cubic-bezier(.65,0,.35,1);
-}
-.lang-switch-thumb::before, .lang-switch-thumb::after, .lang-switch-thumb i{
-  content:""; position:absolute; inset:0; background-position:center; background-size:cover; transition:opacity .42s ease;
-}
-.lang-switch-thumb::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23009C3B'/%3E%3Cpolygon points='15,2.2 27.6,10 15,17.8 2.4,10' fill='%23FFDF00'/%3E%3Ccircle cx='15' cy='10' r='4.7' fill='%23002776'/%3E%3Cpath d='M10.6 9.2c3-.8 6.2-.5 8.9.9' stroke='%23fff' stroke-width='.7' fill='none'/%3E%3C/svg%3E"); opacity:.38;}
-.lang-switch-thumb::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23fff'/%3E%3Crect y='0.000' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='3.077' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='6.154' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='9.231' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='12.308' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='15.385' width='30' height='1.538' fill='%23B22234'/%3E%3Crect y='18.462' width='30' height='1.538' fill='%23B22234'/%3E%3Crect width='12' height='10.77' fill='%233C3B6E'/%3E%3C/svg%3E"); opacity:0;}
-.lang-switch.is-en .lang-switch-thumb{transform:translateX(calc(var(--ls-size) + var(--ls-gap)));}
-.lang-switch.is-en .lang-switch-thumb::before{opacity:0;}
-.lang-switch.is-en .lang-switch-thumb::after{opacity:.38;}
-.lang-switch-thumb i{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='30' height='20' fill='%23AA151B'/%3E%3Crect y='5' width='30' height='10' fill='%23F1BF00'/%3E%3C/svg%3E"); opacity:0;}
-.lang-switch.is-es .lang-switch-thumb{transform:translateX(calc((var(--ls-size) + var(--ls-gap)) * 2));}
-.lang-switch.is-es .lang-switch-thumb::before{opacity:0;}
-.lang-switch.is-es .lang-switch-thumb i{opacity:.38;}
 
 /* Textos da página na troca de idioma: somem ao sair e aparecem ao chegar */
 main, nav.links a{transition:opacity .38s ease, filter .38s ease, transform .38s ease;}

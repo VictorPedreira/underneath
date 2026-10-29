@@ -134,11 +134,10 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
   }
   var langSwitchHTML = function (extraClass) {
     return '<div class="lang-switch is-' + LANG + (extraClass ? " " + extraClass : "") + '" role="group" aria-label="' + TEXT.language + '">' +
-      '<span class="lang-switch-thumb" aria-hidden="true"><i></i></span>' +
       LANGS.map(function (l) {
         var current = l[0] === LANG;
-        return '<a href="' + (current ? "#" : alternateHref(l[0])) + '" hreflang="' + l[2] + '" lang="' + l[2] + '" title="' + l[3] + '"' +
-          (current ? ' class="is-active" aria-current="true"' : "") + ">" + l[1] + "</a>";
+        return '<a href="' + (current ? "#" : alternateHref(l[0])) + '" hreflang="' + l[2] + '" lang="' + l[2] + '" title="' + l[3] + '" aria-label="' + l[3] + '"' +
+          (current ? ' class="is-active" aria-current="true"' : "") + "></a>";
       }).join("") + "</div>";
   };
 
@@ -309,7 +308,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
           sessionStorage.setItem("langFrom", LANG);
           if (isHome) sessionStorage.setItem("skipIntro", "1");
         } catch (e) {}
-        // a bolinha desliza, os textos somem e a nova página abre em seguida
+        // a bandeira escolhida fica nítida, os textos somem e a nova página abre em seguida
         event.preventDefault();
         switches.forEach(function (s) { s.classList.remove("is-pt", "is-en", "is-es"); s.classList.add("is-" + to); });
         document.documentElement.classList.add("lang-leave");
