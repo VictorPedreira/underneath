@@ -1,4 +1,8 @@
+/* JS global, carregado por todas as páginas: monta o cabeçalho e o rodapé dos 3 idiomas
+   (textos em TEXT, abas em NAV, redes em SOCIAL) e os comportamentos comuns.
+   O que é de uma página só fica no JS da pasta dela. */
 
+// E-mail que recebe os contatos (rodapé e formulário). Também está escrito nas páginas de contato.
 var CONTACT_EMAIL = "contact@underneathsi.com";
 
 (function () {
@@ -50,6 +54,8 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
 
   var HOME_HREF = BASE || "./";
 
+  // Abas do menu. path = pasta da página no idioma; match = trecho do endereço que marca a aba
+  // como ativa; mobileMenu = no celular a aba vai para o menu da seta ao lado do logo.
   var NAV = {
     pt: [
       { label: "Sobre", path: "sobre/", icon: "sobre" },
@@ -175,6 +181,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
   var FOOTER_LOGO = darkFooter ? "logo-full-light.png" : "logo-full.png";
 
   var SOCIAL = {
+    // WhatsApp do Brasil no site em português; o internacional nas demais versões.
     whatsapp: { label: "WhatsApp", href: LANG === "pt" ? "https://wa.me/5511939525622" : "https://wa.me/5511940881109",
       icon: '<path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/><path d="M9.2 8.6c.2-.5.6-.5.9-.5.3 0 .5.4.8 1 .2.5-.4.9-.4 1.2.4 1 1.3 1.9 2.3 2.3.3 0 .7-.6 1.2-.4.6.3 1 .5 1 .8 0 .3 0 .7-.5.9-.6.4-1.7.4-3.2-.5a7.6 7.6 0 0 1-2.4-2.4c-.8-1.5-.8-2.6-.4-3.1z"/>' },
     instagram: { label: "Instagram", href: "https://instagram.com/underneathsi",
@@ -184,6 +191,7 @@ var CONTACT_EMAIL = "contact@underneathsi.com";
     twitter: { label: "X (Twitter)", href: "https://x.com/underneathsi",
       icon: '<path d="M4.5 4.5l15 15M19.5 4.5l-15 15" stroke-width="1.9"/>' }
   };
+  // PENDENTE: Privacidade, Termos e Cookies ainda apontam para "#". Troque pelos endereços reais.
   var LEGAL = [
     { label: TEXT.privacy, href: "#" },
     { label: TEXT.terms, href: "#" },

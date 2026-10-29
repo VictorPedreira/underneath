@@ -1,4 +1,5 @@
-
+// Chave do Web3Forms (web3forms.com) para o envio automático do formulário.
+// Enquanto estiver vazia, o formulário abre o programa de e-mail da pessoa.
 var WEB3FORMS_KEY = "";
 
 (function () {
