@@ -1,19 +1,27 @@
 
 @font-face{
+  font-family:'IBM Plex Mono'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+}
+@font-face{
+  font-family:'IBM Plex Mono'; font-style:normal; font-weight:500; font-display:swap;
+  src:url('../fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+}
+@font-face{
   font-family:'Doppio One'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('https://cdn.jsdelivr.net/fontsource/fonts/doppio-one@5.3.0/latin-400-normal.woff2') format('woff2');
+  src:url('../fonts/doppio-one-latin-400-normal.woff2') format('woff2');
 }
 @font-face{
   font-family:'Bellota Text'; font-style:normal; font-weight:300; font-display:swap;
-  src:url('https://cdn.jsdelivr.net/fontsource/fonts/bellota-text@5.3.0/latin-300-normal.woff2') format('woff2');
+  src:url('../fonts/bellota-text-latin-300-normal.woff2') format('woff2');
 }
 @font-face{
   font-family:'Bellota Text'; font-style:normal; font-weight:400; font-display:swap;
-  src:url('https://cdn.jsdelivr.net/fontsource/fonts/bellota-text@5.3.0/latin-400-normal.woff2') format('woff2');
+  src:url('../fonts/bellota-text-latin-400-normal.woff2') format('woff2');
 }
 @font-face{
   font-family:'Bellota Text'; font-style:normal; font-weight:700; font-display:swap;
-  src:url('https://cdn.jsdelivr.net/fontsource/fonts/bellota-text@5.3.0/latin-700-normal.woff2') format('woff2');
+  src:url('../fonts/bellota-text-latin-700-normal.woff2') format('woff2');
 }
 :root{
   --ink:#0B1220;
