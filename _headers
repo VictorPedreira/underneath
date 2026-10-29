@@ -1,5 +1,5 @@
 # Cabeçalhos do Cloudflare Pages. O build copia este arquivo para dist/_headers e
-# troca {{SCRIPT_HASHES}} pelos hashes dos scripts inline (o da abertura da home).
+# troca o marcador SCRIPT_HASHES (entre chaves duplas) pelos hashes dos scripts inline.
 
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' {{SCRIPT_HASHES}}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
