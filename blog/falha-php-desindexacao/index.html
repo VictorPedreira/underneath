@@ -116,7 +116,7 @@
           <a class="post-back" href="../">← Blog</a>
           <span class="post-cat">Segurança técnica</span>
           <h1>Alerta: falhas críticas no PHP e o risco de sumir do Google</h1>
-          <p class="lede">Duas falhas críticas no PHP, descobertas com a ajuda de modelos de IA, levaram agências de cibersegurança a pedir atualização imediata, ou até a retirada de sites do ar até a correção. Quem demora a corrigir corre risco de invasão, e uma invasão pode custar o posicionamento conquistado no Google.</p>
+          <p class="lede">2 falhas críticas no PHP, descobertas com a ajuda de modelos de IA, levaram agências de cibersegurança a pedir atualização imediata, ou até a retirada de sites do ar até a correção. Quem demora a corrigir corre risco de invasão, e uma invasão pode custar o posicionamento conquistado no Google.</p>
           <div class="post-meta"><span>UNDERNEATH</span><span><time datetime="2026-10-25">25 de outubro de 2026</time></span><span>Atualizado em <time datetime="2026-10-28">28 de outubro de 2026</time></span><span>3 min de leitura</span></div>
         </div>
         <div class="post-hero-art"><svg class="post-art" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12l38 14v28c0 26-17 44-38 54-21-10-38-28-38-54V26z" class="art-ring"/><path d="M60 38v30" class="art-line art-strong art-thick"/><circle cx="60" cy="80" r="3.5" class="art-fill"/><path d="M8 36h8M8 46h12M104 36h8M100 46h12" class="art-line art-faint"/></svg></div>
@@ -139,15 +139,15 @@
 
       <div class="post-body">
 <h2>O que aconteceu</h2>
-<p>Em 21 de outubro de 2026, pesquisadores da Calif, da Wiz e da OpenAI, com apoio de outras empresas, divulgaram duas vulnerabilidades críticas no PHP (CVE-2026-109618 e CVE-2026-109619), apelidadas de "php2shell". Segundo a OpenAI, modelos de IA tiveram papel central na descoberta. As falhas permitem executar código no servidor sem login, atingem instalações que servem páginas na web a partir do PHP 5.4 e têm gravidade 9,2 numa escala de 10 (CVSS 4.0). A Palo Alto Networks identificou mais de 22,6 milhões de instâncias expostas e potencialmente vulneráveis.</p>
-<p>As correções saíram no mesmo dia, nas versões 8.5.12, 8.4.27, 8.3.36 e 8.2.35. A CERT-EU, equipe de resposta a incidentes da União Europeia, orientou quem não conseguisse atualizar a considerar tirar os sites afetados do ar. Empresas como Cloudflare e Amazon registraram tentativas de ataque antes mesmo da publicação das correções, e em 26 de outubro a CISA, agência de cibersegurança dos Estados Unidos, incluiu as duas falhas no seu catálogo de vulnerabilidades exploradas ativamente.</p>
+<p>Em 21 de outubro de 2026, pesquisadores da Calif, da Wiz e da OpenAI, com apoio de outras empresas, divulgaram 2 vulnerabilidades críticas no PHP (CVE-2026-109618 e CVE-2026-109619), apelidadas de "php2shell". Segundo a OpenAI, modelos de IA tiveram papel central na descoberta. As falhas permitem executar código no servidor sem login, atingem instalações que servem páginas na web a partir do PHP 5.4 e têm gravidade 9,2 numa escala de 10 (CVSS 4.0). A Palo Alto Networks identificou mais de 22,6 milhões de instâncias expostas e potencialmente vulneráveis.</p>
+<p>As correções saíram no mesmo dia, nas versões 8.5.12, 8.4.27, 8.3.36 e 8.2.35. A CERT-EU, equipe de resposta a incidentes da União Europeia, orientou quem não conseguisse atualizar a considerar tirar os sites afetados do ar. Empresas como Cloudflare e Amazon registraram tentativas de ataque antes mesmo da publicação das correções, e em 26 de outubro a CISA, agência de cibersegurança dos Estados Unidos, incluiu as 2 falhas no seu catálogo de vulnerabilidades exploradas ativamente.</p>
 
 <h2>Por que isso atinge tanta gente</h2>
 <p>O PHP está por trás de quase 70% dos sites, segundo a W3Techs, incluindo os feitos em WordPress, Drupal, Joomla e Magento. Por isso, uma parte enorme dos sites institucionais, lojas virtuais e blogs precisa dessa atualização, mesmo que o dono nunca tenha ouvido falar em PHP. Como a falha está no próprio PHP, atualizar só o WordPress ou os plugins não resolve: é preciso atualizar o PHP do servidor.</p>
 <p>Uma falha desse tipo permite que um invasor assuma o controle do servidor, roube dados e altere o conteúdo do site.</p>
 
 <h2>O que isso tem a ver com o Google</h2>
-<p>É importante separar três coisas. Uma <strong>falha de segurança</strong>, por si só, não tira posições: o Google não sabe qual versão do PHP o seu servidor usa. O que afeta a busca são as consequências possíveis: o site ficar <strong>indisponível</strong>, ser <strong>invadido</strong> ou ter o conteúdo alterado. E a <strong>desindexação</strong>, quando acontece, é o efeito final de uma dessas situações, não da falha em si.</p>
+<p>É importante separar 3 coisas. Uma <strong>falha de segurança</strong>, por si só, não tira posições: o Google não sabe qual versão do PHP o seu servidor usa. O que afeta a busca são as consequências possíveis: o site ficar <strong>indisponível</strong>, ser <strong>invadido</strong> ou ter o conteúdo alterado. E a <strong>desindexação</strong>, quando acontece, é o efeito final de uma dessas situações, não da falha em si.</p>
 <ul>
 <li><strong>Site fora do ar por muito tempo:</strong> quando o Google encontra erros seguidos, ele reduz o rastreamento e, se a indisponibilidade se prolonga por dias, pode tirar as páginas do índice.</li>
 <li><strong>Site invadido:</strong> invasores costumam injetar páginas de spam, links ocultos ou redirecionamentos. O Google pode exibir alertas de segurança, aplicar ações manuais e o site pode perder posições.</li>
@@ -188,7 +188,7 @@
 
       <div class="final post-final">
         <h2>Quer saber como o seu site está diante disso?</h2>
-        <p>O diagnóstico mostra em qual das quatro camadas o seu site perde espaço, antes de qualquer conversa comercial.</p>
+        <p>O diagnóstico mostra em qual das 4 camadas o seu site perde espaço, antes de qualquer conversa comercial.</p>
         <a href="../../contato/" class="cta-btn">Analisar meu site</a>
       </div>
 
