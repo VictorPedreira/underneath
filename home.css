@@ -282,3 +282,8 @@ a.lib-row{display:grid;}
   100%{transform:translate(0,0);}
 }
 @keyframes intro-door{to{transform:translateY(var(--intro-dir));}}
+
+@media (prefers-reduced-motion: reduce){
+  .intro-active{overflow:visible;}
+  .intro-active .intro{display:none;}
+}

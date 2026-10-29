@@ -1,0 +1,24 @@
+# Cabeçalhos do Cloudflare Pages. O build copia este arquivo para dist/_headers e
+# troca {{SCRIPT_HASHES}} pelos hashes dos scripts inline (o da abertura da home).
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' {{SCRIPT_HASHES}}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
+  X-Frame-Options: DENY
+  Strict-Transport-Security: max-age=31536000
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=604800
+
+# Endereços *.pages.dev (produção e prévias) não devem ser indexados: o site oficial
+# é underneathsi.com. Isso não protege o acesso; para isso, use o Cloudflare Access.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

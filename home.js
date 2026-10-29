@@ -5,6 +5,14 @@
     var intro = document.getElementById("intro");
     if (!intro) return;
     var root = document.documentElement;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      // Sem abertura e com as órbitas (animação SVG, que o CSS não para) congeladas.
+      root.classList.remove("intro-active");
+      Array.prototype.forEach.call(document.querySelectorAll("svg.bg-orbits"), function (svg) {
+        if (svg.pauseAnimations) svg.pauseAnimations();
+      });
+    }
     if (!root.classList.contains("intro-active")) {
       intro.parentNode.removeChild(intro);
       return;

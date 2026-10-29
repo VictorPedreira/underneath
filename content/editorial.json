@@ -1,0 +1,197 @@
+{
+  "config": {
+    "site": "https://underneathsi.com",
+    "productionBranch": "main",
+    "locales": {
+      "pt-BR": {"root": "", "blog": "blog/", "enabled": true},
+      "en": {"root": "en/", "blog": "en/blog/", "enabled": true},
+      "es-ES": {"root": "es/", "blog": "es/blog/", "enabled": false}
+    }
+  },
+  "articles": [
+    {
+      "slug": "seo-para-geo",
+      "locale": "pt-BR",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "seo-geo",
+      "featured": true,
+      "cover": "seo-para-geo",
+      "related": ["zero-click", "multimodal-social"]
+    },
+    {
+      "slug": "buscas-sem-clique",
+      "locale": "pt-BR",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "zero-click",
+      "featured": false,
+      "cover": "buscas-sem-clique",
+      "related": ["seo-geo", "multimodal-social"]
+    },
+    {
+      "slug": "busca-multimodal-social-seo",
+      "locale": "pt-BR",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "multimodal-social",
+      "featured": false,
+      "cover": "busca-multimodal-social-seo",
+      "related": ["seo-geo", "zero-click"]
+    },
+    {
+      "slug": "ia-nativa-hiperpersonalizacao",
+      "locale": "pt-BR",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "ai-personalization",
+      "featured": false,
+      "cover": "ia-nativa-hiperpersonalizacao",
+      "related": ["multimodal-social", "php-security"]
+    },
+    {
+      "slug": "falha-php-desindexacao",
+      "locale": "pt-BR",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "php-security",
+      "featured": false,
+      "cover": "falha-php-desindexacao",
+      "related": ["multimodal-social", "ai-personalization"]
+    },
+    {
+      "slug": "from-seo-to-geo",
+      "locale": "en",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "seo-geo",
+      "featured": true,
+      "cover": "seo-para-geo",
+      "related": ["zero-click", "multimodal-social"]
+    },
+    {
+      "slug": "zero-click-searches",
+      "locale": "en",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "zero-click",
+      "featured": false,
+      "cover": "buscas-sem-clique",
+      "related": ["seo-geo", "multimodal-social"],
+      "excerpt": "With ready-made answers on the results page, many people don't click on any site at all. See how to keep your brand visible and why content with information gain is now worth more."
+    },
+    {
+      "slug": "multimodal-search-and-social-seo",
+      "locale": "en",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "multimodal-social",
+      "featured": false,
+      "cover": "busca-multimodal-social-seo",
+      "related": ["seo-geo", "zero-click"],
+      "excerpt": "TikTok, Instagram and YouTube have become search engines, and voice and image searches have grown. Learn how to orchestrate your channels and why structured data matters even more now."
+    },
+    {
+      "slug": "native-ai-hyper-personalization",
+      "locale": "en",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "ai-personalization",
+      "featured": false,
+      "cover": "ia-nativa-hiperpersonalizacao",
+      "related": ["multimodal-social", "php-security"],
+      "excerpt": "The new generation of websites uses AI in its own code to adapt copy, recommendations and navigation to each visitor. See how it works, the benefits and the precautions that keep it from hurting SEO."
+    },
+    {
+      "slug": "php-flaws-and-deindexing",
+      "locale": "en",
+      "status": "published",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "php-security",
+      "featured": false,
+      "cover": "falha-php-desindexacao",
+      "related": ["multimodal-social", "ai-personalization"],
+      "excerpt": "Critical PHP vulnerabilities discovered with the help of AI led governments and companies to take websites offline. Understand the risk to your site and your rankings, and what to do now."
+    },
+    {
+      "slug": "del-seo-al-geo",
+      "locale": "es-ES",
+      "status": "draft",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "seo-geo",
+      "featured": true,
+      "cover": "seo-para-geo",
+      "related": ["zero-click", "multimodal-social"]
+    },
+    {
+      "slug": "busquedas-sin-clic",
+      "locale": "es-ES",
+      "status": "draft",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "zero-click",
+      "featured": false,
+      "cover": "buscas-sem-clique",
+      "related": ["seo-geo", "multimodal-social"]
+    },
+    {
+      "slug": "busqueda-multimodal-y-seo-social",
+      "locale": "es-ES",
+      "status": "draft",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "multimodal-social",
+      "featured": false,
+      "cover": "busca-multimodal-social-seo",
+      "related": ["seo-geo", "zero-click"]
+    },
+    {
+      "slug": "ia-nativa-e-hiperpersonalizacion",
+      "locale": "es-ES",
+      "status": "draft",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "ai-personalization",
+      "featured": false,
+      "cover": "ia-nativa-hiperpersonalizacao",
+      "related": ["multimodal-social", "php-security"]
+    },
+    {
+      "slug": "fallos-php-y-desindexacion",
+      "locale": "es-ES",
+      "status": "draft",
+      "plannedDate": null,
+      "publishedAt": null,
+      "updatedAt": null,
+      "translationGroup": "php-security",
+      "featured": false,
+      "cover": "falha-php-desindexacao",
+      "related": ["multimodal-social", "ai-personalization"]
+    }
+  ]
+}

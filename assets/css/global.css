@@ -465,3 +465,8 @@ body.page-soon{
 @keyframes radar-ring{0%, 100%{transform:scale(1);} 50%{transform:scale(1.08);}}
 @keyframes lens-blink{0%, 100%{opacity:1;} 50%{opacity:0;}}
 @keyframes soon-pulse{50%{opacity:.3;}}
+
+/* Quem pede menos movimento no sistema vê cada animação já no estado final. */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{animation-duration:.01ms !important; animation-delay:0s !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+}
