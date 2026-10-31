@@ -134,6 +134,42 @@
     };
 
     var canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+
+    // Som de leitura de dados ao tocar as bolinhas (assets/audio/chirp.m4a, gerado por
+    // tools/chirp.py). Toca uma voz por vez: tocar outra bolinha corta o som anterior.
+    // O navegador só libera áudio depois do primeiro clique, toque ou tecla na página: antes
+    // disso, passar o mouse não faz som.
+    var audio = null, voice = null, lastChime = 0;
+    // O arquivo (7 KB) é baixado junto com a página; só a decodificação espera o primeiro gesto.
+    var homeDir = (document.querySelector('script[src$="home.js"]').getAttribute("src") || "").replace(/home\.js$/, "");
+    var chirpData = window.fetch ? fetch(homeDir + "assets/audio/chirp.m4a").then(function (r) { return r.arrayBuffer(); }) : null;
+    var unlockAudio = function () {
+      if (!audio) {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx || !chirpData) return;
+        audio = { ctx: new Ctx(), buffer: null };
+        chirpData
+          .then(function (data) {
+            return new Promise(function (resolve, reject) { audio.ctx.decodeAudioData(data, resolve, reject); });
+          })
+          .then(function (buffer) { audio.buffer = buffer; }, function () {});
+      }
+      if (audio.ctx.state === "suspended") audio.ctx.resume();
+    };
+    ["pointerdown", "keydown", "touchstart"].forEach(function (type) {
+      document.addEventListener(type, unlockAudio, { passive: true });
+    });
+    var chime = function () {
+      var now = Date.now();
+      if (!audio || !audio.buffer || audio.ctx.state !== "running" || now - lastChime < 120) return;
+      lastChime = now;
+      if (voice) { try { voice.stop(); } catch (e) {} }
+      voice = audio.ctx.createBufferSource();
+      voice.buffer = audio.buffer;
+      voice.connect(audio.ctx.destination);
+      voice.start();
+    };
+
     var moveTip = function (event) {
       if (!tip || !canHover) return;
       var box = hero.getBoundingClientRect();
@@ -144,6 +180,8 @@
     Array.prototype.forEach.call(nodes, function (node) {
       node.addEventListener("click", function (event) {
         event.stopPropagation();
+        // No toque não há hover: o som sai no toque, depois que o áudio acaba de ser liberado.
+        if (!canHover) { unlockAudio(); if (audio) audio.ctx.resume().then(chime); }
         if (openNode === node) close(); else open(node);
       });
       node.addEventListener("keydown", function (event) {
@@ -152,6 +190,7 @@
         if (openNode === node) close(); else open(node);
       });
       node.addEventListener("mouseenter", function (event) {
+        if (canHover) chime();
         if (!tip || !canHover || openNode === node) return;
         moveTip(event);
         tip.classList.add("is-on");
